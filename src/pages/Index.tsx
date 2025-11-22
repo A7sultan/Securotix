@@ -1,10 +1,10 @@
-import { Navigation } from "@/components/Navigation";
-import { CyberParticles } from "@/components/CyberParticles";
-import { HeroSection } from "@/components/HeroSection";
-import { FeaturesSection } from "@/components/FeaturesSection";
-import { AttackSimulation } from "@/components/AttackSimulation";
-import { PartnersCarousel } from "@/components/PartnersCarousel";
-import { Footer } from "@/components/Footer";
+import { Navigation } from "../components/Navigation";
+import { CyberParticles } from "../components/CyberParticles";
+import { HeroSection } from "../components/HeroSection";
+import { FloatingBadges } from "../components/FeaturesSection";
+import { AttackSimulation } from "../components/AttackSimulation";
+import { PartnersCarousel } from "../components/PartnersCarousel";
+import { Footer } from "../components/Footer";
 
 const Index = () => {
   return (
@@ -12,7 +12,7 @@ const Index = () => {
       <CyberParticles />
       <Navigation />
       <HeroSection />
-      <FeaturesSection />
+      <FloatingBadges />
       <AttackSimulation />
       <PartnersCarousel />
       <Footer />
