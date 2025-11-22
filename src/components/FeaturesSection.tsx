@@ -1,80 +1,77 @@
-import { Shield, Eye, Cpu, Lock, Network, Zap } from "lucide-react";
+import React from "react";
+import { Shield, Eye, Cpu, Network, Zap } from "lucide-react";
 
-const features = [
-  {
-    icon: Shield,
-    title: "Advanced Threat Protection",
-    description: "AI-powered defense against zero-day attacks and APTs with real-time threat intelligence.",
-  },
-  {
-    icon: Eye,
-    title: "24/7 Security Monitoring",
-    description: "Round-the-clock surveillance with automated incident response and threat hunting.",
-  },
-  {
-    icon: Cpu,
-    title: "AI-Driven Analytics",
-    description: "Machine learning algorithms detect anomalies and predict potential security breaches.",
-  },
-  {
-    icon: Lock,
-    title: "Data Encryption",
-    description: "Military-grade encryption for data at rest and in transit with quantum-resistant algorithms.",
-  },
-  {
-    icon: Network,
-    title: "Network Security",
-    description: "Comprehensive network protection with next-gen firewalls and intrusion prevention.",
-  },
-  {
-    icon: Zap,
-    title: "Rapid Response",
-    description: "Automated incident response with our elite security operations center.",
-  },
+const vendors = [
+  { name: "Nucleus Security", subtitle: "Risk & Vulnerability", icon: Shield },
+  { name: "miniOrange", subtitle: "Identity Access", icon: Eye },
+  { name: "Tufin", subtitle: "Network Security", icon: Network },
+  { name: "Filigran", subtitle: "Threat Intelligence", icon: Cpu },
+  { name: "Sesame-IT", subtitle: "NDR Platform", icon: Zap },
 ];
 
-export const FeaturesSection = () => {
+export const FloatingBadges = () => {
   return (
-    <section className="relative py-32 overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 cyber-grid opacity-20" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-            <span className="text-glow">Elite Security</span>
-            <br />
-            <span className="bg-gradient-to-r from-primary to-cyber-red-glow bg-clip-text text-transparent">
-              Features
-            </span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive protection powered by cutting-edge technology
-          </p>
-        </div>
+    <section className="relative py-28 overflow-hidden">
+      {/* Glow Background Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,70,0.15),transparent_70%)] pointer-events-none" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
+      <div className="container mx-auto px-4 text-center relative z-10">
+        
+        {/* Heading */}
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-glow mb-4">
+          Key Cybersecurity
+          <br />
+          <span className="bg-gradient-to-r from-primary to-cyber-red-glow bg-clip-text text-transparent">
+            Innovators
+          </span>
+        </h2>
+
+        {/* Subheading */}
+        <p className="text-lg md:text-xl text-muted-foreground mb-16">
+          Leading Companies in Cybersecurity Solutions
+        </p>
+
+        {/* Vendors */}
+        <div className="flex flex-wrap justify-center gap-14">
+          {vendors.map((v, i) => {
+            const Icon = v.icon;
             return (
               <div
-                key={index}
-                className="group cyber-border rounded-lg p-8 glass hover-lift hover-glow transition-all duration-300 scan-line"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                key={i}
+                className="
+                  flex flex-col items-center gap-3
+                  transition-all duration-300
+                  hover:-translate-y-4
+                "
               >
-                <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                  <Icon className="w-8 h-8 text-primary" />
+                {/* Icon Badge */}
+                <div
+                  className="
+                    w-24 h-24 rounded-full flex items-center justify-center
+                    bg-black/30 backdrop-blur-md
+                    ring-2 ring-primary/40
+                    shadow-[0_0_25px_rgba(255,0,80,0.4)]
+                    hover:shadow-[0_0_45px_rgba(255,0,80,0.8)]
+                    transition-shadow
+                  "
+                >
+                  <Icon className="w-12 h-12 text-primary drop-shadow-[0_0_10px_rgba(255,0,120,0.6)]" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
+
+                {/* Vendor Name */}
+                <div className="text-lg font-semibold text-white">
+                  {v.name}
+                </div>
+
+                {/* Vendor Subtitle */}
+                <div className="text-sm text-muted-foreground">
+                  {v.subtitle}
+                </div>
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );
