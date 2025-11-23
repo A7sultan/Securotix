@@ -1,4 +1,3 @@
-import React from "react";
 import { Shield, Eye, Cpu, Network, Zap } from "lucide-react";
 
 const vendors = [
