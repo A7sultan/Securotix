@@ -12,6 +12,14 @@ import Blog from "./pages/Blog";
 import Partners from "./pages/Partners";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import OneKosmos from "./pages/partners/1kosmos";
+import MiniOrange from "./pages/partners/miniorange";
+import Tufin from "./pages/partners/tufin";
+import Fudo from "./pages/partners/fudo";
+import Filigran from "./pages/partners/filigran";
+import Nucleus from "./pages/partners/nucleus";
+import MazeBolt from "./pages/partners/mazebolt";
+import JizoAI from "./pages/partners/jizo-ai";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +37,14 @@ const App = () => (
           <Route path="/network-infrastructure" element={<NetworkInfrastructure />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/partners" element={<Partners />} />
+          <Route path="/1Kosmos" element={<OneKosmos />} />
+          <Route path="/MiniOrange" element={<MiniOrange />} />
+          <Route path="/Tufin" element={<Tufin />} />
+          <Route path="/Fudo" element={<Fudo />} />
+          <Route path="/Filigran" element={<Filigran />} />
+          <Route path="/Nucleus" element={<Nucleus />} />
+          <Route path="/MazeBolt" element={<MazeBolt />} />
+          <Route path="/JizoAI" element={<JizoAI />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

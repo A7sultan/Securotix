@@ -1,111 +1,198 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Shield, Target, Users, Award } from "lucide-react";
+import {
+  Shield,
+  Target,
+  Users,
+  Award,
+  Settings,
+  Layers,
+  TrendingUp,
+  HeartHandshake,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { CyberParticles } from "@/components/CyberParticles";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const stagger = {
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-hidden">
+      <CyberParticles />
       <Navigation />
-      
-      <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4">
+
+      <main className="pt-32 pb-24 relative">
+        {/* Ambient red glow */}
+        <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-primary/20 blur-[160px] rounded-full pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10">
           {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-20 space-y-6">
-            <h1 className="text-5xl md:text-6xl font-bold">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center mb-28 space-y-6"
+          >
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               <span className="text-glow">About</span>
               <br />
               <span className="bg-gradient-to-r from-primary to-cyber-red-glow bg-clip-text text-transparent">
-                CyberGuard
+                Securotix
               </span>
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Leading the future of cyber security with innovative AI-powered solutions
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              Empowering secure digital growth through innovation,
+              expertise, and next-generation cybersecurity.
             </p>
-          </div>
+          </motion.div>
+
+          {/* Who We Are */}
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl mx-auto mb-32"
+          >
+            <div className="relative rounded-2xl p-12 bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_80px_rgba(255,0,0,0.15)]">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-glow">
+                Who We Are
+              </h2>
+              <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
+                <p>
+                  At <span className="text-primary font-semibold">Securotix</span>,
+                  we believe cybersecurity is an ever-evolving marketplace.
+                  Our purpose is to deliver innovation where it creates
+                  meaningful impact.
+                </p>
+                <p>
+                  We simplify access to complex cybersecurity solutions—making
+                  them powerful, resilient, and easy to adopt in modern
+                  enterprise environments.
+                </p>
+                <p>
+                  As a UAE-based, cybersecurity-focused Value Added Distributor,
+                  our deep MENA expertise enables unmatched visibility into
+                  cutting-edge technologies while fostering a seamless,
+                  partner-first distribution ecosystem.
+                </p>
+              </div>
+            </div>
+          </motion.section>
 
           {/* Mission & Vision */}
-          <div className="grid md:grid-cols-2 gap-8 mb-20">
-            <div className="cyber-border rounded-lg p-8 glass hover-lift">
-              <Target className="w-12 h-12 text-primary mb-4" />
-              <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                To protect organizations from evolving cyber threats through cutting-edge
-                technology, proactive defense strategies, and unwavering commitment to security excellence.
-              </p>
-            </div>
-            
-            <div className="cyber-border rounded-lg p-8 glass hover-lift">
-              <Shield className="w-12 h-12 text-primary mb-4" />
-              <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                To create a cyber-safe world where businesses can innovate fearlessly,
-                protected by the most advanced security infrastructure and threat intelligence.
-              </p>
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="grid md:grid-cols-2 gap-12 mb-32"
+          >
             {[
-              { value: "15+", label: "Years Experience" },
-              { value: "500+", label: "Clients Protected" },
-              { value: "50+", label: "Security Experts" },
-              { value: "99.9%", label: "Threat Detection" },
-            ].map((stat, index) => (
-              <div key={index} className="cyber-border rounded-lg p-6 glass text-center hover-lift">
-                <div className="text-4xl font-bold text-primary text-glow mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+              {
+                icon: Target,
+                title: "Our Mission",
+                text: "To empower organizations through technology, consulting, and cybersecurity—driving digital resilience and sustainable growth.",
+              },
+              {
+                icon: Shield,
+                title: "Our Vision",
+                text: "To be the global leader in innovative technology solutions, expert consulting, and world-class cybersecurity services.",
+              },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="relative p-10 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-xl shadow-[0_0_60px_rgba(255,0,0,0.12)]"
+                >
+                  <Icon className="w-12 h-12 text-primary mb-6" />
+                  <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    {item.text}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </motion.section>
 
-          {/* Team Section */}
-          <div className="mb-20">
-            <h2 className="text-4xl font-bold text-center mb-12">
-              <span className="text-glow">Leadership</span> Team
+          {/* Why Choose Us */}
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="mb-32"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+              Why <span className="text-primary">Choose Us</span>
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { name: "Sarah Chen", role: "CEO & Founder", image: "SC" },
-                { name: "Marcus Rodriguez", role: "CTO", image: "MR" },
-                { name: "Emily Thompson", role: "Head of Security", image: "ET" },
-              ].map((member, index) => (
-                <div key={index} className="cyber-border rounded-lg p-6 glass hover-lift group">
-                  <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                    <span className="text-2xl font-bold text-primary">{member.image}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-center mb-2">{member.name}</h3>
-                  <p className="text-muted-foreground text-center">{member.role}</p>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Values */}
-          <div>
-            <h2 className="text-4xl font-bold text-center mb-12">
-              Our <span className="text-primary">Values</span>
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
               {[
-                { icon: Shield, title: "Security First", desc: "Every decision prioritizes protection" },
-                { icon: Users, title: "Client Focus", desc: "Your success is our mission" },
-                { icon: Award, title: "Excellence", desc: "Uncompromising quality standards" },
-                { icon: Target, title: "Innovation", desc: "Leading edge technology" },
-              ].map((value, index) => {
-                const Icon = value.icon;
+                {
+                  icon: Settings,
+                  title: "Tailored Solutions",
+                  desc: "Customized strategies aligned precisely with your business objectives.",
+                },
+                {
+                  icon: Layers,
+                  title: "Comprehensive Services",
+                  desc: "End-to-end technology, consulting, and cybersecurity under one roof.",
+                },
+                {
+                  icon: Award,
+                  title: "Expertise & Experience",
+                  desc: "Proven delivery backed by deep regional and industry knowledge.",
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Proactive Approach",
+                  desc: "Anticipating risks and optimizing systems before challenges arise.",
+                },
+                {
+                  icon: HeartHandshake,
+                  title: "Client Satisfaction",
+                  desc: "Long-term partnerships built on trust and consistent value.",
+                },
+                {
+                  icon: Users,
+                  title: "Commitment to Quality",
+                  desc: "Uncompromising standards across every engagement.",
+                },
+              ].map((item, i) => {
+                const Icon = item.icon;
                 return (
-                  <div key={index} className="cyber-border rounded-lg p-6 glass hover-lift text-center">
-                    <Icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                    <h3 className="text-lg font-bold mb-2">{value.title}</h3>
-                    <p className="text-sm text-muted-foreground">{value.desc}</p>
-                  </div>
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    whileHover={{ y: -6 }}
+                    className="group relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl border border-white/10 transition-shadow duration-300 shadow-[0_0_40px_rgba(255,0,0,0.1)] hover:shadow-[0_0_70px_rgba(255,0,0,0.25)]"
+                  >
+                    <Icon className="w-10 h-10 text-primary mb-5" />
+                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </motion.div>
                 );
               })}
             </div>
-          </div>
+          </motion.section>
         </div>
       </main>
 
