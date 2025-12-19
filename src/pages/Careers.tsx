@@ -1,117 +1,206 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Briefcase, MapPin, Clock } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Users,
+  Globe,
+  TrendingUp,
+  Sparkles,
+  Upload,
+} from "lucide-react";
+import { CyberParticles } from "@/components/CyberParticles";
 
-const jobs = [
-  {
-    title: "Senior Security Engineer",
-    location: "San Francisco, CA",
-    type: "Full-time",
-    description: "Lead security architecture and implementation for enterprise clients.",
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const stagger = {
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
   },
-  {
-    title: "Threat Intelligence Analyst",
-    location: "Remote",
-    type: "Full-time",
-    description: "Analyze emerging threats and develop proactive defense strategies.",
-  },
-  {
-    title: "Penetration Tester",
-    location: "New York, NY",
-    type: "Full-time",
-    description: "Conduct security assessments and vulnerability testing for clients.",
-  },
-  {
-    title: "Security Operations Analyst",
-    location: "Austin, TX",
-    type: "Full-time",
-    description: "Monitor security events and respond to incidents 24/7.",
-  },
-  {
-    title: "Cloud Security Architect",
-    location: "Remote",
-    type: "Full-time",
-    description: "Design and implement secure cloud infrastructure solutions.",
-  },
-  {
-    title: "Security Software Developer",
-    location: "Seattle, WA",
-    type: "Full-time",
-    description: "Build security tools and automation platforms.",
-  },
-];
+};
 
 const Careers = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-hidden">
+      <CyberParticles />
       <Navigation />
-      
-      <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4">
+
+      <main className="pt-32 pb-24 relative">
+        {/* Ambient glow */}
+        <div className="absolute top-48 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/20 blur-[180px] rounded-full pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10">
+
           {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-20 space-y-6">
-            <h1 className="text-5xl md:text-6xl font-bold">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl mx-auto text-center mb-28 space-y-6"
+          >
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               <span className="text-glow">Join Our</span>
               <br />
               <span className="bg-gradient-to-r from-primary to-cyber-red-glow bg-clip-text text-transparent">
-                Elite Team
+                Dynamic Team at Securotix
               </span>
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Shape the future of cyber security with the industry's best talent
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              Driving innovation and excellence in cybersecurity and technology
+              consultancy—together.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Benefits */}
-          <div className="grid md:grid-cols-3 gap-6 mb-20">
-            {[
-              { title: "Competitive Salary", desc: "Top-tier compensation packages" },
-              { title: "Remote Options", desc: "Flexible work arrangements" },
-              { title: "Learning & Growth", desc: "Continuous training programs" },
-            ].map((benefit, index) => (
-              <div key={index} className="cyber-border rounded-lg p-6 glass hover-lift">
-                <h3 className="text-xl font-bold mb-2 text-primary">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Job Listings */}
-          <div>
-            <h2 className="text-3xl font-bold mb-8">
-              <span className="text-primary">Open</span> Positions
-            </h2>
-            <div className="space-y-4">
-              {jobs.map((job, index) => (
-                <div 
-                  key={index} 
-                  className="cyber-border rounded-lg p-6 glass hover-lift hover-glow transition-all"
-                >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-3 flex-1">
-                      <h3 className="text-2xl font-bold">{job.title}</h3>
-                      <p className="text-muted-foreground">{job.description}</p>
-                      <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-primary" />
-                          {job.location}
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-primary" />
-                          {job.type}
-                        </div>
-                      </div>
-                    </div>
-                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 neon-pulse">
-                      <Briefcase className="w-4 h-4 mr-2" />
-                      Apply Now
-                    </Button>
-                  </div>
-                </div>
-              ))}
+          {/* Intro Content */}
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl mx-auto mb-32"
+          >
+            <div className="rounded-2xl p-12 bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_80px_rgba(255,0,0,0.15)]">
+              <p className="text-lg text-muted-foreground leading-relaxed space-y-6">
+                At <span className="text-primary font-semibold">Securotix</span>,
+                we are committed to driving innovation and excellence in the
+                field of cybersecurity and technology consultancy. Our diverse
+                team of professionals is united by a shared passion for
+                delivering cutting-edge solutions and unparalleled service to
+                clients worldwide.
+                <br /><br />
+                As we continue to expand our global footprint, we are seeking
+                talented and motivated individuals to join us on our journey
+                towards shaping the future of secure technology management.
+              </p>
             </div>
-          </div>
+          </motion.section>
+
+          {/* Why Work With Us */}
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="mb-32"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+              Why <span className="text-primary">Work With Us</span>
+            </h2>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+              {[
+                {
+                  icon: Sparkles,
+                  title: "Innovative Environment",
+                  desc: "A dynamic workplace that encourages creativity, collaboration, and continuous learning.",
+                },
+                {
+                  icon: Globe,
+                  title: "Global Impact",
+                  desc: "Secure the digital landscape and deliver cybersecurity and IT consultancy worldwide.",
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Professional Growth",
+                  desc: "Challenging projects, mentorship, and ongoing training to accelerate your career.",
+                },
+                {
+                  icon: Users,
+                  title: "Diverse Team",
+                  desc: "An inclusive culture built on respect, collaboration, and diverse perspectives.",
+                },
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    variants={fadeUp}
+                    whileHover={{ y: -6 }}
+                    className="relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(255,0,0,0.12)] hover:shadow-[0_0_80px_rgba(255,0,0,0.25)] transition-all"
+                  >
+                    <Icon className="w-10 h-10 text-primary mb-5" />
+                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.section>
+
+          {/* Careers Form */}
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="rounded-2xl p-12 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl border border-white/10 shadow-[0_0_100px_rgba(255,0,0,0.2)]">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+                Careers <span className="text-primary">Form</span>
+              </h2>
+
+              <form className="grid md:grid-cols-2 gap-6">
+                <input
+                  type="text"
+                  placeholder="First Name *"
+                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <input
+                  type="text"
+                  placeholder="Last Name *"
+                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <input
+                  type="email"
+                  placeholder="Email *"
+                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone *"
+                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+
+                <div className="md:col-span-2">
+                  <label className="flex flex-col items-center justify-center border border-dashed border-white/20 rounded-lg p-6 cursor-pointer hover:border-primary transition-colors">
+                    <Upload className="w-6 h-6 text-primary mb-2" />
+                    <span className="text-sm text-muted-foreground text-center">
+                      Upload Resume * (Up to 2 files)
+                    </span>
+                    <input type="file" multiple className="hidden" />
+                  </label>
+                </div>
+
+                <textarea
+                  placeholder="Comment or Message *"
+                  rows={4}
+                  className="md:col-span-2 w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+
+                <div className="md:col-span-2 text-center">
+                  <Button className="bg-primary text-primary-foreground px-10 py-6 text-lg hover:bg-primary/90 neon-pulse">
+                    Submit
+                  </Button>
+                </div>
+              </form>
+
+              <p className="text-center text-muted-foreground mt-8">
+                Join us at Securotix and be part of a team shaping the future of
+                secure technology management.
+              </p>
+            </div>
+          </motion.section>
         </div>
       </main>
 
