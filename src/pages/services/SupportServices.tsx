@@ -2,7 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { CyberParticles } from "@/components/CyberParticles";
 import { motion } from "framer-motion";
-import SupportServicesImg from "@/assets/support services.jpg";
+import SupportServicesImg from "@/assets/Support Services.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
