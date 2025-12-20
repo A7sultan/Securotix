@@ -20,6 +20,9 @@ import Filigran from "./pages/partners/filigran";
 import Nucleus from "./pages/partners/nucleus";
 import MazeBolt from "./pages/partners/mazebolt";
 import JizoAI from "./pages/partners/jizo-ai";
+import ITConsultancy from "./pages/services/ITConsultancy";
+import ProfessionalServices from "./pages/services/ProfessionalServices";
+import SupportServices from "./pages/services/SupportServices";
 
 const queryClient = new QueryClient();
 
@@ -45,7 +48,9 @@ const App = () => (
           <Route path="/Nucleus" element={<Nucleus />} />
           <Route path="/MazeBolt" element={<MazeBolt />} />
           <Route path="/JizoAI" element={<JizoAI />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/services/it-consultancy" element={<ITConsultancy />} />
+          <Route path="/services/professional-services" element={<ProfessionalServices />} />
+          <Route path="/services/support-services" element={<SupportServices />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
