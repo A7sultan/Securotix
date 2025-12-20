@@ -24,6 +24,12 @@ export const Navigation = () => {
         { name: "Network Infrastructure", path: "/network-infrastructure" },
       ],
     },
+    { title: "Services", items: [
+        { name: "IT Consultancy", path: "/services/it-consultancy" },
+        { name: "Professional Services", path: "/services/professional-services" },
+        { name: "Support Services", path: "/services/support-services" },
+      ],
+    },
     { title: "Blog", path: "/blog" },
     { title: "Partners", path: "/partners" },
     { title: "Contact", path: "/contact" },
