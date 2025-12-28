@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { Shield, Lock, Eye, Server, Database, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,32 +7,38 @@ const solutions = [
   {
     icon: Shield,
     title: "Identity & Access Management",
-    description: "Zero-trust architecture with multi-factor authentication, privileged access management, and single sign-on solutions.",
+    description:
+      "Zero-trust architecture with multi-factor authentication, privileged access management, and single sign-on solutions.",
   },
   {
     icon: Eye,
     title: "SIEM & Log Management",
-    description: "Advanced security information and event management with real-time threat detection and automated response.",
+    description:
+      "Advanced security information and event management with real-time threat detection and automated response.",
   },
   {
     icon: Lock,
     title: "Endpoint Protection",
-    description: "Next-gen antivirus, EDR, and XDR solutions protecting all endpoints with AI-powered threat prevention.",
+    description:
+      "Next-gen antivirus, EDR, and XDR solutions protecting all endpoints with AI-powered threat prevention.",
   },
   {
     icon: Server,
     title: "Cloud Security",
-    description: "Comprehensive cloud security posture management for AWS, Azure, and Google Cloud platforms.",
+    description:
+      "Comprehensive cloud security posture management for AWS, Azure, and Google Cloud platforms.",
   },
   {
     icon: Database,
     title: "Data Loss Prevention",
-    description: "Protect sensitive data with encryption, monitoring, and policy enforcement across all channels.",
+    description:
+      "Protect sensitive data with encryption, monitoring, and policy enforcement across all channels.",
   },
   {
     icon: Network,
     title: "Network Security",
-    description: "Next-generation firewalls, IPS/IDS, and network segmentation for comprehensive protection.",
+    description:
+      "Next-generation firewalls, IPS/IDS, and network segmentation for comprehensive protection.",
   },
 ];
 
@@ -40,7 +46,7 @@ const EnterpriseSecurity = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           {/* Hero */}
@@ -53,9 +59,13 @@ const EnterpriseSecurity = () => {
               </span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              Comprehensive security framework designed for large-scale organizations
+              Comprehensive security framework designed for large-scale
+              organizations
             </p>
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 neon-pulse mt-6">
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 neon-pulse mt-6"
+            >
               Schedule Consultation
             </Button>
           </div>
@@ -65,7 +75,7 @@ const EnterpriseSecurity = () => {
             {solutions.map((solution, index) => {
               const Icon = solution.icon;
               return (
-                <div 
+                <div
                   key={index}
                   className="cyber-border rounded-lg p-8 glass hover-lift hover-glow transition-all scan-line"
                 >
@@ -88,18 +98,32 @@ const EnterpriseSecurity = () => {
             </h2>
             <div className="space-y-4">
               {[
-                { layer: "Perimeter Security", desc: "Firewall, IPS/IDS, DDoS Protection" },
-                { layer: "Network Security", desc: "Segmentation, Zero Trust, VPN" },
-                { layer: "Application Security", desc: "WAF, API Gateway, Code Scanning" },
+                {
+                  layer: "Perimeter Security",
+                  desc: "Firewall, IPS/IDS, DDoS Protection",
+                },
+                {
+                  layer: "Network Security",
+                  desc: "Segmentation, Zero Trust, VPN",
+                },
+                {
+                  layer: "Application Security",
+                  desc: "WAF, API Gateway, Code Scanning",
+                },
                 { layer: "Data Security", desc: "Encryption, DLP, Backup" },
-                { layer: "Endpoint Security", desc: "EDR, Antivirus, Device Management" },
+                {
+                  layer: "Endpoint Security",
+                  desc: "EDR, Antivirus, Device Management",
+                },
               ].map((item, index) => (
-                <div 
+                <div
                   key={index}
                   className="cyber-border rounded-lg p-6 glass hover-lift"
                   style={{ marginLeft: `${index * 20}px` }}
                 >
-                  <h3 className="text-xl font-bold mb-2 text-primary">{item.layer}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-primary">
+                    {item.layer}
+                  </h3>
                   <p className="text-muted-foreground">{item.desc}</p>
                 </div>
               ))}
@@ -112,10 +136,13 @@ const EnterpriseSecurity = () => {
               Ready to Secure Your Enterprise?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Let our security experts assess your current infrastructure and design
-              a customized protection strategy.
+              Let our security experts assess your current infrastructure and
+              design a customized protection strategy.
             </p>
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 neon-pulse">
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 neon-pulse"
+            >
               Get Started Today
             </Button>
           </div>

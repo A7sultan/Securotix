@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 
@@ -22,8 +22,10 @@ export const PartnerLayout = ({
       <Navigation />
 
       {/* Ambient glow */}
-      <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px]
-                      bg-primary/20 blur-[200px] rounded-full pointer-events-none" />
+      <div
+        className="absolute top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px]
+                      bg-primary/20 blur-[200px] rounded-full pointer-events-none"
+      />
 
       <main className="pt-36 pb-28 relative z-10">
         <div className="container mx-auto px-4 max-w-6xl">

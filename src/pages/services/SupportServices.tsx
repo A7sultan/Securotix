@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { CyberParticles } from "@/components/CyberParticles";
 import { motion } from "framer-motion";
@@ -22,7 +22,6 @@ const SupportServices = () => {
       <Navigation />
 
       <main className="pt-32 pb-24 relative">
-
         <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-primary/20 blur-[180px] rounded-full pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -34,7 +33,7 @@ const SupportServices = () => {
             transition={{ duration: 0.9 }}
             className="max-w-5xl mx-auto text-center mb-28"
           >
-           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               <span className="text-glow">Support </span>
               <span className="bg-gradient-to-r from-primary to-cyber-red-glow bg-clip-text text-transparent">
                 Services
