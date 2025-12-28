@@ -23,6 +23,8 @@ import JizoAI from "./pages/partners/jizo-ai";
 import ITConsultancy from "./pages/services/ITConsultancy";
 import ProfessionalServices from "./pages/services/ProfessionalServices";
 import SupportServices from "./pages/services/SupportServices";
+import VAPTServices from "./pages/services/Cybersecurity Advisory and Training/VAPTServices";
+import WebAppSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/WebAppSecurityTesting";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +52,8 @@ const App = () => (
           <Route path="/JizoAI" element={<JizoAI />} />
           <Route path="/services/it-consultancy" element={<ITConsultancy />} />
           <Route path="/services/professional-services" element={<ProfessionalServices />} />
+          <Route path="/services/vapt-services" element={<VAPTServices />} />
+          <Route path="/services/web-application-security-testing" element={<WebAppSecurityTesting />} />
           <Route path="/services/support-services" element={<SupportServices />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

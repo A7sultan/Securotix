@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { CyberParticles } from "@/components/CyberParticles";
@@ -92,7 +92,6 @@ const ITConsultancy = () => {
             variants={stagger}
             className="max-w-6xl mx-auto mb-32"
           >
-
             <motion.div
               variants={fadeUp}
               className="
@@ -113,7 +112,8 @@ const ITConsultancy = () => {
             {/* Intro text */}
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                Comprehensive <span className="text-primary">IT Consultancy</span>
+                Comprehensive{" "}
+                <span className="text-primary">IT Consultancy</span>
               </h2>
 
               <p>

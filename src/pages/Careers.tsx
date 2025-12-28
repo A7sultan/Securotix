@@ -1,14 +1,8 @@
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import {
-  Users,
-  Globe,
-  TrendingUp,
-  Sparkles,
-  Upload,
-} from "lucide-react";
+import { Users, Globe, TrendingUp, Sparkles, Upload } from "lucide-react";
 import { CyberParticles } from "@/components/CyberParticles";
 
 const fadeUp = {
@@ -35,7 +29,6 @@ const Careers = () => {
         <div className="absolute top-48 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/20 blur-[180px] rounded-full pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
-
           {/* Hero */}
           <motion.div
             initial="hidden"
@@ -68,13 +61,14 @@ const Careers = () => {
           >
             <div className="rounded-2xl p-12 bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_80px_rgba(255,0,0,0.15)]">
               <p className="text-lg text-muted-foreground leading-relaxed space-y-6">
-                At <span className="text-primary font-semibold">Securotix</span>,
-                we are committed to driving innovation and excellence in the
+                At <span className="text-primary font-semibold">Securotix</span>
+                , we are committed to driving innovation and excellence in the
                 field of cybersecurity and technology consultancy. Our diverse
                 team of professionals is united by a shared passion for
                 delivering cutting-edge solutions and unparalleled service to
                 clients worldwide.
-                <br /><br />
+                <br />
+                <br />
                 As we continue to expand our global footprint, we are seeking
                 talented and motivated individuals to join us on our journey
                 towards shaping the future of secure technology management.

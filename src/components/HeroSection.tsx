@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { Shield, Lock } from "lucide-react";
 
+
 // Counter animation hook
 const useCounter = (target: string, active: boolean, duration = 2000) => {
   const [value, setValue] = useState("0");

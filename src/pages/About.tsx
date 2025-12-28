@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import {
   Shield,
@@ -53,8 +53,8 @@ const About = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-              Empowering secure digital growth through innovation,
-              expertise, and next-generation cybersecurity.
+              Empowering secure digital growth through innovation, expertise,
+              and next-generation cybersecurity.
             </p>
           </motion.div>
 
@@ -73,10 +73,11 @@ const About = () => {
               </h2>
               <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
                 <p>
-                  At <span className="text-primary font-semibold">Securotix</span>,
-                  we believe cybersecurity is an ever-evolving marketplace.
-                  Our purpose is to deliver innovation where it creates
-                  meaningful impact.
+                  At{" "}
+                  <span className="text-primary font-semibold">Securotix</span>,
+                  we believe cybersecurity is an ever-evolving marketplace. Our
+                  purpose is to deliver innovation where it creates meaningful
+                  impact.
                 </p>
                 <p>
                   We simplify access to complex cybersecurity solutions—making

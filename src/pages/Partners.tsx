@@ -1,7 +1,7 @@
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { NavLink } from "@/components/NavLink";
+import { NavLink } from "@/components/navigation/NavLink";
 
 const partners = [
   { name: "1Kosmos", path: "/1Kosmos", tag: "Passwordless Identity" },
@@ -33,7 +33,8 @@ const Partners = () => {
             className="max-w-5xl mx-auto text-center mb-28"
           >
             <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="text-glow">Our</span><br />
+              <span className="text-glow">Our</span>
+              <br />
               <span className="bg-gradient-to-r from-primary via-cyber-red-glow to-primary bg-clip-text text-transparent">
                 Technology Ecosystem
               </span>
@@ -66,15 +67,15 @@ const Partners = () => {
                   "
                 >
                   {/* Neon edge */}
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500
-                                  bg-gradient-to-r from-primary/40 via-transparent to-primary/40 blur-xl" />
+                  <div
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500
+                                  bg-gradient-to-r from-primary/40 via-transparent to-primary/40 blur-xl"
+                  />
 
                   <h3 className="relative z-10 text-2xl font-bold mb-3">
                     {p.name}
                   </h3>
-                  <p className="relative z-10 text-muted-foreground">
-                    {p.tag}
-                  </p>
+                  <p className="relative z-10 text-muted-foreground">{p.tag}</p>
                 </NavLink>
               </motion.div>
             ))}

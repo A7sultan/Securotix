@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { CyberParticles } from "@/components/CyberParticles";
 import { motion } from "framer-motion";
@@ -22,7 +22,6 @@ const ProfessionalServices = () => {
       <Navigation />
 
       <main className="pt-32 pb-24 relative">
-
         <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-primary/20 blur-[180px] rounded-full pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
