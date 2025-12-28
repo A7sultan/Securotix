@@ -25,6 +25,7 @@ import ProfessionalServices from "./pages/services/ProfessionalServices";
 import SupportServices from "./pages/services/SupportServices";
 import VAPTServices from "./pages/services/Cybersecurity Advisory and Training/VAPTServices";
 import WebAppSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/WebAppSecurityTesting";
+import MobileAppSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/MobileAppSecurityTesting";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/services/professional-services" element={<ProfessionalServices />} />
           <Route path="/services/vapt-services" element={<VAPTServices />} />
           <Route path="/services/web-application-security-testing" element={<WebAppSecurityTesting />} />
+          <Route path="/services/mobile-application-security-testing" element={<MobileAppSecurityTesting />} />
           <Route path="/services/support-services" element={<SupportServices />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

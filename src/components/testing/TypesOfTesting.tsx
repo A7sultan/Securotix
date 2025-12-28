@@ -1,33 +1,46 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const content = {
-  black: `Black Box, often referred to as behavioral testing or external testing, is a form of software testing technique wherein no prior knowledge of the internal code structure, implementation specifics, or internal routes of an application is necessary. It focuses on the application’s input and output and is entirely dependent on the specifications and requirements for the software.`,
-  grey: `Grey Box testing involves partial knowledge of the internal workings of the application.`,
-  white: `White Box testing examines a software’s underlying structure, coding, and architecture in order to validate the input-output flow and improve the application’s design, security, and utility. Testing of this kind is sometimes referred to as internal testing, clear box testing, open box testing, or glass box testing because testers can see the code.`,
+export type TestingType = {
+  id: string;
+  label: string;
+  content: string;
 };
 
-export const TypesOfTesting = () => {
-  const [active, setActive] = useState<"black" | "grey" | "white">("white");
+interface TypesOfTestingProps {
+  title?: string;
+  types: TestingType[];
+}
+
+export const TypesOfTesting = ({
+  title = "Types of Testing",
+  types,
+}: TypesOfTestingProps) => {
+  const [active, setActive] = useState(types[0].id);
+
+  const activeContent = types.find((t) => t.id === active);
 
   return (
-    <section className="relative w-full">
-      {/* Heading */}
-      <h3 className="text-2xl md:text-3xl font-bold mb-6">
-        Types of <span className="text-primary text-glow">Testing</span>
+    <section className="relative">
+      {/* Section heading */}
+      <h3 className="text-3xl md:text-4xl font-bold mb-12">
+        {title.split(" ")[0]}{" "}
+        <span className="text-primary text-glow">
+          {title.split(" ").slice(1).join(" ")}
+        </span>
       </h3>
 
       {/* Tabs */}
-      <div className="flex flex-wrap gap-6 md:gap-8 mb-6">
-        {(["black", "grey", "white"] as const).map((t) => {
-          const isActive = active === t;
+      <div className="flex flex-wrap gap-10 mb-10">
+        {types.map((type) => {
+          const isActive = active === type.id;
 
           return (
             <button
-              key={t}
-              onClick={() => setActive(t)}
+              key={type.id}
+              onClick={() => setActive(type.id)}
               className={`
-                relative pb-1 text-base md:text-sm font-medium transition
+                relative pb-2 text-lg font-medium transition
                 ${
                   isActive
                     ? "text-primary"
@@ -35,11 +48,7 @@ export const TypesOfTesting = () => {
                 }
               `}
             >
-              {t === "black"
-                ? "Black Box"
-                : t === "grey"
-                ? "Grey Box"
-                : "White Box"}
+              {type.label}
 
               {isActive && (
                 <motion.span
@@ -48,7 +57,7 @@ export const TypesOfTesting = () => {
                     absolute left-0 -bottom-1
                     h-[2px] w-full
                     bg-primary
-                    shadow-[0_0_16px_rgba(255,0,0,0.7)]
+                    shadow-[0_0_20px_rgba(255,0,0,0.8)]
                   "
                 />
               )}
@@ -60,35 +69,22 @@ export const TypesOfTesting = () => {
       {/* Content */}
       <motion.div
         key={active}
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        transition={{ duration: 0.35 }}
         className="
           relative
-          rounded-xl
-          p-6
-          md:p-7
+          rounded-2xl
+          p-8
           max-w-3xl
           bg-white/5
           backdrop-blur-xl
           border border-white/10
-          shadow-[0_0_50px_rgba(255,0,0,0.12)]
+          shadow-[0_0_60px_rgba(255,0,0,0.15)]
         "
       >
-        {/* Subtle glow */}
-        <div
-          className="
-            absolute -top-12 -right-12
-            w-40 h-40
-            bg-primary/25
-            blur-[100px]
-            rounded-full
-            pointer-events-none
-          "
-        />
-
-        <p className="text-base text-muted-foreground leading-relaxed relative z-10">
-          {content[active]}
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          {activeContent?.content}
         </p>
       </motion.div>
     </section>
