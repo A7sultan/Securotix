@@ -1,11 +1,11 @@
 import { Navigation } from "@/components/navigation/Navigation";
-import { Benefits } from "@/components/testing/Benefits";
-import { OurApproach } from "@/components/testing/OurApproach";
-import { webAppTestingData } from "@/data/testing/webAppTesting";
 import { CyberParticles } from "@/components/CyberParticles";
 import { MethodologyAndTesting } from "@/components/testing/Methodology";
+import { Benefits } from "@/components/testing/Benefits";
+import { OurApproach } from "@/components/testing/OurApproach";
+import { mobileAppTestingData } from "@/data/testing/mobileAppTesting";
+import MobileAppImg from "@/assets/mobile app.png";
 import { Footer } from "@/components/Footer";
-import WebAppImg from "@/assets/webapp.png";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -13,15 +13,15 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-export default function WebAppSecurityTesting() {
+export default function MobileAppSecurityTesting() {
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       className="min-h-screen bg-background overflow-hidden"
     >
-      <CyberParticles />
       <Navigation />
+      <CyberParticles />
 
       <main className="pt-32 pb-24 relative">
         {/* Ambient glow */}
@@ -35,11 +35,11 @@ export default function WebAppSecurityTesting() {
             className="max-w-5xl mx-auto text-center space-y-6"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-glow">
-              {webAppTestingData.title}
+              {mobileAppTestingData.title}
             </h1>
 
             <p className="max-w-3xl mx-auto text-lg text-muted-foreground leading-relaxed">
-              {webAppTestingData.overview}
+              {mobileAppTestingData.overview}
             </p>
           </motion.section>
 
@@ -51,12 +51,12 @@ export default function WebAppSecurityTesting() {
             transition={{ duration: 0.8 }}
           >
             <MethodologyAndTesting
-              title={webAppTestingData.methodology.title}
-              paragraphs={webAppTestingData.methodology.description}
-              image={WebAppImg}
+              title={mobileAppTestingData.methodology.title}
+              paragraphs={mobileAppTestingData.methodology.description}
+              image={MobileAppImg}
               showTypesOfTesting
-              types={webAppTestingData.typesOfTesting}
-              ctaText="Get Free Consultation"
+              types={mobileAppTestingData.typesOfTesting}
+              ctaText="Get free consultation"
             />
           </motion.div>
 
@@ -78,8 +78,8 @@ export default function WebAppSecurityTesting() {
             transition={{ duration: 0.8 }}
           >
             <OurApproach
-              nav={webAppTestingData.nav}
-              sections={webAppTestingData.sections}
+              nav={mobileAppTestingData.nav}
+              sections={mobileAppTestingData.sections}
             />
           </motion.div>
         </div>
