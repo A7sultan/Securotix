@@ -4,6 +4,8 @@ import { MobileMenu } from "./MobileMenu";
 import { navData } from "./navData";
 import logo from "../../assets/Frame 1.png";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "../ui/button";
 
 export const Navigation = () => {
   const [open, setOpen] = useState(false);
@@ -19,21 +21,40 @@ export const Navigation = () => {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex items-center justify-between h-24 lg:h-32">
           {/* Logo */}
-          <img
-            src={logo}
-            alt="Securotix Logo"
-            className="
-              h-20 sm:h-22 lg:h-28
-              w-auto
-              object-contain
-              brightness-125
-              shrink-0
-            "
-          />
+          <Link to="/" aria-label="Go to Home">
+            <img
+              src={logo}
+              alt="Securotix Logo"
+              className="
+      h-20 sm:h-22 lg:h-28
+      w-auto
+      object-contain
+      brightness-125
+      shrink-0
+    "
+            />
+          </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-8">
             <DesktopMenu items={navData} />
+
+            <a href="/contact">
+    <Button
+      size="lg"
+      className="
+        bg-primary
+        text-primary-foreground
+        hover:bg-primary/90
+        neon-pulse
+        text-lg
+        px-8
+        py-6
+      "
+    >
+      Get a Quote
+    </Button>
+  </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -50,10 +71,7 @@ export const Navigation = () => {
       {/* Mobile / Tablet Menu */}
       {open && (
         <div className="lg:hidden bg-black/95 border-t border-white/10">
-          <MobileMenu
-            items={navData}
-            onClose={() => setOpen(false)}
-          />
+          <MobileMenu items={navData} onClose={() => setOpen(false)} />
         </div>
       )}
     </header>

@@ -31,18 +31,19 @@ export const DesktopMenuItem = ({ item, depth }: Props) => {
 
   const dropdownPosition =
     depth === 0
-      ? "left-0 top-full mt-2"
+      ? "left-0 top-full pt-2"
       : openLeft
-      ? "right-full top-0 mr-2"
-      : "left-full top-0 ml-2";
+      ? "right-full top-0 mr-1"
+      : "left-full top-0 ml-1";
 
   return (
     <li
-      ref={ref}
-      className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
+  ref={ref}
+  className="relative group"
+  onMouseEnter={() => setOpen(true)}
+  onMouseLeave={() => setOpen(false)}
+>
+
       {/* Trigger */}
      {item.href ? (
   <NavLink
