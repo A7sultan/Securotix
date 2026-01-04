@@ -1,12 +1,11 @@
 import { Navigation } from "../components/navigation/Navigation";
 import { CyberParticles } from "../components/CyberParticles";
 import { HeroSection } from "../components/HeroSection";
-import { FloatingBadges } from "../components/FeaturesSection";
-import { AttackSimulation } from "../components/AttackSimulation";
-import { PartnersCarousel } from "../components/PartnersCarousel";
-import { Footer } from "../components/Footer";
 import { IntroLoader } from "../components/ui/IntroLoader";
 import { useState } from "react";
+import Partners from "./../components/Partners";
+import AboutUs from "@/components/AboutUs";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -16,9 +15,8 @@ const Index = () => {
       <Navigation />
       {showIntro && <IntroLoader onFinish={() => setShowIntro(false)} />}
       <HeroSection />
-      <FloatingBadges />
-      <AttackSimulation />
-      <PartnersCarousel />
+      <AboutUs />
+      <Partners />
       <Footer />
     </div>
   );
