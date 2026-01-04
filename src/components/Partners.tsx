@@ -1,5 +1,3 @@
-import { Navigation } from "@/components/navigation/Navigation";
-import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { NavLink } from "@/components/navigation/NavLink";
 
@@ -17,7 +15,7 @@ const partners = [
 const Partners = () => {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
-      <Navigation />
+      
 
       {/* Moving background glows */}
       <div className="absolute top-40 left-1/4 w-[600px] h-[600px] bg-primary/20 blur-[180px] rounded-full animate-pulse" />
@@ -82,8 +80,6 @@ const Partners = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

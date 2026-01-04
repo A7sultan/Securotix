@@ -9,7 +9,7 @@ import Careers from "./pages/Careers";
 import EnterpriseSecurity from "./pages/EnterpriseSecurity";
 import NetworkInfrastructure from "./pages/NetworkInfrastructure";
 import Blog from "./pages/Blog";
-import Partners from "./pages/Partners";
+import Partners from "./pages/Customers";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import OneKosmos from "./pages/partners/1kosmos";
@@ -40,7 +40,10 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/enterprise-security" element={<EnterpriseSecurity />} />
-          <Route path="/network-infrastructure" element={<NetworkInfrastructure />} />
+          <Route
+            path="/network-infrastructure"
+            element={<NetworkInfrastructure />}
+          />
           <Route path="/blog" element={<Blog />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/1Kosmos" element={<OneKosmos />} />
@@ -52,11 +55,23 @@ const App = () => (
           <Route path="/MazeBolt" element={<MazeBolt />} />
           <Route path="/JizoAI" element={<JizoAI />} />
           <Route path="/services/it-consultancy" element={<ITConsultancy />} />
-          <Route path="/services/professional-services" element={<ProfessionalServices />} />
+          <Route
+            path="/services/professional-services"
+            element={<ProfessionalServices />}
+          />
           <Route path="/services/vapt-services" element={<VAPTServices />} />
-          <Route path="/services/web-application-security-testing" element={<WebAppSecurityTesting />} />
-          <Route path="/services/mobile-application-security-testing" element={<MobileAppSecurityTesting />} />
-          <Route path="/services/support-services" element={<SupportServices />} />
+          <Route
+            path="/services/web-application-security-testing"
+            element={<WebAppSecurityTesting />}
+          />
+          <Route
+            path="/services/mobile-application-security-testing"
+            element={<MobileAppSecurityTesting />}
+          />
+          <Route
+            path="/services/support-services"
+            element={<SupportServices />}
+          />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
