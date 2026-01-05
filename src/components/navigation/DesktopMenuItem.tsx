@@ -33,8 +33,8 @@ export const DesktopMenuItem = ({ item, depth }: Props) => {
     depth === 0
       ? "left-0 top-full pt-2"
       : openLeft
-      ? "right-full top-0 mr-1"
-      : "left-full top-0 ml-1";
+      ? "right-full top-0"
+      : "left-full top-0";
 
   return (
     <li
