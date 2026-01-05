@@ -1,7 +1,5 @@
 import { Navigation } from "@/components/navigation/Navigation";
 import {
-  Shield,
-  Target,
   Users,
   Award,
   Settings,
@@ -10,8 +8,6 @@ import {
   HeartHandshake,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { CyberParticles } from "@/components/CyberParticles";
-
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
@@ -24,20 +20,17 @@ const stagger = {
 const AboutUs = () => {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
-      <CyberParticles />
       <Navigation />
 
       <main className="pt-24 pb-24 relative">
-        {/* Soft Aura */}
-        <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-primary/20 blur-[160px] rounded-full pointer-events-none" />
-
         <div className="container mx-auto px-4 relative z-10">
-          {/* HERO */}
+
+          {/* HERO (LEFT ALIGNED LIKE MAIN HERO) */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="max-w-5xl mx-auto text-center mb-24"
+            className="mb-24"
           >
             <h1 className="text-5xl font-bold leading-tight mb-4">
               <span className="text-glow">About</span>
@@ -47,100 +40,71 @@ const AboutUs = () => {
               </span>
             </h1>
 
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
               Delivering advanced cybersecurity and technology solutions
               designed for digital-first enterprises.
             </p>
 
-            {/* Subtle Divider */}
             <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent mt-10" />
           </motion.div>
 
-          {/* WHO WE ARE — GRADIENT PANEL */}
+          {/* WHO WE ARE */}
           <motion.section
             initial="hidden"
             whileInView="visible"
             variants={fadeUp}
             viewport={{ once: true }}
-            className="max-w-5xl mx-auto mb-24"
+            className="mb-24"
           >
-            <div className="rounded-3xl bg-gradient-to-b from-white/10 to-transparent backdrop-blur-xl border border-white/10 p-10">
-              <h2 className="text-3xl font-bold mb-6 text-glow">Who We Are</h2>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
 
-              <div className="space-y-5 text-muted-foreground leading-relaxed text-lg">
-                <p>
-                  <span className="text-primary font-semibold">Securotix</span>{" "}
-                  is a cybersecurity-focused Value Added Distributor committed
-                  to empowering enterprises across the MENA region.
-                </p>
+              <div>
+                <h2 className="text-3xl font-bold mb-6 text-glow">
+                  Who We Are
+                </h2>
 
-                <p>
-                  We simplify the adoption of complex security technologies —
-                  helping organizations build resilience, accelerate
-                  transformation, and scale securely.
-                </p>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    <span className="text-primary font-semibold">Securotix</span>{" "}
+                    is a cybersecurity-focused Value Added Distributor committed
+                    to empowering enterprises across the MENA region.
+                  </p>
 
-                <p>
-                  Our partner-first ecosystem ensures seamless enablement,
-                  regional coverage, and unmatched access to next-generation
-                  cybersecurity innovation.
-                </p>
+                  <p>
+                    We simplify the adoption of complex security technologies —
+                    helping organizations build resilience, accelerate
+                    transformation, and scale securely.
+                  </p>
+
+                  <p>
+                    Our partner-first ecosystem ensures seamless enablement,
+                    regional coverage, and access to next-generation
+                    cybersecurity innovation.
+                  </p>
+                </div>
               </div>
+
+              <div className="relative">
+                <img
+                  src="/about/cyber-team.jpg"
+                  alt="Securotix Cybersecurity"
+                  className="rounded-2xl shadow-lg object-cover w-full h-[420px]"
+                />
+                <div className="absolute inset-0 bg-primary/10 blur-2xl rounded-2xl pointer-events-none" />
+              </div>
+
             </div>
           </motion.section>
 
-          {/* MISSION + VISION — SPLIT W/ GRADIENT LINES */}
+          {/* WHY CHOOSE US */}
           <motion.section
             initial="hidden"
             whileInView="visible"
             variants={stagger}
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto mb-24"
           >
-            {[
-              {
-                icon: Target,
-                title: "Our Mission",
-                text: "To build secure and sustainable digital ecosystems for modern enterprises.",
-              },
-              {
-                icon: Shield,
-                title: "Our Vision",
-                text: "To be the trusted cybersecurity innovation hub across global emerging markets.",
-              },
-            ].map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <motion.div key={i} variants={fadeUp}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Icon className="w-8 h-8 text-primary" />
-                    <h3 className="text-2xl font-bold">{item.title}</h3>
-                  </div>
-
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    {item.text}
-                  </p>
-
-                  <div className="h-px bg-gradient-to-r from-primary/40 to-transparent mt-6" />
-                </motion.div>
-              );
-            })}
-          </motion.section>
-
-          {/* WHY CHOOSE US — TWO COLUMN LAYOUT */}
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            variants={stagger}
-            viewport={{ once: true }}
-            className="max-w-6xl mx-auto"
-          >
-            <h2 className="text-4xl font-bold text-center mb-14">
-              Why <span className="text-primary">Choose Us</span>
-            </h2>
-
             <div className="grid md:grid-cols-2 gap-12">
-              {/* LEFT COLUMN */}
+
               <div className="space-y-10">
                 {[
                   {
@@ -183,7 +147,6 @@ const AboutUs = () => {
                 })}
               </div>
 
-              {/* RIGHT COLUMN */}
               <div className="space-y-10">
                 {[
                   {
@@ -225,6 +188,7 @@ const AboutUs = () => {
                   );
                 })}
               </div>
+
             </div>
           </motion.section>
         </div>
