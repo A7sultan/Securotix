@@ -12,57 +12,52 @@ export const HeroSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(prev => (prev + 1) % rotatingWords.length);
-    }, 4800); // SLOWER change
+      setIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 4800);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24">
       <CyberParticles />
 
       <div className="absolute inset-0 cyber-grid opacity-20" />
 
       <div className="container mx-auto px-4 z-10">
-        <div className="max-w-4xl space-y-8">
-
+        <div className="max-w-4xl space-y-10">
           {/* HERO TITLE */}
           <h1 className="font-bold leading-tight text-left text-[clamp(2.2rem,5vw,3.5rem)]">
-            <span className="block mb-1">
-              A distributor that
-            </span>
+            {/* push this line slightly down */}
+            <span className="block mb-3">A distributor that</span>
 
-            {/* MORE HEIGHT + SMOOTH MASK */}
-            <span className="relative inline-flex overflow-hidden h-[78px] md:h-[92px]">
-              <span
-                key={index}
-                className="
-                  bg-gradient-to-r
-                  from-primary via-cyber-red-glow to-primary
-                  bg-clip-text text-transparent
-                  font-semibold
-                  text-[clamp(2.2rem,5vw,3.5rem)]
-                  leading-[1.15]
-                  flip-anim
-                "
-              >
-                {rotatingWords[index]}
+            {/* flipping text block */}
+            <span className="relative inline-flex flex-col">
+              <span className="overflow-hidden h-[78px] md:h-[92px]">
+                <span
+                  key={index}
+                  className="
+        bg-gradient-to-r
+        from-primary via-cyber-red-glow to-primary
+        bg-clip-text text-transparent
+        font-semibold
+        text-[clamp(2.2rem,5vw,3.5rem)]
+        leading-[1.15]
+        flip-anim
+      "
+                >
+                  {rotatingWords[index]}
+                </span>
               </span>
+
+              {/* FANCY RED LINE */}
+              <span className="fancy-line mt-4" />
             </span>
           </h1>
 
-          {/* LOCATION */}
-          <p className="text-left text-[clamp(1.05rem,1.5vw,1.25rem)] text-muted-foreground">
-            Securotix Networks Technology<br />
-            Dubai, United Arab Emirates
-          </p>
-
-          {/* DESCRIPTION */}
-          <p className="text-left text-[clamp(1rem,1.4vw,1.2rem)] text-muted-foreground max-w-2xl">
-            Securotix is a UAE-based value-added distributor specializing in
-            cybersecurity and technology solutions across the Middle East. We
-            partner with leading global vendors to deliver advanced, integrated,
-            and scalable security technologies.
+          {/* PARAGRAPH BELOW */}
+          <p className="text-xl md:text-2xl font-medium">
+            A value added distribution with an{" "}
+            <span className="text-cyber-red-glow">EDGE</span>
           </p>
         </div>
       </div>
@@ -83,6 +78,47 @@ export const HeroSection = () => {
           75%  { transform: rotateX(4deg); }
           100% { transform: rotateX(0deg); opacity: 1; }
         }
+          .fancy-line {
+  position: relative;
+  width: 180px;         /* LENGTH */
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(255,0,0,0) 0%,
+    rgba(220,0,0,1) 25%,
+    rgba(255,0,0,1) 50%,
+    rgba(220,0,0,1) 75%,
+    rgba(255,0,0,0) 100%
+  );
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255,0,0,0.6);
+  overflow: hidden;
+}
+
+/* Shine effect */
+.fancy-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.8),
+    transparent
+  );
+  animation: shimmer 2.8s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0%   { left: -40%; opacity: 0; }
+  30%  { opacity: .9; }
+  60%  { left: 100%; opacity: .9; }
+  100% { opacity: 0; }
+}
+
       `}</style>
     </section>
   );

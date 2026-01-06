@@ -13,7 +13,7 @@ export const navData: NavItem[] = [
     ],
   },
   {
-    label: "Solutions",
+    label: "Vendors",
     children: [
       {
         label: "Enterprise Security",
