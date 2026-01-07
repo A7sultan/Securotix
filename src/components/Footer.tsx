@@ -91,7 +91,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-muted-foreground">
                 <Mail className="w-5 h-5 mt-0.5 text-primary" />
-                <span>security@cyberguard.com</span>
+                <span>security@securotix.com</span>
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
                 <Phone className="w-5 h-5 mt-0.5 text-primary" />
@@ -107,7 +107,7 @@ export const Footer = () => {
 
         <div className="border-t border-border/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2024 CyberGuard. All rights reserved.</p>
+            <p>© 2024 Securotix. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-primary transition-colors">
                 Privacy Policy

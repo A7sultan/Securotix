@@ -85,10 +85,10 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-bold mb-2">Email</h3>
                     <p className="text-muted-foreground">
-                      security@cyberguard.com
+                      security@securotix.com
                     </p>
                     <p className="text-muted-foreground">
-                      support@cyberguard.com
+                      support@securotix.com
                     </p>
                   </div>
                 </div>
