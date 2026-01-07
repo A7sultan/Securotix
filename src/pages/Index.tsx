@@ -2,9 +2,10 @@ import { Navigation } from "../components/navigation/Navigation";
 import { HeroSection } from "../components/HeroSection";
 import { IntroLoader } from "../components/ui/IntroLoader";
 import { useState } from "react";
-import Partners from "./../components/Partners";
-import AboutUs from "@/components/AboutUs";
 import { Footer } from "@/components/Footer";
+import WhoWeAre from "@/components/WhoWeAre";
+import  ValueProposition  from "@/components/ValueProposition";
+import VendorsOrbit from "@/components/VendorsOrbit";
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -13,8 +14,9 @@ const Index = () => {
       <Navigation />
       {showIntro && <IntroLoader onFinish={() => setShowIntro(false)} />}
       <HeroSection />
-      <AboutUs />
-      <Partners />
+      <WhoWeAre />
+      <ValueProposition />
+      <VendorsOrbit />
       <Footer />
     </div>
   );

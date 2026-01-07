@@ -28,7 +28,7 @@ export const HeroSection = () => {
           {/* HERO TITLE */}
           <h1 className="font-bold leading-tight text-left text-[clamp(2.2rem,5vw,3.5rem)]">
             {/* push this line slightly down */}
-            <span className="block mb-3">A distributor that</span>
+            <span className="block mb-3">A Distributor That</span>
 
             {/* flipping text block */}
             <span className="relative inline-flex flex-col">
