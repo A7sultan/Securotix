@@ -1,5 +1,6 @@
 import { Shield, Mail, Phone, MapPin } from "lucide-react";
 import { NavLink } from "./navigation/NavLink";
+import Logo from "../assets/Frame 1.png";
 
 export const Footer = () => {
   return (
@@ -11,10 +12,10 @@ export const Footer = () => {
           {/* Company */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-primary rounded flex items-center justify-center">
-                <Shield className="w-6 h-6 text-primary-foreground" />
+              <div className="flex items-center space-x-2 mb-6">
+                <img src={Logo} alt="Securotix Logo" className="w-20 h-auto" />
+                <span className="text-xl font-bold text-glow">Securotix</span>
               </div>
-              <span className="text-xl font-bold text-glow">CYBERGUARD</span>
             </div>
             <p className="text-muted-foreground">
               Next-generation cyber security solutions protecting organizations

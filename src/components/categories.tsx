@@ -22,7 +22,6 @@ export const categories = [
   {
     name: "Threat & Intelligence",
     vendors: [
-      { name: "Filigran", path: "/Filigran" },
       { name: "Nucleus", path: "/Nucleus" },
       { name: "Maze Bolt", path: "/MazeBolt" },
       { name: "Jizo AI", path: "/JizoAI" },
