@@ -1,4 +1,4 @@
-import { Shield, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { NavLink } from "./navigation/NavLink";
 import Logo from "../assets/Frame 1.png";
 
