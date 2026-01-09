@@ -9,7 +9,6 @@ import Careers from "./pages/Careers";
 import EnterpriseSecurity from "./pages/EnterpriseSecurity";
 import NetworkInfrastructure from "./pages/NetworkInfrastructure";
 import Blog from "./pages/Blog";
-import Partners from "./pages/Customers";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import OneKosmos from "./pages/partners/1kosmos";
@@ -26,6 +25,7 @@ import SupportServices from "./pages/services/SupportServices";
 import VAPTServices from "./pages/services/Cybersecurity Advisory and Training/VAPTServices";
 import WebAppSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/WebAppSecurityTesting";
 import MobileAppSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/MobileAppSecurityTesting";
+import Vendors from "./pages/Customers";
 
 const queryClient = new QueryClient();
 
@@ -45,7 +45,7 @@ const App = () => (
             element={<NetworkInfrastructure />}
           />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/partners" element={<Partners />} />
+          <Route path="/vendors" element={<Vendors />} />
           <Route path="/1Kosmos" element={<OneKosmos />} />
           <Route path="/MiniOrange" element={<MiniOrange />} />
           <Route path="/Tufin" element={<Tufin />} />

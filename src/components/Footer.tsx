@@ -91,15 +91,15 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-muted-foreground">
                 <Mail className="w-5 h-5 mt-0.5 text-primary" />
-                <span>security@securotix.com</span>
+                <span>Info@securotix.com</span>
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
                 <Phone className="w-5 h-5 mt-0.5 text-primary" />
-                <span>+1 (555) 123-4567</span>
+                <span>+971 55 651 2218<br></br> +971 56 310 4135 <br></br> +971 55 640 8872</span>
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
                 <MapPin className="w-5 h-5 mt-0.5 text-primary" />
-                <span>San Francisco, CA 94102</span>
+                <span>167, Shaikha Mahara Al Qusais BLDG, Al Qusais Second</span>
               </li>
             </ul>
           </div>

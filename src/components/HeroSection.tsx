@@ -4,7 +4,8 @@ import { CyberParticles } from "./CyberParticles";
 const rotatingWords = [
   "Adds Value",
   "Enables Security",
-  "Showcases Compliance",
+  "Creates synergy",
+  "Drives innovation",
 ];
 
 export const HeroSection = () => {

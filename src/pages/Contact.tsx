@@ -84,12 +84,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold mb-2">Email</h3>
-                    <p className="text-muted-foreground">
-                      security@securotix.com
-                    </p>
-                    <p className="text-muted-foreground">
-                      support@securotix.com
-                    </p>
+                    <p className="text-muted-foreground">info@securotix.com</p>
                   </div>
                 </div>
               </div>
@@ -101,7 +96,11 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold mb-2">Phone</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground">
+                      +971 55 651 2218 <br />
+                      +971 56 310 4135 <br />
+                      +971 55 640 8872
+                    </p>
                     <p className="text-sm text-muted-foreground mt-1">
                       Mon-Fri, 9AM-6PM PST
                     </p>
@@ -117,10 +116,10 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-bold mb-2">Office</h3>
                     <p className="text-muted-foreground">
-                      123 Security Boulevard
+                      167, Shaikha Mahara Al Qusais BLDG, 
                     </p>
                     <p className="text-muted-foreground">
-                      San Francisco, CA 94102
+                      Al Qusais Second
                     </p>
                   </div>
                 </div>

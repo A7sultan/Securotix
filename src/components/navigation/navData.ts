@@ -12,35 +12,7 @@ export const navData: NavItem[] = [
       { label: "Careers", href: "/careers" },
     ],
   },
-  {
-    label: "Vendors",
-    children: [
-      {
-        label: "Enterprise Security",
-        children: [
-          { label: "Network Security", href: "/solutions/network-security" },
-          { label: "Web Application", href: "/solutions/web-application" },
-          { label: "Endpoint Security", href: "/solutions/endpoint" },
-        ],
-      },
-      {
-        label: "Data Security",
-        children: [
-          { label: "Seclore", href: "/solutions/seclore" },
-          { label: "Titus", href: "/solutions/titus" },
-          { label: "Forcepoint", href: "/solutions/forcepoint" },
-        ],
-      },
-      {
-        label: "Identity Management & MFA",
-        href: "/solutions/identity",
-      },
-      {
-        label: "SIEM",
-        href: "/solutions/siem",
-      },
-    ],
-  },
+  { label: "Vendors", href: "/vendors"},
   {
     label: "Services",
     children: [

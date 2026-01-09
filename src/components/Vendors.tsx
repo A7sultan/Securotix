@@ -26,7 +26,7 @@ const vendors: Vendor[] = [
   { name: "Jizo AI", path: "/JizoAI", logo: logoJizoAI, description: "AI-Driven Threat Detection" },
 ];
 
-const Partners = () => {
+const Vendors = () => {
   return (
     <div className="min-h-screen bg-background">
 
@@ -110,4 +110,4 @@ const Partners = () => {
   );
 };
 
-export default Partners;
+export default Vendors;
