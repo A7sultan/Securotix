@@ -8,6 +8,7 @@ import logoFudo from "@/assets/fudo.png";
 import logoNucleus from "@/assets/nucleus.png";
 import logoMazeBolt from "@/assets/mazebolt.png";
 import logoJizoAI from "@/assets/jizoai.png";
+import coreLogo from "@/assets/Frame 1.png";
 
 type Vendor = {
   name: string;
@@ -27,6 +28,7 @@ const vendors: Vendor[] = [
 
 export default function VendorsOrbit() {
   const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);
+  const orbitRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let frame = 0;
@@ -34,14 +36,16 @@ export default function VendorsOrbit() {
     const animate = () => {
       frame += 0.005;
 
+      const orbit = orbitRef.current;
+      if (!orbit) return;
+
+      const size = orbit.offsetWidth;
+      const radius = size * 0.38; // 🔑 responsive radius
+
       cardsRef.current.forEach((el, i) => {
         if (!el) return;
 
         const angle = (i / vendors.length) * Math.PI * 2 + frame;
-
-        // ⭐ slightly reduced radius
-        const radius = 320;
-
         const x = Math.cos(angle) * radius;
         const y = Math.sin(angle) * radius;
 
@@ -55,35 +59,41 @@ export default function VendorsOrbit() {
   }, []);
 
   return (
-    <section className="pt-36 pb-28 relative overflow-hidden">
+    <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
       {/* HEADER */}
-      <div className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-4">Our Vendors</h1>
-
-        <div className="fancy-line mx-auto w-[200px]" />
+      <div className="text-center mb-14 sm:mb-16 px-4">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          Our Vendors
+        </h1>
+        <div className="fancy-line mx-auto w-[160px] sm:w-[200px]" />
       </div>
 
       {/* ORBIT */}
-      <div className="flex justify-center">
-        <div className="relative w-[760px] h-[760px]">
-          {/* RED GLOW RINGS – slightly smaller */}
-          <div className="absolute inset-2 rounded-full border border-red-500/25 shadow-[0_0_40px_rgba(255,0,0,0.35)]" />
-          <div className="absolute inset-12 rounded-full border border-red-500/15 shadow-[0_0_30px_rgba(255,0,0,0.25)]" />
-          <div className="absolute inset-20 rounded-full border border-red-500/10 shadow-[0_0_20px_rgba(255,0,0,0.20)]" />
+      <div className="flex justify-center px-4">
+        <div
+          ref={orbitRef}
+          className="
+            relative
+            w-[320px] h-[320px]
+            sm:w-[520px] sm:h-[520px]
+            lg:w-[760px] lg:h-[760px]
+          "
+        >
+          {/* RINGS */}
+          <div className="absolute inset-[8%] rounded-full border border-red-500/15 shadow-[0_0_30px_rgba(255,0,0,0.25)]" />
+          <div className="absolute inset-[14%] rounded-full border border-red-500/10 shadow-[0_0_20px_rgba(255,0,0,0.20)]" />
 
           {/* CORE */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <img
+              src={coreLogo}
+              alt="Securotix"
               className="
-              px-9 py-5 rounded-2xl
-              bg-black/70 border border-red-400/60
-              shadow-[0_0_45px_rgba(255,0,0,.7)]
-            "
-            >
-              <span className="text-3xl font-bold tracking-wide">
-                Securotix
-              </span>
-            </div>
+      h-20 sm:h-28 lg:h-36
+      w-auto
+      object-contain
+    "
+            />
           </div>
 
           {/* ORBITING VENDORS */}
@@ -101,15 +111,19 @@ export default function VendorsOrbit() {
             >
               <div
                 className="
-                  w-28 h-28
+                  w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28
                   rounded-2xl glass cyber-border
                   flex items-center justify-center
-                  transition-all
+                  transition-all duration-300
                   hover:shadow-[0_0_30px_rgba(255,0,0,.6)]
                   hover:scale-[1.08]
                 "
               >
-                <img src={v.logo} className="max-h-14 opacity-90" />
+                <img
+                  src={v.logo}
+                  alt={v.name}
+                  className="max-h-10 sm:max-h-12 lg:max-h-14 opacity-90"
+                />
               </div>
             </NavLink>
           ))}
