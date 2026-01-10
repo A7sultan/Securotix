@@ -57,7 +57,7 @@ export const HeroSection = () => {
 
           {/* PARAGRAPH BELOW */}
           <p className="text-xl md:text-2xl font-medium">
-            A value added distribution with an{" "}
+            A valued added distributor with an{" "}
             <span className="text-cyber-red-glow">EDGE</span>
           </p>
         </div>
