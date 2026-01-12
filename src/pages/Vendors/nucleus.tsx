@@ -1,9 +1,9 @@
-import { PartnerLayout } from "@/components/partners/PartnerLayout";
+import { VendorLayout } from "@/components/partners/VendorLayout";
 import NucleusLogo from "@/assets/nucleus.png";
 
 const Nucleus = () => {
   return (
-    <PartnerLayout
+    <VendorLayout
       name="Nucleus"
       logo={NucleusLogo}
       overview="A unified Vulnerability Management Orchestration platform that centralizes, prioritizes, and automates vulnerability workflows across the entire security stack."

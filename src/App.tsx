@@ -11,14 +11,13 @@ import NetworkInfrastructure from "./pages/NetworkInfrastructure";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import OneKosmos from "./pages/partners/1kosmos";
-import MiniOrange from "./pages/partners/miniorange";
-import Tufin from "./pages/partners/tufin";
-import Fudo from "./pages/partners/fudo";
-import Filigran from "./pages/partners/filigran";
-import Nucleus from "./pages/partners/nucleus";
-import MazeBolt from "./pages/partners/mazebolt";
-import JizoAI from "./pages/partners/jizo-ai";
+import OneKosmos from "./pages/Vendors/1kosmos";
+import MiniOrange from "./pages/Vendors/miniorange";
+import Tufin from "./pages/Vendors/tufin";
+import Fudo from "./pages/Vendors/fudo";
+import Nucleus from "./pages/Vendors/nucleus";
+import MazeBolt from "./pages/Vendors/mazebolt";
+import JizoAI from "./pages/Vendors/jizo-ai";
 import ITConsultancy from "./pages/services/ITConsultancy";
 import ProfessionalServices from "./pages/services/ProfessionalServices";
 import SupportServices from "./pages/services/SupportServices";
@@ -50,7 +49,6 @@ const App = () => (
           <Route path="/MiniOrange" element={<MiniOrange />} />
           <Route path="/Tufin" element={<Tufin />} />
           <Route path="/Fudo" element={<Fudo />} />
-          <Route path="/Filigran" element={<Filigran />} />
           <Route path="/Nucleus" element={<Nucleus />} />
           <Route path="/MazeBolt" element={<MazeBolt />} />
           <Route path="/JizoAI" element={<JizoAI />} />

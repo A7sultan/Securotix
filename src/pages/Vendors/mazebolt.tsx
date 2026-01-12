@@ -1,9 +1,9 @@
-import { PartnerLayout } from "@/components/partners/PartnerLayout";
+import { VendorLayout } from "@/components/partners/VendorLayout";
 import MazeBoltLogo from "@/assets/mazebolt.png";
 
 const MazeBolt = () => {
   return (
-    <PartnerLayout
+    <VendorLayout
       name="Maze Bolt"
       logo={MazeBoltLogo}
       overview="Maze Bolt provides proactive DDoS security through continuous attack surface testing and validation, helping organizations eliminate blind spots before real attacks happen."
