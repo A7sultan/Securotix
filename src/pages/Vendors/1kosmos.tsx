@@ -3,7 +3,6 @@ import { VendorLayout } from "../../components/partners/VendorLayout";
 import OneKosmosLogo from "@/assets/1kosmos.png";
 import { FancyLine } from "@/components/ui/FancyLine";
 import kosmosHeroBg from "@/assets/1 kosmos bg 2.jpg";
-import bgAbout from "@/assets/Securotix Bg 1.jpg";
 import solutionImg from "@/assets/Securotix Bg 1.jpg";
 import differentiatorImg from "@/assets/Securotix Bg 1.jpg";
 import { motion } from "framer-motion";
