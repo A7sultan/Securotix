@@ -17,9 +17,6 @@ interface VendorLayoutProps {
 
 export const VendorLayout = ({
   children,
-  hideHero,
-  hideSolutions,
-  hideDifferentiators,
   disableAmbient,
 }: VendorLayoutProps) => {
   return (
