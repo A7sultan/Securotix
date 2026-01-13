@@ -1,9 +1,9 @@
-import { PartnerLayout } from "@/components/partners/PartnerLayout";
+import { VendorLayout } from "@/components/partners/VendorLayout";
 import TufinLogo from "@/assets/tufin.png";
 
 const Tufin = () => {
   return (
-    <PartnerLayout
+    <VendorLayout
       name="Tufin"
       logo={TufinLogo}
       overview="A leading network security policy management (NSPM) platform that automates and centralizes firewall, network segmentation, and security policy control across hybrid and multi-cloud environments."

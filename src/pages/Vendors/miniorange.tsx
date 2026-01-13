@@ -1,9 +1,9 @@
-import { PartnerLayout } from "../../components/partners/PartnerLayout";
+import { VendorLayout } from "../../components/partners/VendorLayout";
 import MiniOrangeLogo from "@/assets/miniorange.png";
 
 const MiniOrange = () => {
   return (
-    <PartnerLayout
+    <VendorLayout
       name="Mini Orange"
       logo={MiniOrangeLogo}
       overview="A flexible Identity & Access Management (IAM) platform providing Single Sign-On, MFA, Zero Trust security, and privileged access for cloud, on-prem, and hybrid environments."

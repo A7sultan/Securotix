@@ -1,9 +1,9 @@
-import { PartnerLayout } from "@/components/partners/PartnerLayout";
+import { VendorLayout } from "@/components/partners/VendorLayout";
 import FudoLogo from "@/assets/fudo.png";
 
 const Fudo = () => {
   return (
-    <PartnerLayout
+    <VendorLayout
       name="Fudo"
       logo={FudoLogo}
       overview="A next-generation Privileged Access Management (PAM) solution focused on secure remote access, session monitoring, and insider threat protection with powerful session recording and behaviour analytics."

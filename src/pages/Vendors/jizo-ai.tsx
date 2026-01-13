@@ -1,9 +1,9 @@
-import { PartnerLayout } from "@/components/partners/PartnerLayout";
+import { VendorLayout } from "@/components/partners/VendorLayout";
 import JizoAILogo from "@/assets/jizoai.png";
 
 const JizoAI = () => {
   return (
-    <PartnerLayout
+    <VendorLayout
       name="Jizo AI"
       logo={JizoAILogo}
       overview="AI-powered Network Detection & Response (NDR) platform for real-time threat detection across IT, OT, cloud, and hybrid networks."
