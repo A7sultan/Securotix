@@ -21,7 +21,6 @@ const WhoWeAre = () => {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 py-20 sm:py-24 lg:py-28 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-start">
-
           {/* LEFT PANEL */}
           <motion.div
             initial="hidden"
@@ -42,18 +41,20 @@ const WhoWeAre = () => {
 
             <div className="space-y-5 text-base sm:text-lg text-neutral-200 leading-relaxed">
               <p>
-                <span className="text-primary font-semibold">Securotix</span> is a
-                synthesis of decades of market experience in the cybersecurity
-                industry across the MENA region. We understand the evolution of
-                this market because we have witnessed it firsthand—allowing us
-                to anticipate its future with clarity.
+                <span className="text-primary font-semibold">At Securotix</span>{" "}
+                <br></br> We believe that cybersecurity is an ever evolving
+                marketplace and we aim to deliver this innovation where it makes
+                a difference. Our mantra is to focus on continuously simplifying
+                access to intricate cybersecurity solutions that are
+                impenetrable and straightforward.
               </p>
 
               <p>
-                Our greatest strength lies in our curated portfolio of vendors
-                whom we believe will play a defining role in shaping that
-                future. Our purpose is to enable partners to build a resilient,
-                secure ecosystem that is prepared for tomorrow’s challenges.
+                We are a cybersecurity focused Value Added Distributor based in
+                the UAE. Our expertise molded by experience of the MENA region
+                allows us to deliver unmatched visibility for cutting edge
+                technologies. Bringing a smooth distribution ecosystem to our
+                partners for empowered relationships and greater synergy.
               </p>
             </div>
 
@@ -75,8 +76,11 @@ const WhoWeAre = () => {
                 </h3>
                 <div className="fancy-line w-16 sm:w-20 mb-3" />
                 <p className="text-neutral-300 leading-relaxed text-sm">
-                  Empower organizations through technology, consulting, and
-                  cybersecurity to drive sustainable digital growth.
+                  We aim to generate awareness about cybersecurity, which is one
+                  of the fastest growing industries in the world. We endeavour
+                  to empower local organizations to compete with the rapidly
+                  evolving security ecosystem around them so that they can gain
+                  an edge in their market.
                 </p>
               </motion.div>
 
@@ -96,8 +100,10 @@ const WhoWeAre = () => {
                 </h3>
                 <div className="fancy-line w-16 sm:w-20 mb-3" />
                 <p className="text-neutral-300 leading-relaxed text-sm">
-                  To be the global leader in innovative technology solutions,
-                  expert consulting, and cybersecurity services.
+                  To be one of the regional leaders in the Cybersecurity
+                  domain.Our objective is to provide comprehensive solutions,
+                  services and consulting to guard again any potential threats
+                  whilst complying with to the local and industry standards.
                 </p>
               </motion.div>
             </div>
