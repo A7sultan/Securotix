@@ -20,7 +20,7 @@ export default async function handler(
        1️⃣ Internal email
     ========================== */
     await resend.emails.send({
-      from: "Securotix <onboarding@resend.dev>",
+      from: "aminah.sultan735@gmail.com",
       to: ["aminah.sultan735@gmail.com"], // change later
       subject: "New Contact Form Submission",
       html: `
@@ -37,7 +37,7 @@ export default async function handler(
        2️⃣ Auto-reply email
     ========================== */
     await resend.emails.send({
-      from: "Securotix <onboarding@resend.dev>",
+      from: "aminah.sultan735@gmail.com",
       to: [email],
       subject: "Thanks for contacting Securotix",
       html: `
