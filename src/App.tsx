@@ -26,6 +26,11 @@ import WebAppSecurityTesting from "./pages/services/Cybersecurity Advisory and T
 import MobileAppSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/MobileAppSecurityTesting";
 import Vendors from "./pages/Customers";
 import ScrollToTop from "./components/ScrollToTop";
+import NetworkPenetrationTesting from "./pages/services/Cybersecurity Advisory and Training/NetworkPenetrationTesting";
+import CloudPenetrationTesting from "./pages/services/Cybersecurity Advisory and Training/CloudPenetrationTesting";
+import IoTSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/IoTSecurityTesting";
+import SecureCodeReview from "./pages/services/Cybersecurity Advisory and Training/SecureCodeReview";
+import MedicalDeviceSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/MedicalDeviceSecurityTesting";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +73,18 @@ const App = () => (
             path="/services/mobile-application-security-testing"
             element={<MobileAppSecurityTesting />}
           />
+          <Route
+            path="/services/network-penetration-testing"
+            element={<NetworkPenetrationTesting />}
+          />
+          <Route path="/services/cloud-penetration-testing" element={<CloudPenetrationTesting />} />
+          <Route
+            path="/services/iot-security-testing"
+            element={<IoTSecurityTesting />} />
+            <Route
+            path="/services/secure-code-review"
+            element={<SecureCodeReview />} />
+            <Route path="/services/medical-device-security-testing" element={<MedicalDeviceSecurityTesting />} />
           <Route
             path="/services/support-services"
             element={<SupportServices />}

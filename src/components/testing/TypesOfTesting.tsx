@@ -8,27 +8,31 @@ export type TestingType = {
 };
 
 interface TypesOfTestingProps {
-  title?: string;
   types: TestingType[];
+  title?: string;
+  showTitle?: boolean;
 }
 
 export const TypesOfTesting = ({
-  title = "Types of Testing",
   types,
+  title = "Types of Testing",
+  showTitle = true,
 }: TypesOfTestingProps) => {
-  const [active, setActive] = useState(types[0].id);
+  const [active, setActive] = useState(types[0]?.id);
 
   const activeContent = types.find((t) => t.id === active);
 
   return (
     <section className="relative">
-      {/* Section heading */}
-      <h3 className="text-3xl md:text-4xl font-bold mb-12">
-        {title.split(" ")[0]}{" "}
-        <span className="text-primary text-glow">
-          {title.split(" ").slice(1).join(" ")}
-        </span>
-      </h3>
+      {/* Section heading (optional) */}
+      {showTitle && (
+        <h3 className="text-3xl md:text-4xl font-bold mb-12">
+          {title.split(" ")[0]}{" "}
+          <span className="text-primary text-glow">
+            {title.split(" ").slice(1).join(" ")}
+          </span>
+        </h3>
+      )}
 
       {/* Tabs */}
       <div className="flex flex-wrap gap-10 mb-10">
@@ -84,7 +88,7 @@ export const TypesOfTesting = ({
         "
       >
         <p className="text-lg text-muted-foreground leading-relaxed">
-          {activeContent?.content}
+          {activeContent?.content || ""}
         </p>
       </motion.div>
     </section>

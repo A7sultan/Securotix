@@ -9,6 +9,7 @@ interface MethodologyAndTestingProps {
   paragraphs: string[];
   image: string;
   showTypesOfTesting?: boolean;
+  hideTypesTitle?: boolean;
   types?: TestingType[];
   ctaText?: string;
 }
@@ -25,13 +26,16 @@ const fadeScale = {
 };
 
 export const MethodologyAndTesting = ({
-  title = "Methodology",
+  title,
   paragraphs,
   image,
   showTypesOfTesting = true,
+   hideTypesTitle = false,
   types,
   ctaText = "Get Free Consultation",
 }: MethodologyAndTestingProps) => {
+  const hasMethodologyContent = Boolean(title) && paragraphs.length > 0;
+
   return (
     <section className="relative py-16">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -43,36 +47,38 @@ export const MethodologyAndTesting = ({
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-16"
+            className={hasMethodologyContent ? "space-y-16" : "space-y-0"}
           >
-            {/* Methodology Text */}
-            <div className="space-y-6">
-              <motion.h2
-                variants={fadeUp}
-                className="text-4xl md:text-5xl font-bold"
-              >
-                <span className="text-primary">{title}</span>
-              </motion.h2>
-
-              {paragraphs.map((text, i) => (
-                <motion.p
-                  key={i}
+            {/* Methodology (ONLY when content exists) */}
+            {hasMethodologyContent && (
+              <div className="space-y-6">
+                <motion.h2
                   variants={fadeUp}
-                  transition={{ delay: i * 0.08 }}
-                  className="text-lg text-muted-foreground leading-relaxed"
+                  className="text-4xl md:text-5xl font-bold"
                 >
-                  {text}
-                </motion.p>
-              ))}
-            </div>
+                  <span className="text-primary">{title}</span>
+                </motion.h2>
+
+                {paragraphs.map((text, i) => (
+                  <motion.p
+                    key={i}
+                    variants={fadeUp}
+                    transition={{ delay: i * 0.08 }}
+                    className="text-lg text-muted-foreground leading-relaxed"
+                  >
+                    {text}
+                  </motion.p>
+                ))}
+              </div>
+            )}
 
             {/* Types of Testing */}
             {showTypesOfTesting && types && (
               <motion.div
                 variants={fadeUp}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: hasMethodologyContent ? 0.2 : 0 }}
               >
-                <TypesOfTesting types={types} />
+                <TypesOfTesting types={types} showTitle={!hideTypesTitle} />
               </motion.div>
             )}
           </motion.div>
@@ -92,7 +98,7 @@ export const MethodologyAndTesting = ({
             {/* Image */}
             <img
               src={image}
-              alt={title}
+              alt={title ?? "Testing illustration"}
               className="relative z-10 max-w-[480px]"
             />
 
