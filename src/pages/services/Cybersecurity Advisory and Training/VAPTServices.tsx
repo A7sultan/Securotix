@@ -4,7 +4,7 @@ import { CyberParticles } from "@/components/CyberParticles";
 import { motion } from "framer-motion";
 import VAPTImg from "@/assets/Professional Services.jpg";
 import { NavLink } from "@/components/navigation/NavLink";
-import vaptimg from "@/assets/VAPT services.png";
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
