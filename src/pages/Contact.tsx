@@ -4,8 +4,52 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { useState } from "react";
 
 const Contact = () => {
+  const [form, setForm] = useState({
+    name: "",
+
+    email: "",
+
+    company: "",
+
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+
+        headers: { "Content-Type": "application/json" },
+
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+
+      alert("Thank you for reaching out. We’ll get back to you shortly.");
+
+      setForm({ name: "", email: "", company: "", message: "" });
+    } catch {
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -30,47 +74,49 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="cyber-border rounded-lg p-8 glass">
               <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
-              <form className="space-y-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Name</label>
-                  <Input
-                    placeholder="John Doe"
-                    className="glass border-border focus:border-primary"
-                  />
-                </div>
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <Input
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  className="glass border-border focus:border-primary"
+                />
 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Email</label>
-                  <Input
-                    type="email"
-                    placeholder="john@company.com"
-                    className="glass border-border focus:border-primary"
-                  />
-                </div>
+                <Input
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="john@company.com"
+                  className="glass border-border focus:border-primary"
+                />
 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Company</label>
-                  <Input
-                    placeholder="Your Company"
-                    className="glass border-border focus:border-primary"
-                  />
-                </div>
+                <Input
+                  name="company"
+                  value={form.company}
+                  onChange={handleChange}
+                  placeholder="Your Company"
+                  className="glass border-border focus:border-primary"
+                />
 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Message</label>
-                  <Textarea
-                    placeholder="Tell us about your security needs..."
-                    rows={6}
-                    className="glass border-border focus:border-primary resize-none"
-                  />
-                </div>
+                <Textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  rows={6}
+                  placeholder="Tell us about your security needs..."
+                  className="glass border-border focus:border-primary resize-none"
+                />
 
                 <Button
                   type="submit"
+                  disabled={loading}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 neon-pulse"
                 >
                   <Send className="w-4 h-4 mr-2" />
-                  Send Message
+
+                  {loading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </div>
@@ -116,11 +162,9 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-bold mb-2">Office</h3>
                     <p className="text-muted-foreground">
-                      167, Shaikha Mahara Al Qusais BLDG, 
+                      167, Shaikha Mahara Al Qusais BLDG,
                     </p>
-                    <p className="text-muted-foreground">
-                      Al Qusais Second
-                    </p>
+                    <p className="text-muted-foreground">Al Qusais Second</p>
                   </div>
                 </div>
               </div>
