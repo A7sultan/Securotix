@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { VendorLayout } from "@/components/partners/VendorLayout";
 import NucleusLogo from "@/assets/nucleus.png";
 import { FancyLine } from "@/components/ui/FancyLine";
-import nucleusHeroBg from "@/assets/1 kosmos bg 2.jpg";
-import solutionImg from "@/assets/Securotix Bg 1.jpg";
-import differentiatorImg from "@/assets/Securotix Bg 1.jpg";
+import nucleusHeroBg from "@/assets/Glowing energy stream in cybernetic space.png";
+import solutionImg from "@/assets/points.jpg";
+import differentiatorImg from "@/assets/earth.jpg";
 import { motion } from "framer-motion";
 
 const Nucleus = () => {
@@ -32,7 +32,7 @@ const Nucleus = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/60 to-black/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/40 to-black/70" />
 
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -152,7 +152,7 @@ const Nucleus = () => {
           </div>
 
           <div className="relative h-[420px] rounded-2xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/30 to-transparent z-10" />
+            <div className="absolute inset-0" />
             <img
               src={solutionImg}
               alt=""
@@ -168,7 +168,7 @@ const Nucleus = () => {
       <section className="px-6 sm:px-10 lg:px-24 pb-40">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative h-[420px] rounded-2xl overflow-hidden order-last lg:order-first">
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent z-10" />
+            <div className="absolute inset-0" />
             <img
               src={differentiatorImg}
               alt=""
