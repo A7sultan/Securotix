@@ -2,8 +2,9 @@ import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Users, Globe, TrendingUp, Sparkles, Upload } from "lucide-react";
+import { Users, Globe, TrendingUp, Sparkles} from "lucide-react";
 import { CyberParticles } from "@/components/CyberParticles";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -19,6 +20,61 @@ const stagger = {
 };
 
 const Careers = () => {
+  const [form, setForm] = useState({
+    firstName: "",
+
+    lastName: "",
+
+    email: "",
+
+    phone: "",
+
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/careers", {
+        method: "POST",
+
+        headers: { "Content-Type": "application/json" },
+
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+
+      alert("Application submitted successfully.");
+
+      setForm({
+        firstName: "",
+
+        lastName: "",
+
+        email: "",
+
+        phone: "",
+
+        message: "",
+      });
+    } catch {
+      alert("Submission failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <CyberParticles />
@@ -131,68 +187,68 @@ const Careers = () => {
           </motion.section>
 
           {/* Careers Form */}
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="rounded-2xl p-12 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl border border-white/10 shadow-[0_0_100px_rgba(255,0,0,0.2)]">
+          <motion.section className="max-w-4xl mx-auto">
+            <div className="rounded-2xl p-12 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl border border-white/10">
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
                 Careers <span className="text-primary">Form</span>
               </h2>
 
-              <form className="grid md:grid-cols-2 gap-6">
+              <form
+                className="grid md:grid-cols-2 gap-6"
+                onSubmit={handleSubmit}
+              >
                 <input
-                  type="text"
+                  name="firstName"
+                  value={form.firstName}
+                  onChange={handleChange}
                   placeholder="First Name *"
-                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-                <input
-                  type="text"
-                  placeholder="Last Name *"
-                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-                <input
-                  type="email"
-                  placeholder="Email *"
-                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone *"
-                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3"
                 />
 
-                <div className="md:col-span-2">
-                  <label className="flex flex-col items-center justify-center border border-dashed border-white/20 rounded-lg p-6 cursor-pointer hover:border-primary transition-colors">
-                    <Upload className="w-6 h-6 text-primary mb-2" />
-                    <span className="text-sm text-muted-foreground text-center">
-                      Upload Resume * (Up to 2 files)
-                    </span>
-                    <input type="file" multiple className="hidden" />
-                  </label>
-                </div>
+                <input
+                  name="lastName"
+                  value={form.lastName}
+                  onChange={handleChange}
+                  placeholder="Last Name *"
+                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3"
+                />
+
+                <input
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="Email *"
+                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3"
+                />
+
+                <input
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="Phone *"
+                  className="w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3"
+                />
 
                 <textarea
-                  placeholder="Comment or Message *"
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
                   rows={4}
-                  className="md:col-span-2 w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Comment or Message *"
+                  className="md:col-span-2 w-full rounded-lg bg-background/60 border border-white/10 px-4 py-3"
                 />
 
                 <div className="md:col-span-2 text-center">
-                  <Button className="bg-primary text-primary-foreground px-10 py-6 text-lg hover:bg-primary/90 neon-pulse">
-                    Submit
+                  <Button
+                    type="submit"
+                    disabled={loading}
+                    className="bg-primary text-primary-foreground px-10 py-6 text-lg hover:bg-primary/90 neon-pulse"
+                  >
+                    {loading ? "Submitting..." : "Submit"}
                   </Button>
                 </div>
               </form>
-
-              <p className="text-center text-muted-foreground mt-8">
-                Join us at Securotix and be part of a team shaping the future of
-                secure technology management.
-              </p>
             </div>
           </motion.section>
         </div>
