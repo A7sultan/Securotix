@@ -49,29 +49,29 @@ export const mobileAppTestingData = {
     {
       id: "scope",
       title: "Scope of Work",
-      content: `The scope of mobile application security testing involves identifying implemented security controls, testing objectives, and sensitive information. This stage ensures full synchronization between the client and examiner to avoid legal or compliance issues.`,
+      content: `The scope of the mobile application involves identifying the security measures that were employed, testing goals, and sensitive information. In essence, this step entails complete client synchronization, during which the client and the examiner come to an agreement to defend from legal actions.`,
     },
     {
       id: "intelligence",
       title: "Intelligence Gathering",
-      content: `This stage focuses on acquiring information about potential threats and application design. Testers analyze application architecture, workflows, and data handling to gain a comprehensive understanding of the attack surface.`,
+      content: `It is the process of acquiring information about threats to people, or organizations and using that information to defend them. In order to gain a general understanding of the application, this stage involves analyzing the application’s design and scope.`,
       cta: true,
     },
     {
       id: "mapping",
       title: "Application To Be Mapped",
-      content: `During this phase, applications are manually and automatically scanned to map entry points, data storage locations, and potential vulnerabilities. Mapping helps testers better understand application behavior and risk areas.`,
+      content: `The next phase is mapping the application, which involves manually and automatically scanning programmes to finish the previous stage. Maps can give testers a better knowledge of the programme under test, including entry points, data held, and other potential serious flaws.`,
       cta: true,
     },
     {
       id: "exploitation",
       title: "Exploitation",
-      content: `Exploitation involves actively leveraging identified vulnerabilities to determine real-world impact. Testers validate weaknesses and assess the severity of potential attacks.`,
+      content: `It is the phase in which security testers get into an application by taking advantage of the flaws found in the earlier procedure. At this point, it is also necessary to identify real flaws and real strengths.`,
     },
     {
       id: "reporting",
       title: "Reporting",
-      content: `The reporting phase delivers a comprehensive assessment report detailing discovered vulnerabilities, risk rankings, and remediation recommendations. This is a critical phase for stakeholders to understand security posture.`,
+      content: `The primary output of the reporting and analysis phase as well as the entire assessment process is the final evaluation report. A crucial stage for the customer is when security testers provide findings on applications’ weaknesses that are found and explain the negative consequences of those weaknesses.`,
     },
   ],
 };

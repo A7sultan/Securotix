@@ -177,11 +177,6 @@ const VAPTServices = () => {
               </div>
             </div>
           </motion.section>
-          <img
-            src={vaptimg}
-            alt="VAPT Services"
-            className="w-full h-56 object-cover rounded-xl mb-6 border border-white/10 shadow-lg"
-          />
 
           {/* Benefits */}
           <motion.section
@@ -211,7 +206,19 @@ const VAPTServices = () => {
                 <motion.div
                   key={index}
                   variants={fadeUp}
-                  className="relative rounded-xl p-8 bg-white/5 backdrop-blur-xl border border-white/10 hover:border-primary/40 transition"
+                  className="
+  relative
+  rounded-xl
+  p-8
+  bg-white/5
+  backdrop-blur-xl
+  border border-white/10
+  shadow-[0_0_40px_rgba(255,0,0,0.15)]
+  hover:border-primary/50
+  hover:shadow-[0_0_70px_rgba(255,0,0,0.35)]
+  transition-all
+  duration-300
+"
                 >
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     {benefit}

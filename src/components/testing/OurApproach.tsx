@@ -8,7 +8,7 @@ interface NavItem {
 interface Section {
   id: string;
   title: string;
-  content: string;
+  content: string | string[];
 }
 
 interface OurApproachProps {
