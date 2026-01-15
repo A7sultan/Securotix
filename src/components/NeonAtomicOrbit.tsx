@@ -15,11 +15,7 @@ type Ring = {
   rot: number;
 };
 
-export default function NeonAtomicOrbit({
-  mode = "desktop",
-}: {
-  mode?: "desktop" | "tablet";
-}) {
+export default function NeonAtomicOrbit() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -34,20 +30,64 @@ export default function NeonAtomicOrbit({
     let animationId = 0;
     let last = performance.now();
 
+    /* ---------- RESPONSIVE PROFILE ---------- */
+
+    const getProfile = (size: number) => {
+      if (size < 260)
+        return {
+          scale: 0.6,
+          showLabels: true,
+          labelScale: 0.7,
+          glow: 0.4,
+          electrons: 2,
+        };
+
+      if (size < 360)
+        return {
+          scale: 0.75,
+          showLabels: true,
+          labelScale: 0.8,
+          glow: 0.6,
+          electrons: 3,
+        };
+
+      if (size < 480)
+        return {
+          scale: 0.9,
+          showLabels: true,
+          labelScale: 0.9,
+          glow: 0.85,
+          electrons: 3,
+        };
+
+      return {
+        scale: 1,
+        showLabels: true,
+        labelScale: 1,
+        glow: 1,
+        electrons: 3,
+      };
+    };
+
+    /* ---------- RESIZE ---------- */
+
     const resize = () => {
       const rect = container.getBoundingClientRect();
       const dpr = Math.min(2, window.devicePixelRatio || 1);
 
       canvas.width = Math.max(1, rect.width * dpr);
       canvas.height = Math.max(1, rect.height * dpr);
+
       canvas.style.width = `${rect.width}px`;
       canvas.style.height = `${rect.height}px`;
 
+      // IMPORTANT: switch drawing back to CSS pixel space
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     resize();
-    window.addEventListener("resize", resize);
+    const ro = new ResizeObserver(resize);
+    ro.observe(container);
 
     /* ---------- DRAW HELPERS ---------- */
 
@@ -97,13 +137,13 @@ export default function NeonAtomicOrbit({
       base: RGB,
       highlight: RGB
     ) => {
-      const halo = ctx.createRadialGradient(x, y, r * 0.25, x, y, r * 2.1);
-      halo.addColorStop(0, `rgba(${base.r},${base.g},${base.b},0.55)`);
+      const halo = ctx.createRadialGradient(x, y, r * 0.25, x, y, r * 2);
+      halo.addColorStop(0, `rgba(${base.r},${base.g},${base.b},0.5)`);
       halo.addColorStop(1, "rgba(0,0,0,0)");
 
       ctx.fillStyle = halo;
       ctx.beginPath();
-      ctx.arc(x, y, r * 2.1, 0, TAU);
+      ctx.arc(x, y, r * 2, 0, TAU);
       ctx.fill();
 
       const body = ctx.createRadialGradient(
@@ -134,8 +174,8 @@ export default function NeonAtomicOrbit({
       ctx.fillStyle = "rgba(255,255,255,0.9)";
       ctx.textAlign = "center";
       ctx.textBaseline = "top";
-      ctx.shadowColor = "rgba(255,0,0,0.5)";
-      ctx.shadowBlur = size * 0.6;
+      ctx.shadowColor = "rgba(255,0,0,0.45)";
+      ctx.shadowBlur = size * 0.4;
       ctx.fillText(text, x, y + size * 0.9);
       ctx.restore();
     };
@@ -145,9 +185,9 @@ export default function NeonAtomicOrbit({
     const rings: Ring[] = [{ rot: 0 }, { rot: 1.05 }, { rot: -1.05 }];
 
     const electrons: Electron[] = [
-      { ring: 0, t: 0, speed: 0.65, label: "Partners" },
+      { ring: 0, t: 0, speed: 0.6, label: "Partners" },
       { ring: 1, t: 2.2, speed: 0.55, label: "Customers" },
-      { ring: 2, t: 4.1, speed: 0.6, label: "Vendors" },
+      { ring: 2, t: 4.1, speed: 0.58, label: "Vendors" },
     ];
 
     const look = {
@@ -171,38 +211,44 @@ export default function NeonAtomicOrbit({
       return {
         x: cx + ex * cr - ey * sr,
         y: cy + ex * sr + ey * cr,
-        z: Math.sin(t),
       };
     };
+
+    /* ---------- FRAME LOOP ---------- */
 
     const frame = (now: number) => {
       const dt = Math.min(0.033, (now - last) / 1000);
       last = now;
 
-      const w = canvas.width;
-      const h = canvas.height;
-      const min = Math.min(w, h);
+      const rect = container.getBoundingClientRect();
+      const min = Math.min(rect.width, rect.height);
+      const profile = getProfile(min);
 
-      ctx.clearRect(0, 0, w, h);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const cx = w / 2;
-      const cy = h / 2;
+      // IMPORTANT: center in CSS pixels, not device pixels
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
 
-      const scale = mode === "tablet" ? 0.75 : 1;
-
-      const rx = min * 0.27 * scale;
-      const ry = min * 0.14 * scale;
-      const nucleusRadius = min * 0.055 * scale;
-      const electronRadius = min * 0.032 * scale;
-      const labelSize =
-        mode === "tablet" ? Math.max(9, min * 0.02) : Math.max(11, min * 0.028);
+      const rx = min * 0.26 * profile.scale;
+      const ry = min * 0.14 * profile.scale;
+      const nucleusRadius = min * 0.055 * profile.scale;
+      const electronRadius = min * 0.03 * profile.scale;
+      const labelSize = Math.max(
+        9,
+        min * 0.025 * profile.scale * profile.labelScale
+      );
 
       rings.forEach((r) => {
         ellipsePath(cx, cy, rx, ry, r.rot);
-        neonStrokePath(look.core, look.glow, min * 0.01, min * 0.0035);
+        neonStrokePath(
+          look.core,
+          look.glow,
+          min * 0.01 * profile.glow,
+          min * 0.0035
+        );
       });
 
-      // center nucleus
       glossySphere(
         cx,
         cy,
@@ -210,9 +256,12 @@ export default function NeonAtomicOrbit({
         { r: 160, g: 0, b: 0 },
         { r: 255, g: 70, b: 70 }
       );
-      drawLabel("Securotix", cx, cy + nucleusRadius, labelSize);
 
-      electrons.forEach((e) => {
+      if (profile.showLabels) {
+        drawLabel("Securotix", cx, cy + nucleusRadius, labelSize);
+      }
+
+      electrons.slice(0, profile.electrons).forEach((e) => {
         e.t = (e.t + dt * e.speed) % TAU;
         const ring = rings[e.ring];
         const p = pointOnRotEllipse(cx, cy, rx, ry, ring.rot, e.t);
@@ -225,7 +274,10 @@ export default function NeonAtomicOrbit({
           { r: 255, g: 70, b: 70 }
         );
 
-        drawLabel(e.label, p.x, p.y, labelSize * 0.9);
+        if (profile.showLabels) {
+          const labelOffset = electronRadius + labelSize * 0.6;
+          drawLabel(e.label, p.x, p.y + labelOffset, labelSize * 0.9);
+        }
       });
 
       animationId = requestAnimationFrame(frame);
@@ -235,12 +287,12 @@ export default function NeonAtomicOrbit({
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", resize);
+      ro.disconnect();
     };
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-full">
+    <div ref={containerRef} className="relative w-full h-full overflow-hidden">
       <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
   );

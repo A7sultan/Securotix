@@ -47,9 +47,6 @@ const Nucleus = () => {
             </div>
 
             <div className="max-w-xl text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Nucleus
-              </h1>
 
               <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
                 Vulnerability Management Orchestration built to cut through
