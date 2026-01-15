@@ -74,14 +74,6 @@ export const Footer = () => {
                   Blog
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/partners"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Partners
-                </NavLink>
-              </li>
             </ul>
           </div>
 

@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { VendorLayout } from "@/components/partners/VendorLayout";
 import FudoLogo from "@/assets/fudo.png";
 import { FancyLine } from "@/components/ui/FancyLine";
-import fudoHeroBg from "@/assets/Glowing energy stream in cybernetic space.png";
-import solutionImg from "@/assets/points.jpg";
-import differentiatorImg from "@/assets/earth.jpg";
+import solutionImg from "@/assets/red-lock.jpg";
+import differentiatorImg from "@/assets/Fudo Bg 2.webp";
 import { motion } from "framer-motion";
+import { CyberParticles } from "@/components/CyberParticles";
 
 const Fudo = () => {
   const navigate = useNavigate();
@@ -26,29 +26,27 @@ const Fudo = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-        <img
-          src={fudoHeroBg}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/40 to-black/70" />
+        <CyberParticles />
 
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div className="flex justify-center lg:justify-start">
-              <img
-                src={FudoLogo}
-                alt="Fudo logo"
-                className="max-h-28 sm:max-h-32 object-contain"
-              />
+            <div className="flex justify-center lg:justify-start lg:ml-14">
+              <a
+                href="https://www.fudosecurity.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Fudo Security website"
+                className="inline-block hover:opacity-90 transition-opacity"
+              >
+                <img
+                  src={FudoLogo}
+                  alt="Fudo logo"
+                  className="max-h-28 sm:max-h-32 object-contain cursor-pointer"
+                />
+              </a>
             </div>
 
             <div className="max-w-xl text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Fudo
-              </h1>
-
               <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
                 Secure, monitor, and control privileged access without
                 credentials or VPNs.
@@ -99,13 +97,11 @@ const Fudo = () => {
               {[
                 {
                   title: "What We Solve",
-                  text:
-                    "Stop credential theft, insider abuse, and privilege escalation by eliminating standing privileges and fully monitoring privileged activity.",
+                  text: "Stop credential theft, insider abuse, and privilege escalation by eliminating standing privileges and fully monitoring privileged activity.",
                 },
                 {
                   title: "How We Do It",
-                  text:
-                    "A credential-less PAM platform that controls, records, and audits every privileged session in real time, without requiring VPNs.",
+                  text: "A credential-less PAM platform that controls, records, and audits every privileged session in real time, without requiring VPNs.",
                 },
               ].map((item, i) => (
                 <motion.div
@@ -186,7 +182,9 @@ const Fudo = () => {
             <FancyLine width="w-24" className="mb-10" />
 
             <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>Best-in-class session recording (video, keystrokes, metadata)</li>
+              <li>
+                Best-in-class session recording (video, keystrokes, metadata)
+              </li>
               <li>Real-time session takeover to stop threats instantly</li>
               <li>No VPN required – browser-based privileged access</li>
               <li>Fast deployment with minimal infrastructure</li>

@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { VendorLayout } from "@/components/partners/VendorLayout";
 import JizoAILogo from "@/assets/jizoai.png";
 import { FancyLine } from "@/components/ui/FancyLine";
-import jizoHeroBg from "@/assets/Glowing energy stream in cybernetic space.png";
-import solutionImg from "@/assets/points.jpg";
-import differentiatorImg from "@/assets/earth.jpg";
+import solutionImg from "@/assets/block.jpg";
+import differentiatorImg from "@/assets/safe.jpg";
 import { motion } from "framer-motion";
+import { CyberParticles } from "@/components/CyberParticles";
 
 const JizoAI = () => {
   const navigate = useNavigate();
@@ -26,22 +26,24 @@ const JizoAI = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-        <img
-          src={jizoHeroBg}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/40 to-black/70" />
+        <CyberParticles />
 
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center lg:justify-start">
-              <img
-                src={JizoAILogo}
-                alt="Jizo AI logo"
-                className="max-h-28 sm:max-h-32 object-contain"
-              />
+              <a
+                href="https://sesame-it.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Jizo AI website"
+                className="inline-block hover:opacity-90 transition-opacity"
+              >
+                <img
+                  src={JizoAILogo}
+                  alt="Jizo AI logo"
+                  className="max-h-28 sm:max-h-32 object-contain cursor-pointer"
+                />
+              </a>
             </div>
 
             <div className="max-w-xl text-center lg:text-left">
@@ -50,7 +52,8 @@ const JizoAI = () => {
               </h1>
 
               <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
-                AI-powered Network Detection & Response for faster, smarter SOCs.
+                AI-powered Network Detection & Response for faster, smarter
+                SOCs.
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
@@ -88,22 +91,21 @@ const JizoAI = () => {
             <FancyLine width="w-24" className="mb-8" />
 
             <p className="text-base sm:text-lg leading-relaxed text-white/80 max-w-xl mb-10">
-              Jizo AI is an AI-powered Network Detection & Response (NDR) platform
-              delivering real-time threat detection across IT, OT, cloud, and
-              hybrid environments, helping SOC teams act faster with confidence.
+              Jizo AI is an AI-powered Network Detection & Response (NDR)
+              platform delivering real-time threat detection across IT, OT,
+              cloud, and hybrid environments, helping SOC teams act faster with
+              confidence.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl">
               {[
                 {
                   title: "What We Solve",
-                  text:
-                    "Eliminate alert fatigue, uncover missed attacks, and reduce slow SOC response caused by noisy, disconnected security tools.",
+                  text: "Eliminate alert fatigue, uncover missed attacks, and reduce slow SOC response caused by noisy, disconnected security tools.",
                 },
                 {
                   title: "How We Do It",
-                  text:
-                    "An AI-powered behavioral detection engine that filters noise, identifies hidden threats, and guides analysts with clear, contextual insights.",
+                  text: "An AI-powered behavioral detection engine that filters noise, identifies hidden threats, and guides analysts with clear, contextual insights.",
                 },
               ].map((item, i) => (
                 <motion.div

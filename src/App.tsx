@@ -24,7 +24,7 @@ import SupportServices from "./pages/services/SupportServices";
 import VAPTServices from "./pages/services/Cybersecurity Advisory and Training/VAPTServices";
 import WebAppSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/WebAppSecurityTesting";
 import MobileAppSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/MobileAppSecurityTesting";
-import Vendors from "./pages/Customers";
+import Vendors from "./pages/Vendors";
 import ScrollToTop from "./components/ScrollToTop";
 import NetworkPenetrationTesting from "./pages/services/Cybersecurity Advisory and Training/NetworkPenetrationTesting";
 import CloudPenetrationTesting from "./pages/services/Cybersecurity Advisory and Training/CloudPenetrationTesting";

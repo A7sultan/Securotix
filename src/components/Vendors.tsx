@@ -8,6 +8,8 @@ import logoFudo from "@/assets/fudo.png";
 import logoNucleus from "@/assets/nucleus.png";
 import logoMazeBolt from "@/assets/mazebolt.png";
 import logoJizoAI from "@/assets/jizoai.png";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 type Vendor = {
   name: string;
@@ -111,6 +113,23 @@ const vendorGroups: VendorGroup[] = [
 ];
 
 const Vendors = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const yOffset = -140;
+    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({
+      top: Math.max(y, 0),
+      behavior: "smooth",
+    });
+  }, [hash]);
+
   return (
     <div className="min-h-screen bg-background">
       <main className="pt-36 pb-28 container mx-auto px-6 max-w-7xl">
@@ -123,16 +142,20 @@ const Vendors = () => {
         {/* VENDOR GROUPS */}
         <div className="space-y-28">
           {vendorGroups.map((group, gi) => (
-            <section key={gi}>
+            <section
+              key={gi}
+              id={group.heading.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
+            >
               <div className="mb-12 max-w-3xl">
                 <h2 className="text-3xl font-bold mb-3">{group.heading}</h2>
+                <div className="fancy-line w-38 mb-6" />
                 <p className="text-muted-foreground text-lg">
                   {group.description}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                {group.vendors.map(vendor => (
+                {group.vendors.map((vendor) => (
                   <NavLink
                     key={vendor.name}
                     to={vendor.path}

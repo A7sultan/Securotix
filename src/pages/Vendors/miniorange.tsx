@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { VendorLayout } from "../../components/partners/VendorLayout";
-import MiniOrangeLogo from "@/assets/miniorange.png";
+import MiniOrangeLogo from "@/assets/Full Logo white@3x.png";
 import { FancyLine } from "@/components/ui/FancyLine";
-import miniOrangeHeroBg from "@/assets/Glowing energy stream in cybernetic space.png";
-import solutionImg from "@/assets/points.jpg";
-import differentiatorImg from "@/assets/earth.jpg";
+import solutionImg from "@/assets/miniorange solutions.png";
+import differentiatorImg from "@/assets/Securotix Bg 1.jpg";
 import { motion } from "framer-motion";
+import { CyberParticles } from "@/components/CyberParticles";
 
 const MiniOrange = () => {
   const navigate = useNavigate();
@@ -26,29 +26,27 @@ const MiniOrange = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-        <img
-          src={miniOrangeHeroBg}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/40 to-black/70" />
+        <CyberParticles />
 
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center lg:justify-start">
-              <img
-                src={MiniOrangeLogo}
-                alt="MiniOrange logo"
-                className="max-h-28 sm:max-h-32 object-contain"
-              />
+              <a
+                href="https://www.miniorange.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit MiniOrange website"
+                className="inline-block hover:opacity-90 transition-opacity"
+              >
+                <img
+                  src={MiniOrangeLogo}
+                  alt="MiniOrange logo"
+                  className="max-h-28 sm:max-h-32 object-contain cursor-pointer"
+                />
+              </a>
             </div>
 
             <div className="max-w-xl text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-                MiniOrange
-              </h1>
-
               <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
                 Identity and Access Management built for secure, flexible, and
                 scalable enterprise access.
@@ -98,13 +96,11 @@ const MiniOrange = () => {
               {[
                 {
                   title: "What We Solve",
-                  text:
-                    "Prevent unauthorized access, credential abuse, and insider breaches. Control who accesses what, from anywhere.",
+                  text: "Prevent unauthorized access, credential abuse, and insider breaches. Control who accesses what, from anywhere.",
                 },
                 {
                   title: "How We Do It",
-                  text:
-                    "Cloud-based SSO, MFA, and Zero Trust enforcing identity-driven access to applications, VPNs, cloud, and on-prem systems.",
+                  text: "Cloud-based SSO, MFA, and Zero Trust enforcing identity-driven access to applications, VPNs, cloud, and on-prem systems.",
                 },
               ].map((item, i) => (
                 <motion.div
@@ -153,7 +149,11 @@ const MiniOrange = () => {
 
           <div className="relative h-[420px] rounded-2xl overflow-hidden">
             <div className="absolute inset-0" />
-            <img src={solutionImg} alt="" className="w-full h-full object-cover" />
+            <img
+              src={solutionImg}
+              alt=""
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
