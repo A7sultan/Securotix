@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { VendorLayout } from "@/components/partners/VendorLayout";
-import JizoAILogo from "@/assets/jizoai.png";
+import JizoAILogo from "@/assets/Jizô-AI-blanc-et-jaune-square-800-px.png";
 import { FancyLine } from "@/components/ui/FancyLine";
 import solutionImg from "@/assets/block.jpg";
 import differentiatorImg from "@/assets/safe.jpg";
@@ -45,12 +45,7 @@ const JizoAI = () => {
                 />
               </a>
             </div>
-
             <div className="max-w-xl text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Jizo AI
-              </h1>
-
               <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
                 AI-powered Network Detection & Response for faster, smarter
                 SOCs.

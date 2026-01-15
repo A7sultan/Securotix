@@ -47,9 +47,6 @@ const Tufin = () => {
             </div>
 
             <div className="max-w-xl text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Tufin
-              </h1>
 
               <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
                 Automating network security policies across hybrid and
