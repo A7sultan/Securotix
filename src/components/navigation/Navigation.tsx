@@ -13,7 +13,7 @@ export const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20); 
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -25,15 +25,15 @@ export const Navigation = () => {
       className={`
         fixed top-0 left-0 right-0 z-50
         transition-all duration-500
-        ${scrolled 
-          ? "bg-black/90 backdrop-blur border-b border-white/10" 
-          : "bg-transparent"
+        ${
+          scrolled
+            ? "bg-black/90 backdrop-blur border-b border-white/10"
+            : "bg-transparent"
         }
       `}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex items-center justify-between h-24 lg:h-32">
-
           {/* Logo */}
           <Link to="/" aria-label="Go to Home">
             <img
@@ -47,27 +47,27 @@ export const Navigation = () => {
           <div className="hidden lg:flex items-center gap-8">
             <DesktopMenu items={navData} />
 
-            <a href="/contact">
+            <Link to="/contact">
               <Button
                 size="lg"
                 className="
-                  bg-primary
-                  text-primary-foreground
-                  hover:bg-primary/90
-                  neon-pulse
-                  text-lg
-                  px-8
-                  py-6
-                "
+      bg-primary
+      text-primary-foreground
+      hover:bg-primary/90
+      neon-pulse
+      text-lg
+      px-8
+      py-6
+    "
               >
                 Get a Quote
               </Button>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile toggle */}
           <button
-            onClick={() => setOpen(o => !o)}
+            onClick={() => setOpen((o) => !o)}
             className="lg:hidden text-white"
           >
             {open ? <X size={32} /> : <Menu size={32} />}
