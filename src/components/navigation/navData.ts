@@ -12,7 +12,28 @@ export const navData: NavItem[] = [
       { label: "Careers", href: "/careers" },
     ],
   },
-  { label: "Vendors", href: "/vendors"},
+{
+  label: "Vendors",
+  children: [
+    {
+      label: "Identity & Access Security",
+      href: "/vendors#identity-access-security-zero-trust-core",
+    },
+    {
+      label: "Network & Infrastructure Control Layer",
+      href: "/vendors#network-infrastructure-control-layer",
+    },
+    {
+      label: "Vulnerability & Exposure Intelligence",
+      href: "/vendors#vulnerability-exposure-intelligence",
+    },
+    {
+      label: "Detection, Threat Hunting & AI Defense",
+      href: "/vendors#detection-threat-hunting-ai-defense",
+    },
+  ],
+},
+
   {
     label: "Services",
     children: [
@@ -23,6 +44,5 @@ export const navData: NavItem[] = [
     ],
   },
   { label: "Blog", href: "/blog" },
-  { label: "Partners", href: "/partners" },
   { label: "Contact", href: "/contact" },
 ];

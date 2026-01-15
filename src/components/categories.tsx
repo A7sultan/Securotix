@@ -1,4 +1,3 @@
-// src/data/partners.ts
 export const categories = [
   {
     name: "Identity & Zero Trust",

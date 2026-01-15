@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { VendorLayout } from "@/components/partners/VendorLayout";
 import MazeBoltLogo from "@/assets/mazebolt.png";
 import { FancyLine } from "@/components/ui/FancyLine";
-import mazeboltHeroBg from "@/assets/Glowing energy stream in cybernetic space.png";
-import solutionImg from "@/assets/points.jpg";
-import differentiatorImg from "@/assets/earth.jpg";
+import solutionImg from "@/assets/map.jpg";
+import differentiatorImg from "@/assets/hacker.jpg";
 import { motion } from "framer-motion";
+import { CyberParticles } from "@/components/CyberParticles";
 
 const MazeBolt = () => {
   const navigate = useNavigate();
@@ -26,32 +26,30 @@ const MazeBolt = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-        <img
-          src={mazeboltHeroBg}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/40 to-black/70" />
+        <CyberParticles />
 
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center lg:justify-start">
-              <img
-                src={MazeBoltLogo}
-                alt="MazeBolt logo"
-                className="max-h-28 sm:max-h-32 object-contain"
-              />
+              <a
+                href="https://mazebolt.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit MazeBolt website"
+                className="inline-block hover:opacity-90 transition-opacity"
+              >
+                <img
+                  src={MazeBoltLogo}
+                  alt="MazeBolt logo"
+                  className="max-h-28 sm:max-h-32 object-contain cursor-pointer"
+                />
+              </a>
             </div>
 
             <div className="max-w-xl text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-                MazeBolt
-              </h1>
-
               <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
-                Proactive DDoS security through continuous attack surface testing
-                and validation.
+                Proactive DDoS security through continuous attack surface
+                testing and validation.
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
@@ -98,13 +96,11 @@ const MazeBolt = () => {
               {[
                 {
                   title: "What We Solve",
-                  text:
-                    "Unknown DDoS exposure that could take down your business. Organizations lack visibility into how real attackers could disrupt their infrastructure.",
+                  text: "Unknown DDoS exposure that could take down your business. Organizations lack visibility into how real attackers could disrupt their infrastructure.",
                 },
                 {
                   title: "How We Do It",
-                  text:
-                    "Automated real-world DDoS simulations that safely test how attackers could disrupt your infrastructure without impacting production.",
+                  text: "Automated real-world DDoS simulations that safely test how attackers could disrupt your infrastructure without impacting production.",
                 },
               ].map((item, i) => (
                 <motion.div

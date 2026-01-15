@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { VendorLayout } from "@/components/partners/VendorLayout";
 import TufinLogo from "@/assets/tufin.png";
 import { FancyLine } from "@/components/ui/FancyLine";
-import tufinHeroBg from "@/assets/Glowing energy stream in cybernetic space.png";
-import solutionImg from "@/assets/points.jpg";
-import differentiatorImg from "@/assets/earth.jpg";
+import solutionImg from "@/assets/tufin solutions.png";
+import differentiatorImg from "@/assets/tufin diff.png";
 import { motion } from "framer-motion";
+import { CyberParticles } from "@/components/CyberParticles";
 
 const Tufin = () => {
   const navigate = useNavigate();
@@ -26,22 +26,24 @@ const Tufin = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-        <img
-          src={tufinHeroBg}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/40 to-black/70" />
+        <CyberParticles />
 
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center lg:justify-start">
-              <img
-                src={TufinLogo}
-                alt="Tufin logo"
-                className="max-h-28 sm:max-h-32 object-contain"
-              />
+              <a
+                href="https://www.tufin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Tufin website"
+                className="inline-block hover:opacity-90 transition-opacity"
+              >
+                <img
+                  src={TufinLogo}
+                  alt="Tufin logo"
+                  className="max-h-28 sm:max-h-32 object-contain cursor-pointer"
+                />
+              </a>
             </div>
 
             <div className="max-w-xl text-center lg:text-left">
@@ -50,8 +52,8 @@ const Tufin = () => {
               </h1>
 
               <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
-                Automating network security policies across hybrid and multi-cloud
-                environments.
+                Automating network security policies across hybrid and
+                multi-cloud environments.
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
@@ -99,13 +101,11 @@ const Tufin = () => {
               {[
                 {
                   title: "What We Solve",
-                  text:
-                    "Eliminate firewall misconfigurations, shadow rules, and risky network exposures that increase attack surfaces and compliance risk.",
+                  text: "Eliminate firewall misconfigurations, shadow rules, and risky network exposures that increase attack surfaces and compliance risk.",
                 },
                 {
                   title: "How We Do It",
-                  text:
-                    "An automated security policy orchestration platform that manages firewall, cloud, and network rules consistently across hybrid environments.",
+                  text: "An automated security policy orchestration platform that manages firewall, cloud, and network rules consistently across hybrid environments.",
                 },
               ].map((item, i) => (
                 <motion.div

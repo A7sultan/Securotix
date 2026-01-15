@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { VendorLayout } from "../../components/partners/VendorLayout";
-import OneKosmosLogo from "@/assets/1kosmos.png";
+import OneKosmosLogo from "@/assets/1K-Wordmark-White.png";
 import { FancyLine } from "@/components/ui/FancyLine";
-import kosmosHeroBg from "@/assets/Glowing energy stream in cybernetic space.png";
 import solutionImg from "@/assets/points.jpg";
 import differentiatorImg from "@/assets/earth.jpg";
 import { motion } from "framer-motion";
+import { CyberParticles } from "@/components/CyberParticles";
 
 const OneKosmos = () => {
   const navigate = useNavigate();
@@ -26,36 +26,31 @@ const OneKosmos = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-        {/* Background */}
-        <img
-          src={kosmosHeroBg}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        {/* Directional Fade */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/60 to-black/90" />
-
+        <CyberParticles />
         {/* Content */}
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center lg:justify-start">
-              <img
-                src={OneKosmosLogo}
-                alt="1Kosmos logo"
-                className="max-h-28 sm:max-h-32 object-contain"
-              />
+              <a
+                href="https://www.1kosmos.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit 1Kosmos website"
+                className="inline-block hover:opacity-90 transition-opacity"
+              >
+                <img
+                  src={OneKosmosLogo}
+                  alt="1Kosmos logo"
+                  className="max-h-28 sm:max-h-32 object-contain cursor-pointer"
+                />
+              </a>
             </div>
 
             <div className="max-w-xl text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-                1Kosmos
-              </h1>
-
-              <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
+              <h2 className="text-xl sm:text-xl text-white/90 mb-10 leading-relaxed">
                 Passwordless identity verification and authentication built on
                 high-assurance biometrics.
-              </p>
+              </h2>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                 <button
@@ -80,9 +75,7 @@ const OneKosmos = () => {
       {/* ================================================= */}
       {/* ABOUT + CARDS (BACKGROUND IMAGE) */}
       {/* ================================================= */}
-      <section
-        className="relative px-6 sm:px-10 lg:px-24 py-28 overflow-hidden"
-      >
+      <section className="relative px-6 sm:px-10 lg:px-24 py-28 overflow-hidden">
         <div className="absolute inset-0 bg-black/75" />
 
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -94,23 +87,21 @@ const OneKosmos = () => {
             <FancyLine width="w-24" className="mb-8" />
 
             <p className="text-base sm:text-lg leading-relaxed text-white/80 max-w-xl mb-10">
-              1Kosmos is a leader in identity-based security, delivering a unified
-              platform that eliminates passwords while providing strong identity
-              assurance through biometric verification and decentralized
-              identity.
+              1Kosmos is a leader in identity-based security, delivering a
+              unified platform that eliminates passwords while providing strong
+              identity assurance through biometric verification and
+              decentralized identity.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl">
               {[
                 {
                   title: "What We Solve",
-                  text:
-                    "Eliminate stolen passwords, identity fraud, and account takeover. Verify users once and authenticate them for life.",
+                  text: "Eliminate stolen passwords, identity fraud, and account takeover. Verify users once and authenticate them for life.",
                 },
                 {
                   title: "How We Do It",
-                  text:
-                    "A biometric-verified digital identity platform enabling passwordless login and continuous authentication.",
+                  text: "A biometric-verified digital identity platform enabling passwordless login and continuous authentication.",
                 },
               ].map((item, i) => (
                 <motion.div
