@@ -1,13 +1,13 @@
 import { NavLink } from "@/components/navigation/NavLink";
 
 // LOGOS
-import logo1kosmos from "@/assets/1kosmos.png";
-import logoMiniOrange from "@/assets/miniorange.png";
+import logo1kosmos from "@/assets/1K-Wordmark-White.png";
+import logoMiniOrange from "@/assets/Full Logo white@3x.png";
 import logoTufin from "@/assets/tufin.png";
 import logoFudo from "@/assets/fudo.png";
 import logoNucleus from "@/assets/nucleus.png";
 import logoMazeBolt from "@/assets/mazebolt.png";
-import logoJizoAI from "@/assets/jizoai.png";
+import logoJizoAI from "@/assets/Jizô-AI-blanc-et-jaune-square-800-px.png";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 

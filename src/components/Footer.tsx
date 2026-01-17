@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { NavLink } from "./navigation/NavLink";
-import Logo from "../assets/Frame 1.png";
+import Logo from "../assets/logo_transparent.png";
 
 export const Footer = () => {
   return (

@@ -33,41 +33,42 @@ export default function NeonAtomicOrbit() {
     /* ---------- RESPONSIVE PROFILE ---------- */
 
     const getProfile = (size: number) => {
-      if (size < 260)
-        return {
-          scale: 0.6,
-          showLabels: true,
-          labelScale: 0.7,
-          glow: 0.4,
-          electrons: 2,
-        };
-
-      if (size < 360)
-        return {
-          scale: 0.75,
-          showLabels: true,
-          labelScale: 0.8,
-          glow: 0.6,
-          electrons: 3,
-        };
-
-      if (size < 480)
-        return {
-          scale: 0.9,
-          showLabels: true,
-          labelScale: 0.9,
-          glow: 0.85,
-          electrons: 3,
-        };
-
-      return {
-        scale: 1,
-        showLabels: true,
-        labelScale: 1,
-        glow: 1,
-        electrons: 3,
-      };
+  if (size < 260)
+    return {
+      scale: 0.85,
+      showLabels: true,
+      labelScale: 0.78,
+      glow: 0.55,
+      electrons: 2,
     };
+
+  if (size < 360)
+    return {
+      scale: 1,
+      showLabels: true,
+      labelScale: 0.88,
+      glow: 0.7,
+      electrons: 3,
+    };
+
+  if (size < 480)
+    return {
+      scale: 1.12,
+      showLabels: true,
+      labelScale: 0.95,
+      glow: 0.9,
+      electrons: 3,
+    };
+
+  return {
+    scale: 1.25,
+    showLabels: true,
+    labelScale: 1,
+    glow: 1,
+    electrons: 3,
+  };
+};
+
 
     /* ---------- RESIZE ---------- */
 
