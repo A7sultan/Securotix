@@ -52,10 +52,19 @@ export default function ValueProposition() {
             complement each other through transparency, trust, and innovation.
           </p>
         </div>
-
+        
         {/* ORBIT CENTERPIECE */}
         <div className="relative flex justify-center items-center my-12 sm:my-16">
-          <div className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[520px] aspect-square">
+          <div
+            className="
+      w-full
+      max-w-[380px]
+      sm:max-w-[520px]
+      lg:max-w-[680px]
+      xl:max-w-[760px]
+      aspect-square
+    "
+          >
             <NeonAtomicOrbit />
           </div>
         </div>
