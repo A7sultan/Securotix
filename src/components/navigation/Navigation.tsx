@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { DesktopMenu } from "./DesktopMenu";
 import { MobileMenu } from "./MobileMenu";
 import { navData } from "./navData";
-import logo from "../../assets/Frame 1.png";
+import logo from "../../assets/logo_transparent.png";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";

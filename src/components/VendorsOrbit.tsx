@@ -8,7 +8,7 @@ import logoFudo from "@/assets/fudo.png";
 import logoNucleus from "@/assets/nucleus.png";
 import logoMazeBolt from "@/assets/mazebolt.png";
 import logoJizoAI from "@/assets/Jizô-AI-blanc-et-jaune-square-800-px.png";
-import coreLogo from "@/assets/Frame 1.png";
+import coreLogo from "@/assets/logo_transparent.png";
 
 type Vendor = {
   name: string;
