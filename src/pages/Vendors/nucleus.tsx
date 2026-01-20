@@ -5,6 +5,8 @@ import { FancyLine } from "@/components/ui/FancyLine";
 import solutionImg from "@/assets/nucleus sol.jpg";
 import differentiatorImg from "@/assets/nucleus diff.jpg";
 import { motion } from "framer-motion";
+import { PeerInsightsCardNucleus } from "@/components/vendors/PeerInsightsCardNucleus";
+import { CheckCircle2 } from "lucide-react";
 const Nucleus = () => {
   const navigate = useNavigate();
 
@@ -24,7 +26,6 @@ const Nucleus = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center lg:justify-start">
@@ -44,7 +45,6 @@ const Nucleus = () => {
             </div>
 
             <div className="max-w-xl text-center lg:text-left">
-
               <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
                 Vulnerability Management Orchestration built to cut through
                 noise and focus on what actually matters.
@@ -120,8 +120,9 @@ const Nucleus = () => {
               ))}
             </div>
           </div>
-
-          <div className="hidden lg:block" />
+          <div className="hidden lg:flex justify-center lg:justify-end">
+            <PeerInsightsCardNucleus />
+          </div>
         </div>
       </section>
 
@@ -171,20 +172,48 @@ const Nucleus = () => {
             />
           </div>
 
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+          <div className="max-w-xl">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               Key Differentiators
             </h2>
 
+            {/* ✅ Fancy line under title */}
             <FancyLine width="w-24" className="mb-10" />
 
-            <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>Single pane of glass for all vulnerability sources</li>
-              <li>Exploitability + business impact–driven prioritization</li>
-              <li>Massive automation reduces manual triage</li>
-              <li>150+ integrations with security and IT tools</li>
-              <li>Visual threat heat-maps across assets</li>
-            </ul>
+            {/* ✅ Differentiators list (from screenshot) */}
+            <div className="space-y-6 text-white/80">
+              <div className="flex gap-3">
+                <CheckCircle2 className="w-5 h-5 text-red-400 mt-1 shrink-0" />
+                <p className="leading-relaxed">
+                  <span className="font-semibold text-white">
+                    Orchestration Capabilities:
+                  </span>{" "}
+                  Unifies data from various security and business tools,
+                  enabling dynamic automations
+                </p>
+              </div>
+
+              <div className="flex gap-3">
+                <CheckCircle2 className="w-5 h-5 text-red-400 mt-1 shrink-0" />
+                <p className="leading-relaxed">
+                  <span className="font-semibold text-white">
+                    FedRAMP Authorization:
+                  </span>{" "}
+                  Adheres to rigorous security standards for federal agencies
+                  and defense contractors
+                </p>
+              </div>
+
+              <div className="flex gap-3">
+                <CheckCircle2 className="w-5 h-5 text-red-400 mt-1 shrink-0" />
+                <p className="leading-relaxed">
+                  <span className="font-semibold text-white">
+                    Agentless Integration:
+                  </span>{" "}
+                  Integrates without requiring agents, simplifying deployment
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

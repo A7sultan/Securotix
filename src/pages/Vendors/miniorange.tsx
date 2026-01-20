@@ -5,6 +5,7 @@ import { FancyLine } from "@/components/ui/FancyLine";
 import solutionImg from "@/assets/miniorange solutions.png";
 import differentiatorImg from "@/assets/Securotix Bg 1.jpg";
 import { motion } from "framer-motion";
+import { PeerInsightsCardMiniOrange } from "@/components/vendors/PeerInsightsCardMiniOrange";
 
 const MiniOrange = () => {
   const navigate = useNavigate();
@@ -25,8 +26,6 @@ const MiniOrange = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-
-
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center lg:justify-start">
@@ -121,7 +120,9 @@ const MiniOrange = () => {
             </div>
           </div>
 
-          <div className="hidden lg:block" />
+          <div className="hidden lg:flex justify-center lg:justify-end">
+            <PeerInsightsCardMiniOrange />
+          </div>
         </div>
       </section>
 
