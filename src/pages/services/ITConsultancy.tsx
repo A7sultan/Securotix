@@ -1,7 +1,6 @@
 import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { CyberParticles } from "@/components/CyberParticles";
 import ItConsultancyImg from "@/assets/IT Consultancy service.jpg";
 
 const fadeUp = {
@@ -20,7 +19,6 @@ const stagger = {
 const ITConsultancy = () => {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
-      <CyberParticles />
       <Navigation />
 
       <main className="pt-36 pb-24 relative">

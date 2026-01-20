@@ -32,19 +32,30 @@ export const HeroSection = () => {
             <span className="block mb-3">A Distributor That</span>
 
             {/* flipping text block */}
-            <span className="relative inline-flex flex-col">
-              <span className="overflow-hidden h-[78px] md:h-[92px]">
+            <span className="relative flex flex-col items-start">
+              <span
+                className="relative block"
+                style={{
+                  perspective: "1000px",
+                  paddingBottom: "0.35em",
+                }}
+              >
                 <span
                   key={index}
                   className="
+        block
         bg-gradient-to-r
         from-primary via-cyber-red-glow to-primary
         bg-clip-text text-transparent
         font-semibold
         text-[clamp(2.2rem,5vw,3.5rem)]
-        leading-[1.15]
+        leading-[1.25]
         flip-anim
       "
+                  style={{
+                    transformStyle: "preserve-3d",
+                    paddingBottom: "0.25em",
+                  }}
                 >
                   {rotatingWords[index]}
                 </span>
@@ -57,7 +68,7 @@ export const HeroSection = () => {
 
           {/* PARAGRAPH BELOW */}
           <p className="text-xl md:text-2xl font-medium">
-            A valued added distribution with an{" "}
+            A Valued Added Distribution With An{" "}
             <span className="text-cyber-red-glow">EDGE</span>
           </p>
         </div>

@@ -1,5 +1,4 @@
 import { Navigation } from "@/components/navigation/Navigation";
-import { CyberParticles } from "@/components/CyberParticles";
 import { MethodologyAndTesting } from "@/components/testing/Methodology";
 import { Benefits } from "@/components/testing/Benefits";
 import { OurApproach } from "@/components/testing/OurApproach";
@@ -21,7 +20,6 @@ export default function MobileAppSecurityTesting() {
       className="min-h-screen bg-background overflow-hidden"
     >
       <Navigation />
-      <CyberParticles />
 
       <main className="pt-36 pb-24 relative">
         {/* Ambient glow */}

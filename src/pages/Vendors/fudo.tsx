@@ -5,7 +5,6 @@ import { FancyLine } from "@/components/ui/FancyLine";
 import solutionImg from "@/assets/red-lock.jpg";
 import differentiatorImg from "@/assets/Fudo Bg 2.webp";
 import { motion } from "framer-motion";
-import { CyberParticles } from "@/components/CyberParticles";
 
 const Fudo = () => {
   const navigate = useNavigate();
@@ -26,7 +25,7 @@ const Fudo = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-        <CyberParticles />
+
 
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">

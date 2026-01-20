@@ -2,7 +2,6 @@ import { Navigation } from "@/components/navigation/Navigation";
 import { Benefits } from "@/components/testing/Benefits";
 import { OurApproach } from "@/components/testing/OurApproach";
 import { webAppTestingData } from "@/data/testing/webAppTesting";
-import { CyberParticles } from "@/components/CyberParticles";
 import { MethodologyAndTesting } from "@/components/testing/Methodology";
 import { Footer } from "@/components/Footer";
 import WebAppImg from "@/assets/webapp.png";
@@ -20,7 +19,6 @@ export default function WebAppSecurityTesting() {
       animate="visible"
       className="min-h-screen bg-background overflow-hidden"
     >
-      <CyberParticles />
       <Navigation />
 
       <main className="pt-36 pb-24 relative">
