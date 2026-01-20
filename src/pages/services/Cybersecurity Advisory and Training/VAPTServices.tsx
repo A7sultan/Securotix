@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
-import { CyberParticles } from "@/components/CyberParticles";
 import { motion } from "framer-motion";
 import VAPTImg from "@/assets/Professional Services.jpg";
 import { NavLink } from "@/components/navigation/NavLink";
@@ -22,7 +21,6 @@ const stagger = {
 const VAPTServices = () => {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
-      <CyberParticles />
       <Navigation />
 
       <main className="pt-36 pb-24 relative">

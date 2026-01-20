@@ -5,8 +5,8 @@ import logo1kosmos from "@/assets/1K-Wordmark-White.png";
 import logoMiniOrange from "@/assets/Full Logo white@3x.png";
 import logoTufin from "@/assets/tufin.png";
 import logoFudo from "@/assets/fudo.png";
-import logoNucleus from "@/assets/nucleus.png";
-import logoMazeBolt from "@/assets/mazebolt.png";
+import logoNucleus from "@/assets/Nucleus Logo_Primary_White.png";
+import logoMazeBolt from "@/assets/Horizontal RGB White.png";
 import logoJizoAI from "@/assets/Jizô-AI-blanc-et-jaune-square-800-px.png";
 import coreLogo from "@/assets/logo_transparent.png";
 
@@ -112,7 +112,6 @@ export default function VendorsOrbit() {
               <div
                 className="
                   w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28
-                  rounded-2xl glass cyber-border
                   flex items-center justify-center
                   transition-all duration-300
                   hover:shadow-[0_0_30px_rgba(255,0,0,.6)]

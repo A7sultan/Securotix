@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import coreLogo from "@/assets/logo_2.png";
 
 const TAU = Math.PI * 2;
 
@@ -26,6 +27,8 @@ export default function NeonAtomicOrbit() {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+    const logoImg = new Image();
+    logoImg.src = coreLogo;
 
     let animationId = 0;
     let last = performance.now();
@@ -33,42 +36,41 @@ export default function NeonAtomicOrbit() {
     /* ---------- RESPONSIVE PROFILE ---------- */
 
     const getProfile = (size: number) => {
-  if (size < 260)
-    return {
-      scale: 0.85,
-      showLabels: true,
-      labelScale: 0.78,
-      glow: 0.55,
-      electrons: 2,
+      if (size < 260)
+        return {
+          scale: 0.85,
+          showLabels: true,
+          labelScale: 0.78,
+          glow: 0.55,
+          electrons: 2,
+        };
+
+      if (size < 360)
+        return {
+          scale: 1,
+          showLabels: true,
+          labelScale: 0.88,
+          glow: 0.7,
+          electrons: 3,
+        };
+
+      if (size < 480)
+        return {
+          scale: 1.12,
+          showLabels: true,
+          labelScale: 0.95,
+          glow: 0.9,
+          electrons: 3,
+        };
+
+      return {
+        scale: 1.25,
+        showLabels: true,
+        labelScale: 1,
+        glow: 1,
+        electrons: 3,
+      };
     };
-
-  if (size < 360)
-    return {
-      scale: 1,
-      showLabels: true,
-      labelScale: 0.88,
-      glow: 0.7,
-      electrons: 3,
-    };
-
-  if (size < 480)
-    return {
-      scale: 1.12,
-      showLabels: true,
-      labelScale: 0.95,
-      glow: 0.9,
-      electrons: 3,
-    };
-
-  return {
-    scale: 1.25,
-    showLabels: true,
-    labelScale: 1,
-    glow: 1,
-    electrons: 3,
-  };
-};
-
 
     /* ---------- RESIZE ---------- */
 
@@ -96,7 +98,7 @@ export default function NeonAtomicOrbit() {
       strokeColor: string,
       glowColor: string,
       glowWidth: number,
-      coreWidth: number
+      coreWidth: number,
     ) => {
       ctx.save();
       ctx.lineCap = "round";
@@ -125,7 +127,7 @@ export default function NeonAtomicOrbit() {
       cy: number,
       rx: number,
       ry: number,
-      rot: number
+      rot: number,
     ) => {
       ctx.beginPath();
       ctx.ellipse(cx, cy, rx, ry, rot, 0, TAU);
@@ -136,7 +138,7 @@ export default function NeonAtomicOrbit() {
       y: number,
       r: number,
       base: RGB,
-      highlight: RGB
+      highlight: RGB,
     ) => {
       const halo = ctx.createRadialGradient(x, y, r * 0.25, x, y, r * 2);
       halo.addColorStop(0, `rgba(${base.r},${base.g},${base.b},0.5)`);
@@ -153,12 +155,12 @@ export default function NeonAtomicOrbit() {
         r * 0.25,
         x,
         y,
-        r
+        r,
       );
 
       body.addColorStop(
         0,
-        `rgba(${highlight.r},${highlight.g},${highlight.b},0.95)`
+        `rgba(${highlight.r},${highlight.g},${highlight.b},0.95)`,
       );
       body.addColorStop(0.45, `rgba(${base.r},${base.g},${base.b},0.95)`);
       body.addColorStop(1, "rgba(20,0,0,0.95)");
@@ -177,7 +179,8 @@ export default function NeonAtomicOrbit() {
       ctx.textBaseline = "top";
       ctx.shadowColor = "rgba(255,0,0,0.45)";
       ctx.shadowBlur = size * 0.4;
-      ctx.fillText(text, x, y + size * 0.9);
+      ctx.fillText(text, x, y + size * 0.25);
+
       ctx.restore();
     };
 
@@ -202,7 +205,7 @@ export default function NeonAtomicOrbit() {
       rx: number,
       ry: number,
       rot: number,
-      t: number
+      t: number,
     ) => {
       const ex = rx * Math.cos(t);
       const ey = ry * Math.sin(t);
@@ -237,7 +240,7 @@ export default function NeonAtomicOrbit() {
       const electronRadius = min * 0.03 * profile.scale;
       const labelSize = Math.max(
         9,
-        min * 0.025 * profile.scale * profile.labelScale
+        min * 0.025 * profile.scale * profile.labelScale,
       );
 
       rings.forEach((r) => {
@@ -246,20 +249,24 @@ export default function NeonAtomicOrbit() {
           look.core,
           look.glow,
           min * 0.01 * profile.glow,
-          min * 0.0035
+          min * 0.0035,
         );
       });
 
-      glossySphere(
-        cx,
-        cy,
-        nucleusRadius,
-        { r: 160, g: 0, b: 0 },
-        { r: 255, g: 70, b: 70 }
-      );
+      
 
-      if (profile.showLabels) {
-        drawLabel("Securotix", cx, cy + nucleusRadius, labelSize);
+      if (logoImg.complete) {
+        const logoSize = nucleusRadius * 2.2; 
+        ctx.save();
+        ctx.globalAlpha = 0.95;
+        ctx.drawImage(
+          logoImg,
+          cx - logoSize / 2,
+          cy - logoSize / 2,
+          logoSize,
+          logoSize,
+        );
+        ctx.restore();
       }
 
       electrons.slice(0, profile.electrons).forEach((e) => {
@@ -272,7 +279,7 @@ export default function NeonAtomicOrbit() {
           p.y,
           electronRadius,
           { r: 160, g: 0, b: 0 },
-          { r: 255, g: 70, b: 70 }
+          { r: 255, g: 70, b: 70 },
         );
 
         if (profile.showLabels) {

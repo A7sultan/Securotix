@@ -3,7 +3,6 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Users, Globe, TrendingUp, Sparkles} from "lucide-react";
-import { CyberParticles } from "@/components/CyberParticles";
 import { useState } from "react";
 
 const fadeUp = {
@@ -77,7 +76,6 @@ const Careers = () => {
   };
   return (
     <div className="min-h-screen bg-background overflow-hidden">
-      <CyberParticles />
       <Navigation />
 
       <main className="pt-36 pb-24 relative">

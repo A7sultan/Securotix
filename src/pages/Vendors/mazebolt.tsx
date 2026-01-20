@@ -1,11 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { VendorLayout } from "@/components/partners/VendorLayout";
-import MazeBoltLogo from "@/assets/mazebolt.png";
+import MazeBoltLogo from "@/assets/Horizontal RGB White.png";
 import { FancyLine } from "@/components/ui/FancyLine";
 import solutionImg from "@/assets/map.jpg";
 import differentiatorImg from "@/assets/hacker.jpg";
 import { motion } from "framer-motion";
-import { CyberParticles } from "@/components/CyberParticles";
 
 const MazeBolt = () => {
   const navigate = useNavigate();
@@ -26,7 +25,6 @@ const MazeBolt = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-        <CyberParticles />
 
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
