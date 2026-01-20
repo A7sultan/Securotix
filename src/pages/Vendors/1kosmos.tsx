@@ -5,6 +5,7 @@ import { FancyLine } from "@/components/ui/FancyLine";
 import solutionImg from "@/assets/points.jpg";
 import differentiatorImg from "@/assets/earth.jpg";
 import { motion } from "framer-motion";
+import { PeerInsightsCard1Kosmos } from "@/components/vendors/PeerInsightsCard1Kosmos";
 
 const OneKosmos = () => {
   const navigate = useNavigate();
@@ -25,7 +26,6 @@ const OneKosmos = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-
         {/* Content */}
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -122,7 +122,9 @@ const OneKosmos = () => {
             </div>
           </div>
 
-          <div className="hidden lg:block" />
+          <div className="hidden lg:flex justify-center lg:justify-end">
+            <PeerInsightsCard1Kosmos />
+          </div>
         </div>
       </section>
 

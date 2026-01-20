@@ -5,6 +5,7 @@ import { FancyLine } from "@/components/ui/FancyLine";
 import solutionImg from "@/assets/tufin solutions.png";
 import differentiatorImg from "@/assets/tufin diff.png";
 import { motion } from "framer-motion";
+import { PeerInsightsCardTufin } from "@/components/vendors/PeerInsightsCardTufin";
 
 const Tufin = () => {
   const navigate = useNavigate();
@@ -25,7 +26,6 @@ const Tufin = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center lg:justify-start">
@@ -45,7 +45,6 @@ const Tufin = () => {
             </div>
 
             <div className="max-w-xl text-center lg:text-left">
-
               <p className="text-lg sm:text-xl text-white/90 mb-10 leading-relaxed">
                 Automating network security policies across hybrid and
                 multi-cloud environments.
@@ -121,8 +120,9 @@ const Tufin = () => {
               ))}
             </div>
           </div>
-
-          <div className="hidden lg:block" />
+          <div className="hidden lg:flex justify-center lg:justify-end">
+            <PeerInsightsCardTufin />
+          </div>
         </div>
       </section>
 
