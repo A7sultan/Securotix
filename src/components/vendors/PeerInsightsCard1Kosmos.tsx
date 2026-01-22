@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { Star, Award, Lightbulb, CheckCircle2 } from "lucide-react";
 
+const ACCENT = "text-red-600";
+const ACCENT_BG = "bg-red-500/10";
+const ACCENT_BORDER = "border-red-500/20";
+
 export function PeerInsightsCard1Kosmos() {
   return (
     <motion.div
@@ -23,15 +27,15 @@ export function PeerInsightsCard1Kosmos() {
       <div className="px-6 pt-6 pb-5 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div
-            className="
+            className={`
               w-10 h-10 rounded-xl
-              bg-red-500/10
-              border border-red-500/20
+              ${ACCENT_BG}
+              border ${ACCENT_BORDER}
               flex items-center justify-center
               shadow-[0_0_25px_rgba(255,0,0,0.25)]
-            "
+            `}
           >
-            <Star className="w-5 h-5 text-red-400" />
+            <Star className={`w-5 h-5 ${ACCENT}`} />
           </div>
 
           <div className="leading-tight">
@@ -105,7 +109,7 @@ export function PeerInsightsCard1Kosmos() {
           "
         >
           <div className="flex items-center gap-2 text-white mb-2">
-            <Award className="w-4 h-4 text-red-400" />
+            <Award className={`w-4 h-4 ${ACCENT}`} />
             <span className="font-semibold">Challenger</span>
           </div>
           <p className="text-xs text-white/65 leading-relaxed">
@@ -122,7 +126,7 @@ export function PeerInsightsCard1Kosmos() {
           "
         >
           <div className="flex items-center gap-2 text-white mb-2">
-            <Award className="w-4 h-4 text-red-400" />
+            <Award className={`w-4 h-4 ${ACCENT}`} />
             <span className="font-semibold">Highest</span>
           </div>
           <p className="text-xs text-white/65 leading-relaxed">
@@ -139,7 +143,7 @@ export function PeerInsightsCard1Kosmos() {
           "
         >
           <div className="flex items-center gap-2 text-white mb-2">
-            <Lightbulb className="w-4 h-4 text-red-400" />
+            <Lightbulb className={`w-4 h-4 ${ACCENT}`} />
             <span className="font-semibold">Innovation</span>
           </div>
           <p className="text-xs text-white/65 leading-relaxed">
@@ -171,7 +175,7 @@ export function PeerInsightsCard1Kosmos() {
           "Private, permissioned blockchain for user-controlled privacy",
         ].map((item) => (
           <div key={item} className="flex items-start gap-3">
-            <CheckCircle2 className="w-5 h-5 text-red-400 mt-[2px]" />
+            <CheckCircle2 className={`w-5 h-5 ${ACCENT} mt-[2px]`} />
             <p className="text-sm text-white/70 leading-relaxed">{item}</p>
           </div>
         ))}

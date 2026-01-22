@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { BarChart3, CheckCircle2 } from "lucide-react";
 
+const ACCENT = "text-red-600";
+const ACCENT_BG = "bg-red-500/10";
+const ACCENT_BORDER = "border-red-500/20";
+
 export function PeerInsightsCardFudo() {
   return (
     <motion.div
@@ -23,15 +27,15 @@ export function PeerInsightsCardFudo() {
       <div className="px-6 pt-6 pb-5 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div
-            className="
+            className={`
               w-10 h-10 rounded-xl
-              bg-red-500/10
-              border border-red-500/20
+              ${ACCENT_BG}
+              border ${ACCENT_BORDER}
               flex items-center justify-center
               shadow-[0_0_25px_rgba(255,0,0,0.25)]
-            "
+            `}
           >
-            <BarChart3 className="w-5 h-5 text-red-400" />
+            <BarChart3 className={`w-5 h-5 ${ACCENT}`} />
           </div>
 
           <div className="leading-tight">
@@ -44,7 +48,6 @@ export function PeerInsightsCardFudo() {
 
       {/* CONTENT */}
       <div className="px-6 py-6 space-y-4">
-        {/* Main capability block */}
         <div
           className="
             rounded-xl p-4
@@ -55,7 +58,7 @@ export function PeerInsightsCardFudo() {
         >
           <div className="flex items-start gap-3">
             <div className="mt-0.5">
-              <CheckCircle2 className="w-5 h-5 text-red-400" />
+              <CheckCircle2 className={`w-5 h-5 ${ACCENT}`} />
             </div>
 
             <div className="flex-1">

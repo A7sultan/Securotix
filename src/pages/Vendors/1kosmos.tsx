@@ -181,13 +181,162 @@ const OneKosmos = () => {
 
             <FancyLine width="w-24" className="mb-10" />
 
-            <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>NIST-certified high-assurance identity</li>
-              <li>True passwordless architecture</li>
-              <li>No centralized credential store</li>
-              <li>Unified IAM + KYC platform</li>
-              <li>Privacy-first, regulation-ready</li>
-            </ul>
+            <div className="">
+              <ul className="space-y-6 text-white/80 max-w-xl">
+                <li className="flex gap-4">
+                  <span className="mt-1 text-primary">
+                    {/* Shield Icon */}
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="opacity-90"
+                    >
+                      <path
+                        d="M12 2L20 6V12C20 16.418 16.418 20 12 22C7.582 20 4 16.418 4 12V6L12 2Z"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+
+                  <p className="leading-relaxed">
+                    <span className="text-white font-semibold">
+                      FedRAMP High Authorization:
+                    </span>{" "}
+                    Highest security compliance level, making it the only vendor
+                    with this authorization
+                  </p>
+                </li>
+
+                <li className="flex gap-4">
+                  <span className="mt-1 text-primary">
+                    {/* Fingerprint Icon */}
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="opacity-90"
+                    >
+                      <path
+                        d="M12 12V14C12 16.209 10.209 18 8 18"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M16 12V14C16 18.418 12.418 22 8 22"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M8 12V11C8 8.791 9.791 7 12 7C14.209 7 16 8.791 16 11V12"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M6.2 13.2V11C6.2 7.134 9.334 4 13.2 4C17.066 4 20.2 7.134 20.2 11V12.5"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
+
+                  <p className="leading-relaxed">
+                    <span className="text-white font-semibold">
+                      Advanced Biometric Authentication:
+                    </span>{" "}
+                    Extensive face biometrics experience for continuous,
+                    adaptive authentication
+                  </p>
+                </li>
+
+                <li className="flex gap-4">
+                  <span className="mt-1 text-primary">
+                    {/* Trust / Badge Icon */}
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="opacity-90"
+                    >
+                      <path
+                        d="M12 3L20 7V12C20 16.418 16.418 20 12 21C7.582 20 4 16.418 4 12V7L12 3Z"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M9 12L11 14L15 10"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+
+                  <p className="leading-relaxed">
+                    <span className="text-white font-semibold">
+                      “Trifecta of Trust”:
+                    </span>{" "}
+                    Combines identity verification, passwordless authentication,
+                    and user-controlled privacy
+                  </p>
+                </li>
+
+                <li className="flex gap-4">
+                  <span className="mt-1 text-primary">
+                    {/* Plug / Integration Icon */}
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="opacity-90"
+                    >
+                      <path
+                        d="M9 7V4M15 7V4"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M7 7H17V11C17 14.314 14.314 17 11 17H13C9.686 17 7 14.314 7 11V7Z"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M12 17V20"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
+
+                  <p className="leading-relaxed">
+                    <span className="text-white font-semibold">
+                      Comprehensive Integration:
+                    </span>{" "}
+                    Deep, prebuilt connectors across the identity and access
+                    management stack
+                  </p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

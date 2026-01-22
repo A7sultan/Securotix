@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { Star, ThumbsUp, ShieldCheck } from "lucide-react";
 
+const ACCENT = "text-red-600";
+const ACCENT_BG = "bg-red-500/10";
+const ACCENT_BORDER = "border-red-500/20";
+
 export function PeerInsightsCardTufin() {
   return (
     <motion.div
@@ -23,15 +27,15 @@ export function PeerInsightsCardTufin() {
       <div className="px-6 pt-6 pb-5 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div
-            className="
+            className={`
               w-10 h-10 rounded-xl
-              bg-red-500/10
-              border border-red-500/20
+              ${ACCENT_BG}
+              border ${ACCENT_BORDER}
               flex items-center justify-center
               shadow-[0_0_25px_rgba(255,0,0,0.25)]
-            "
+            `}
           >
-            <Star className="w-5 h-5 text-red-400" />
+            <Star className={`w-5 h-5 ${ACCENT}`} />
           </div>
 
           <div className="leading-tight">
@@ -124,16 +128,16 @@ export function PeerInsightsCardTufin() {
         {/* Main insight */}
         <div className="flex items-start gap-3">
           <div
-            className="
+            className={`
               w-9 h-9 rounded-xl
-              bg-red-500/10
-              border border-red-500/20
+              ${ACCENT_BG}
+              border ${ACCENT_BORDER}
               flex items-center justify-center
               shadow-[0_0_20px_rgba(255,0,0,0.18)]
               mt-0.5
-            "
+            `}
           >
-            <ThumbsUp className="w-5 h-5 text-red-400" />
+            <ThumbsUp className={`w-5 h-5 ${ACCENT}`} />
           </div>
 
           <div className="flex-1">
