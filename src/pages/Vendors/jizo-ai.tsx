@@ -5,6 +5,14 @@ import { FancyLine } from "@/components/ui/FancyLine";
 import solutionImg from "@/assets/block.jpg";
 import differentiatorImg from "@/assets/safe.jpg";
 import { motion } from "framer-motion";
+import {
+  CheckCircle2,
+  Activity,
+  Brain,
+  Network,
+  ShieldAlert,
+  SearchCheck,
+} from "lucide-react";
 
 const JizoAI = () => {
   const navigate = useNavigate();
@@ -25,7 +33,6 @@ const JizoAI = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center lg:justify-start">
@@ -137,11 +144,32 @@ const JizoAI = () => {
             <FancyLine width="w-24" className="mb-10" />
 
             <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>Real-time network threat detection & monitoring</li>
-              <li>AI-based anomaly detection & threat intelligence</li>
-              <li>Full visibility across IT, OT, cloud & hybrid networks</li>
-              <li>Threat deception and automated alerting</li>
-              <li>Context-driven investigations for SOC teams</li>
+              <li className="flex items-start gap-3">
+                <Activity className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Real-time network threat detection & monitoring</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Brain className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>AI-based anomaly detection & threat intelligence</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Network className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>
+                  Full visibility across IT, OT, cloud & hybrid networks
+                </span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <ShieldAlert className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Threat deception and automated alerting</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <SearchCheck className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Context-driven investigations for SOC teams</span>
+              </li>
             </ul>
           </div>
 
@@ -178,11 +206,18 @@ const JizoAI = () => {
             <FancyLine width="w-24" className="mb-10" />
 
             <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>AI-first detection for zero-day & unknown threats</li>
-              <li>Designed for IT, OT, and critical infrastructure</li>
-              <li>High-fidelity alerts with rich attack context</li>
-              <li>Reduced alert noise and faster investigations</li>
-              <li>Explainable AI for confident decision-making</li>
+              {[
+                "AI-first detection for zero-day & unknown threats",
+                "Designed for IT, OT, and critical infrastructure",
+                "High-fidelity alerts with rich attack context",
+                "Reduced alert noise and faster investigations",
+                "Explainable AI for confident decision-making",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-red-600 mt-[2px]" />
+                  <p className="leading-relaxed">{item}</p>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

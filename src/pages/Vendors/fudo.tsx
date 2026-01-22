@@ -6,6 +6,17 @@ import solutionImg from "@/assets/red-lock.jpg";
 import differentiatorImg from "@/assets/Fudo Bg 2.webp";
 import { motion } from "framer-motion";
 import { PeerInsightsCardFudo } from "@/components/vendors/PeerInsightsCardFudo";
+import {
+  Brain,
+  Plug,
+  Video,
+  Layers3,
+  KeyRound,
+  GlobeLock,
+  Radar,
+  UsersRound,
+  ShieldCheck,
+} from "lucide-react";
 
 const Fudo = () => {
   const navigate = useNavigate();
@@ -140,12 +151,35 @@ const Fudo = () => {
             <FancyLine width="w-24" className="mb-10" />
 
             <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>Privileged Access Management (vaulting & rotation)</li>
-              <li>Secure remote access without VPN</li>
-              <li>Live session monitoring & full video recording</li>
-              <li>Behavior analytics & anomaly detection</li>
-              <li>Just-in-Time access & approval workflows</li>
-              <li>Integrations with AD, ITSM, SIEM, and firewalls</li>
+              <li className="flex items-start gap-3">
+                <KeyRound className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Privileged Access Management (vaulting & rotation)</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <GlobeLock className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Secure remote access without VPN</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Video className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Live session monitoring & full video recording</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Radar className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Behavior analytics & anomaly detection</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <UsersRound className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Just-in-Time access & approval workflows</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Plug className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Integrations with AD, ITSM, SIEM, and firewalls</span>
+              </li>
             </ul>
           </div>
 
@@ -181,15 +215,66 @@ const Fudo = () => {
 
             <FancyLine width="w-24" className="mb-10" />
 
-            <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>
-                Best-in-class session recording (video, keystrokes, metadata)
+            <ul className="space-y-6 text-white/80 max-w-xl">
+              <li className="flex gap-4">
+                <span className="mt-1 text-red-600">
+                  <Brain className="w-5 h-5" />
+                </span>
+
+                <p className="leading-relaxed">
+                  <span className="text-white font-semibold">
+                    AI-Powered Behavioral Analysis
+                  </span>
+                  <br />
+                  Proprietary AI learns user patterns, analyzing 1,400+ features
+                  to detect deviations
+                </p>
               </li>
-              <li>Real-time session takeover to stop threats instantly</li>
-              <li>No VPN required – browser-based privileged access</li>
-              <li>Fast deployment with minimal infrastructure</li>
-              <li>AI-driven insider threat detection</li>
-              <li>User-friendly interface with rapid adoption</li>
+
+              <li className="flex gap-4">
+                <span className="mt-1 text-red-600">
+                  <Plug className="w-5 h-5" />
+                </span>
+
+                <p className="leading-relaxed">
+                  <span className="text-white font-semibold">
+                    Agentless Deployment
+                  </span>
+                  <br />
+                  Seamless integration without agents, enabling rapid setup and
+                  user flexibility
+                </p>
+              </li>
+
+              <li className="flex gap-4">
+                <span className="mt-1 text-red-600">
+                  <Video className="w-5 h-5" />
+                </span>
+
+                <p className="leading-relaxed">
+                  <span className="text-white font-semibold">
+                    Session Monitoring & Recording
+                  </span>
+                  <br />
+                  Detailed recordings, real-time monitoring, and extensive
+                  logging for forensic capabilities
+                </p>
+              </li>
+
+              <li className="flex gap-4">
+                <span className="mt-1 text-red-600">
+                  <Layers3 className="w-5 h-5" />
+                </span>
+
+                <p className="leading-relaxed">
+                  <span className="text-white font-semibold">
+                    Unified Platform
+                  </span>
+                  <br />
+                  All-in-one solution for security, compliance, and productivity
+                  across hybrid environments
+                </p>
+              </li>
             </ul>
           </div>
         </div>

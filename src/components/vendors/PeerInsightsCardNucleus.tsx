@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { Star, Trophy } from "lucide-react";
 
+const ACCENT = "text-red-600";
+const ACCENT_BG = "bg-red-500/10";
+const ACCENT_BORDER = "border-red-500/20";
+
 export function PeerInsightsCardNucleus() {
   const rating = 4.5;
   const maxStars = 5;
@@ -26,15 +30,15 @@ export function PeerInsightsCardNucleus() {
       <div className="px-6 pt-6 pb-5 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div
-            className="
+            className={`
               w-10 h-10 rounded-xl
-              bg-red-500/10
-              border border-red-500/20
+              ${ACCENT_BG}
+              border ${ACCENT_BORDER}
               flex items-center justify-center
               shadow-[0_0_25px_rgba(255,0,0,0.25)]
-            "
+            `}
           >
-            <Star className="w-5 h-5 text-red-400" />
+            <Star className={`w-5 h-5 ${ACCENT}`} />
           </div>
 
           <div className="leading-tight">
@@ -57,7 +61,7 @@ export function PeerInsightsCardNucleus() {
               {Array.from({ length: maxStars }).map((_, i) => (
                 <Star
                   key={i}
-                  className="w-5 h-5 text-red-400"
+                  className={`w-5 h-5 ${ACCENT}`}
                   fill="currentColor"
                   opacity={i < Math.floor(rating) ? 1 : 0.35}
                 />
@@ -86,15 +90,15 @@ export function PeerInsightsCardNucleus() {
         <div className="space-y-3">
           <div className="flex items-center gap-3">
             <div
-              className="
+              className={`
                 w-9 h-9 rounded-xl
-                bg-red-500/10
-                border border-red-500/20
+                ${ACCENT_BG}
+                border ${ACCENT_BORDER}
                 flex items-center justify-center
                 shadow-[0_0_20px_rgba(255,0,0,0.18)]
-              "
+              `}
             >
-              <Trophy className="w-5 h-5 text-red-400" />
+              <Trophy className={`w-5 h-5 ${ACCENT}`} />
             </div>
 
             <h4 className="text-sm sm:text-base font-semibold text-white">

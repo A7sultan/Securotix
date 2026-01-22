@@ -6,6 +6,15 @@ import solutionImg from "@/assets/tufin solutions.png";
 import differentiatorImg from "@/assets/tufin diff.png";
 import { motion } from "framer-motion";
 import { PeerInsightsCardTufin } from "@/components/vendors/PeerInsightsCardTufin";
+import {
+  CheckCircle2,
+  Shield,
+  Filter,
+  Split,
+  Repeat,
+  Cloud,
+  Radar,
+} from "lucide-react";
 
 const Tufin = () => {
   const navigate = useNavigate();
@@ -139,12 +148,35 @@ const Tufin = () => {
             <FancyLine width="w-24" className="mb-10" />
 
             <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>Network Security Policy Management (NSPM)</li>
-              <li>Automated firewall rule analysis & cleanup</li>
-              <li>Zero-Trust segmentation & access control</li>
-              <li>Change automation & compliance enforcement</li>
-              <li>Multi-cloud security management (AWS, Azure, GCP)</li>
-              <li>Risk & exposure visibility across the network</li>
+              <li className="flex items-start gap-3">
+                <Shield className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Network Security Policy Management (NSPM)</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Filter className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Automated firewall rule analysis & cleanup</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Split className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Zero-Trust segmentation & access control</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Repeat className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Change automation & compliance enforcement</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Cloud className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Multi-cloud security management (AWS, Azure, GCP)</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Radar className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Risk & exposure visibility across the network</span>
+              </li>
             </ul>
           </div>
 
@@ -180,14 +212,45 @@ const Tufin = () => {
 
             <FancyLine width="w-24" className="mb-10" />
 
-            <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>End-to-end visibility across on-prem, cloud & SDN</li>
-              <li>Automated rule lifecycle: design → validate → deploy</li>
-              <li>Built-in compliance (PCI, NERC, GDPR, internal standards)</li>
-              <li>Drastic reduction in change time & human error</li>
-              <li>
-                Deep integration with Palo Alto, Fortinet, Check Point, Cisco,
-                and more
+            <ul className="space-y-6 text-white/80 max-w-xl">
+              <li className="flex gap-4">
+                <span className="mt-1 text-red-600">
+                  <CheckCircle2 className="w-5 h-5" />
+                </span>
+
+                <p className="leading-relaxed">
+                  <span className="text-white font-semibold">
+                    Automated Rule Change Management:
+                  </span>{" "}
+                  Reduces time from days to minutes, minimizing errors
+                </p>
+              </li>
+
+              <li className="flex gap-4">
+                <span className="mt-1 text-red-600">
+                  <CheckCircle2 className="w-5 h-5" />
+                </span>
+
+                <p className="leading-relaxed">
+                  <span className="text-white font-semibold">
+                    Compliance Assurance:
+                  </span>{" "}
+                  Visibility into network topology for policy design and
+                  enforcement
+                </p>
+              </li>
+
+              <li className="flex gap-4">
+                <span className="mt-1 text-red-600">
+                  <CheckCircle2 className="w-5 h-5" />
+                </span>
+
+                <p className="leading-relaxed">
+                  <span className="text-white font-semibold">
+                    Centralized Policy Management:
+                  </span>{" "}
+                  Improves auditing and streamlines change management
+                </p>
               </li>
             </ul>
           </div>
