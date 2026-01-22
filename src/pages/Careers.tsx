@@ -80,15 +80,7 @@ const Careers = () => {
 
       <main className="pt-36 pb-24 relative">
         {/* Ambient glow */}
-        <div
-          className="
-    absolute top-48 left-1/2 -translate-x-1/2
-    w-[420px] h-[420px] sm:w-[800px] sm:h-[800px]
-    bg-primary/15
-    blur-[90px] sm:blur-[180px]
-    rounded-full pointer-events-none
-  "
-        />
+        <div className="hidden sm:block absolute top-48 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/20 blur-[180px] rounded-full pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Hero */}
@@ -121,7 +113,7 @@ const Careers = () => {
             transition={{ duration: 0.8 }}
             className="max-w-5xl mx-auto mb-32"
           >
-            <div className="rounded-2xl p-12 bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_80px_rgba(255,0,0,0.15)]">
+            <div className="rounded-2xl p-12 bg-white/5 backdrop-blur-none sm:backdrop-blur-xl border border-white/10 shadow-[0_0_80px_rgba(255,0,0,0.15)]">
               <p className="text-lg text-muted-foreground leading-relaxed space-y-6">
                 At <span className="text-primary font-semibold">Securotix</span>
                 , we are committed to driving innovation and excellence in the
@@ -179,7 +171,7 @@ const Careers = () => {
                     key={index}
                     variants={fadeUp}
                     whileHover={{ y: -6 }}
-                    className="relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(255,0,0,0.12)] hover:shadow-[0_0_80px_rgba(255,0,0,0.25)] transition-all"
+                    className="relative rounded-2xl p-8 bg-white/5 backdrop-blur-none sm:backdrop-blur-none sm:backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(255,0,0,0.12)] hover:shadow-[0_0_80px_rgba(255,0,0,0.25)] transition-all"
                   >
                     <Icon className="w-10 h-10 text-primary mb-5" />
                     <h3 className="text-xl font-bold mb-3">{item.title}</h3>
@@ -194,7 +186,7 @@ const Careers = () => {
 
           {/* Careers Form */}
           <motion.section className="max-w-4xl mx-auto">
-            <div className="rounded-2xl p-12 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl border border-white/10">
+            <div className="rounded-2xl p-12 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-none sm:backdrop-blur-none sm:backdrop-blur-xl border border-white/10">
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
                 Careers <span className="text-primary">Form</span>
               </h2>
