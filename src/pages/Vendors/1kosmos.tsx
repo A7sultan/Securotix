@@ -6,6 +6,13 @@ import solutionImg from "@/assets/points.jpg";
 import differentiatorImg from "@/assets/earth.jpg";
 import { motion } from "framer-motion";
 import { PeerInsightsCard1Kosmos } from "@/components/vendors/PeerInsightsCard1Kosmos";
+import {
+  UserCheck,
+  KeyRound,
+  UserPlus,
+  Wallet,
+  ShieldCheck,
+} from "lucide-react";
 
 const OneKosmos = () => {
   const navigate = useNavigate();
@@ -141,11 +148,30 @@ const OneKosmos = () => {
             <FancyLine width="w-24" className="mb-10" />
 
             <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>Identity Proofing & Verification</li>
-              <li>Passwordless Workforce Login (FIDO2, MFA)</li>
-              <li>Customer Digital Onboarding</li>
-              <li>Decentralized Identity Wallet</li>
-              <li>Zero Trust Continuous Authentication</li>
+              <li className="flex items-start gap-3">
+                <UserCheck className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Identity Proofing & Verification</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <KeyRound className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Passwordless Workforce Login (FIDO2, MFA)</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <UserPlus className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Customer Digital Onboarding</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Wallet className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Decentralized Identity Wallet</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <ShieldCheck className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Zero Trust Continuous Authentication</span>
+              </li>
             </ul>
           </div>
 
@@ -184,7 +210,7 @@ const OneKosmos = () => {
             <div className="">
               <ul className="space-y-6 text-white/80 max-w-xl">
                 <li className="flex gap-4">
-                  <span className="mt-1 text-primary">
+                  <span className="mt-1 text-red-600">
                     {/* Shield Icon */}
                     <svg
                       width="22"
@@ -213,7 +239,7 @@ const OneKosmos = () => {
                 </li>
 
                 <li className="flex gap-4">
-                  <span className="mt-1 text-primary">
+                  <span className="mt-1 text-red-600">
                     {/* Fingerprint Icon */}
                     <svg
                       width="22"
@@ -260,7 +286,7 @@ const OneKosmos = () => {
                 </li>
 
                 <li className="flex gap-4">
-                  <span className="mt-1 text-primary">
+                  <span className="mt-1 text-red-600">
                     {/* Trust / Badge Icon */}
                     <svg
                       width="22"
@@ -296,7 +322,7 @@ const OneKosmos = () => {
                 </li>
 
                 <li className="flex gap-4">
-                  <span className="mt-1 text-primary">
+                  <span className="mt-1 text-red-600">
                     {/* Plug / Integration Icon */}
                     <svg
                       width="22"

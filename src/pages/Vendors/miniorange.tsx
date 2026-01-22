@@ -6,6 +6,18 @@ import solutionImg from "@/assets/miniorange solutions.png";
 import differentiatorImg from "@/assets/Securotix Bg 1.jpg";
 import { motion } from "framer-motion";
 import { PeerInsightsCardMiniOrange } from "@/components/vendors/PeerInsightsCardMiniOrange";
+import {
+  KeyRound,
+  ShieldCheck,
+  SlidersHorizontal,
+  LockKeyhole,
+  UsersRound,
+  PlugZap,
+  Layers3,
+  Workflow,
+  FileKey,
+  Rocket,
+} from "lucide-react";
 
 const MiniOrange = () => {
   const navigate = useNavigate();
@@ -139,11 +151,30 @@ const MiniOrange = () => {
             <FancyLine width="w-24" className="mb-10" />
 
             <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>Single Sign-On (SSO) for cloud & on-prem apps</li>
-              <li>Multi-Factor Authentication with 15+ authenticators</li>
-              <li>Zero Trust & Adaptive Access Policies</li>
-              <li>Privileged Access Management (PAM)</li>
-              <li>Identity Governance & User Lifecycle Management</li>
+              <li className="flex items-start gap-3">
+                <KeyRound className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Single Sign-On (SSO) for cloud & on-prem apps</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <ShieldCheck className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Multi-Factor Authentication with 15+ authenticators</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <SlidersHorizontal className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Zero Trust & Adaptive Access Policies</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <LockKeyhole className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Privileged Access Management (PAM)</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <UsersRound className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Identity Governance & User Lifecycle Management</span>
+              </li>
             </ul>
           </div>
 
@@ -180,11 +211,30 @@ const MiniOrange = () => {
             <FancyLine width="w-24" className="mb-10" />
 
             <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>4,500+ pre-built integrations</li>
-              <li>SSO, MFA, PAM, and IGA in one platform</li>
-              <li>Highly customizable authentication workflows</li>
-              <li>Supports legacy and modern protocols</li>
-              <li>Fast deployment with strong ROI</li>
+              <li className="flex items-start gap-3">
+                <PlugZap className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>4,500+ pre-built integrations</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Layers3 className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>SSO, MFA, PAM, and IGA in one platform</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Workflow className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Highly customizable authentication workflows</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <FileKey className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Supports legacy and modern protocols</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Rocket className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Fast deployment with strong ROI</span>
+              </li>
             </ul>
           </div>
         </div>

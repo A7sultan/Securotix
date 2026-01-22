@@ -183,7 +183,7 @@ const Nucleus = () => {
             {/* ✅ Differentiators list (from screenshot) */}
             <div className="space-y-6 text-white/80">
               <div className="flex gap-3">
-                <CheckCircle2 className="w-5 h-5 text-red-400 mt-1 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-red-600 mt-1 shrink-0" />
                 <p className="leading-relaxed">
                   <span className="font-semibold text-white">
                     Orchestration Capabilities:
@@ -194,7 +194,7 @@ const Nucleus = () => {
               </div>
 
               <div className="flex gap-3">
-                <CheckCircle2 className="w-5 h-5 text-red-400 mt-1 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-red-600 mt-1 shrink-0" />
                 <p className="leading-relaxed">
                   <span className="font-semibold text-white">
                     FedRAMP Authorization:
@@ -205,7 +205,7 @@ const Nucleus = () => {
               </div>
 
               <div className="flex gap-3">
-                <CheckCircle2 className="w-5 h-5 text-red-400 mt-1 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-red-600 mt-1 shrink-0" />
                 <p className="leading-relaxed">
                   <span className="font-semibold text-white">
                     Agentless Integration:

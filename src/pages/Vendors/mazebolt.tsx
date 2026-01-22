@@ -5,6 +5,14 @@ import { FancyLine } from "@/components/ui/FancyLine";
 import solutionImg from "@/assets/map.jpg";
 import differentiatorImg from "@/assets/hacker.jpg";
 import { motion } from "framer-motion";
+import {
+  RadioTower,
+  Shield,
+  Activity,
+  Radar,
+  ScanSearch,
+  Wrench,
+} from "lucide-react";
 
 const MazeBolt = () => {
   const navigate = useNavigate();
@@ -25,7 +33,6 @@ const MazeBolt = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="flex justify-center lg:justify-start">
@@ -137,11 +144,30 @@ const MazeBolt = () => {
             <FancyLine width="w-24" className="mb-10" />
 
             <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>Non-disruptive DDoS testing & simulations</li>
-              <li>RADAR attack surface discovery</li>
-              <li>Continuous DDoS gap detection</li>
-              <li>Validation across all DDoS mitigation providers</li>
-              <li>Actionable remediation guidance</li>
+              <li className="flex items-start gap-3">
+                <Activity className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Non-disruptive DDoS testing & simulations</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Radar className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>RADAR attack surface discovery</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <ScanSearch className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Continuous DDoS gap detection</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Shield className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Validation across all DDoS mitigation providers</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Wrench className="w-5 h-5 text-red-600 mt-[2px]" />
+                <span>Actionable remediation guidance</span>
+              </li>
             </ul>
           </div>
 
@@ -177,12 +203,36 @@ const MazeBolt = () => {
 
             <FancyLine width="w-24" className="mb-10" />
 
-            <ul className="space-y-5 text-white/80 max-w-xl">
-              <li>Always-on, non-disruptive DDoS testing</li>
-              <li>Identifies blind spots missed by SOC tools</li>
-              <li>Vendor-agnostic validation across all providers</li>
-              <li>Proactive reduction of DDoS exposure</li>
-              <li>High accuracy with automated remediation insights</li>
+            <ul className="space-y-6 text-white/80 max-w-xl">
+              <li className="flex gap-4">
+                <span className="mt-1 text-red-600">
+                  <RadioTower className="w-5 h-5" />
+                </span>
+
+                <p className="leading-relaxed">
+                  <span className="text-white font-semibold">
+                    Patented RADAR™ Technology
+                  </span>
+                  <br />
+                  Non-disruptive DDoS testing that simulates attacks to identify
+                  vulnerabilities
+                </p>
+              </li>
+
+              <li className="flex gap-4">
+                <span className="mt-1 text-red-600">
+                  <Shield className="w-5 h-5" />
+                </span>
+
+                <p className="leading-relaxed">
+                  <span className="text-white font-semibold">
+                    Proactive DDoS Readiness
+                  </span>
+                  <br />
+                  Assesses readiness against advanced threats by simulating
+                  real-world attack scenarios
+                </p>
+              </li>
             </ul>
           </div>
         </div>
