@@ -15,7 +15,6 @@ import {
   GlobeLock,
   Radar,
   UsersRound,
-  ShieldCheck,
 } from "lucide-react";
 
 const Fudo = () => {
