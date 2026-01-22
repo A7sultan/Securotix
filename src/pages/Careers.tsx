@@ -2,7 +2,7 @@ import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Users, Globe, TrendingUp, Sparkles} from "lucide-react";
+import { Users, Globe, TrendingUp, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 const fadeUp = {
@@ -34,7 +34,7 @@ const Careers = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -80,7 +80,15 @@ const Careers = () => {
 
       <main className="pt-36 pb-24 relative">
         {/* Ambient glow */}
-        <div className="absolute top-48 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/20 blur-[180px] rounded-full pointer-events-none" />
+        <div
+          className="
+    absolute top-48 left-1/2 -translate-x-1/2
+    w-[420px] h-[420px] sm:w-[800px] sm:h-[800px]
+    bg-primary/15
+    blur-[90px] sm:blur-[180px]
+    rounded-full pointer-events-none
+  "
+        />
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Hero */}
