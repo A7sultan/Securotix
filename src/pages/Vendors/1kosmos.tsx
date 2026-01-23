@@ -13,6 +13,7 @@ import {
   Wallet,
   ShieldCheck,
 } from "lucide-react";
+import { CyberWebDataFlowRedBG } from "@/components/CyberWebDataFlowRedBG";
 
 const OneKosmos = () => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const OneKosmos = () => {
       {/* HERO */}
       {/* ================================================= */}
       <section className="relative min-h-screen w-full flex items-center overflow-hidden">
+        <CyberWebDataFlowRedBG nodes={130} maxLinksPerNode={3} packetRate={0.18} />
         {/* Content */}
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
