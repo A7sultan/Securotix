@@ -1,4 +1,12 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin
+} from "lucide-react";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
+
 import { NavLink } from "./navigation/NavLink";
 import Logo from "../assets/logo_transparent.png";
 
@@ -14,7 +22,13 @@ export const Footer = () => {
             <div className="flex items-center space-x-2 mb-6">
               <div className="flex items-center space-x-2 mb-6">
                 <img src={Logo} alt="Securotix Logo" className="w-20 h-auto" />
-                <span className="text-xl font-bold text-glow">Securotix</span>
+                <span
+  className="text-md font-semibold text-glow tracking-widest"
+  style={{ fontFamily: "Orbitron, sans-serif" }}
+>
+  SECUROTIX
+</span>
+
               </div>
             </div>
             <p className="text-muted-foreground">
@@ -96,6 +110,33 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
+{/* Social Icons */}
+<div className="flex gap-6 pt-4">
+  <NavLink to="/" className="group">
+    <FaFacebookF
+      className="w-5 h-5 text-muted-foreground
+                 group-hover:text-primary
+                 transition-colors duration-300"
+    />
+  </NavLink>
+
+  <NavLink to="/" className="group">
+    <FaXTwitter
+      className="w-5 h-5 text-muted-foreground
+                 group-hover:text-primary
+                 transition-colors duration-300"
+    />
+  </NavLink>
+
+  <NavLink to="/" className="group">
+    <FaLinkedinIn
+      className="w-5 h-5 text-muted-foreground
+                 group-hover:text-primary
+                 transition-colors duration-300"
+    />
+  </NavLink>
+</div>
+
 
         <div className="border-t border-border/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
