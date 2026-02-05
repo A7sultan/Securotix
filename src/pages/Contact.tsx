@@ -18,6 +18,8 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -26,30 +28,37 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
+  setLoading(true);
+  setSuccess(false);
 
-    setLoading(true);
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
+    if (!res.ok) throw new Error("Failed");
 
-        headers: { "Content-Type": "application/json" },
+    // ✅ success
+    setSuccess(true);
 
-        body: JSON.stringify(form),
-      });
+    // ✅ clear form
+    setForm({
+      name: "",
+      email: "",
+      company: "",
+      message: "",
+    });
+  } catch {
+    setSuccess(false);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
-      if (!res.ok) throw new Error("Failed");
-
-      alert("Thank you for reaching out. We’ll get back to you shortly.");
-
-      setForm({ name: "", email: "", company: "", message: "" });
-    } catch {
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -74,6 +83,11 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="cyber-border rounded-lg p-8 glass">
               <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
+              {success && (
+    <div className="mb-6 rounded-lg border border-primary/30 bg-primary/10 p-4 text-primary">
+      ✅ Message sent successfully. We’ll get back to you shortly.
+    </div>
+  )}
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <Input
                   name="name"
