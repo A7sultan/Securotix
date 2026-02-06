@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
+import { API_BASE_URL } from "@/lib/api";
+
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -29,15 +31,19 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
+  console.log("Contact submit clicked");
   setLoading(true);
   setSuccess(false);
 
   try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    const res = await fetch(`${API_BASE_URL}/api/contact`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(form),
+});
+
 
     if (!res.ok) throw new Error("Failed");
 
@@ -88,7 +94,7 @@ const Contact = () => {
       ✅ Message sent successfully. We’ll get back to you shortly.
     </div>
   )}
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form className="space-y-6">
                 <Input
                   name="name"
                   value={form.name}
@@ -126,6 +132,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={loading}
+                  onClick={handleSubmit}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 neon-pulse"
                 >
                   <Send className="w-4 h-4 mr-2" />
