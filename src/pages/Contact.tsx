@@ -94,7 +94,11 @@ const Contact = () => {
       ✅ Message sent successfully. We’ll get back to you shortly.
     </div>
   )}
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form
+  className="space-y-6 pointer-events-auto"
+  onSubmit={handleSubmit}
+>
+
   <Input
     name="name"
     value={form.name}
