@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Users, Globe, TrendingUp, Sparkles } from "lucide-react";
 import { useState } from "react";
-
+import { API_BASE_URL } from "@/lib/api";
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
@@ -17,6 +17,7 @@ const stagger = {
     },
   },
 };
+
 
 const Careers = () => {
   const [form, setForm] = useState({
@@ -32,6 +33,7 @@ const Careers = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -40,40 +42,36 @@ const Careers = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
+  setLoading(true);
+  setSuccess(false);
 
-    setLoading(true);
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/careers`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
 
-    try {
-      const res = await fetch("/api/careers", {
-        method: "POST",
+    if (!res.ok) throw new Error("Failed");
 
-        headers: { "Content-Type": "application/json" },
+    setSuccess(true); 
 
-        body: JSON.stringify(form),
-      });
+    setForm({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+  } catch {
+    setSuccess(false);
+    alert("Submission failed. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
-      if (!res.ok) throw new Error("Failed");
-
-      alert("Application submitted successfully.");
-
-      setForm({
-        firstName: "",
-
-        lastName: "",
-
-        email: "",
-
-        phone: "",
-
-        message: "",
-      });
-    } catch {
-      alert("Submission failed. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <Navigation />
@@ -190,6 +188,12 @@ const Careers = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
                 Careers <span className="text-primary">Form</span>
               </h2>
+              {success && (
+  <div className="mb-6 rounded-lg border border-primary/30 bg-primary/10 p-4 text-primary text-center">
+    ✅ Application submitted successfully. We’ll be in touch!
+  </div>
+)}
+
 
               <form
                 className="grid md:grid-cols-2 gap-6"
