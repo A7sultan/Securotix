@@ -94,52 +94,47 @@ const Contact = () => {
       ✅ Message sent successfully. We’ll get back to you shortly.
     </div>
   )}
-              <form className="space-y-6">
-                <Input
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  className="glass border-border focus:border-primary"
-                />
+              <form className="space-y-6" onSubmit={handleSubmit}>
+  <Input
+    name="name"
+    value={form.name}
+    onChange={handleChange}
+    placeholder="John Doe"
+  />
 
-                <Input
-                  name="email"
-                  type="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  placeholder="john@company.com"
-                  className="glass border-border focus:border-primary"
-                />
+  <Input
+    name="email"
+    type="email"
+    value={form.email}
+    onChange={handleChange}
+    placeholder="john@company.com"
+  />
 
-                <Input
-                  name="company"
-                  value={form.company}
-                  onChange={handleChange}
-                  placeholder="Your Company"
-                  className="glass border-border focus:border-primary"
-                />
+  <Input
+    name="company"
+    value={form.company}
+    onChange={handleChange}
+    placeholder="Your Company"
+  />
 
-                <Textarea
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  rows={6}
-                  placeholder="Tell us about your security needs..."
-                  className="glass border-border focus:border-primary resize-none"
-                />
+  <Textarea
+    name="message"
+    value={form.message}
+    onChange={handleChange}
+    rows={6}
+    placeholder="Tell us about your security needs..."
+  />
 
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  onClick={handleSubmit}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 neon-pulse"
-                >
-                  <Send className="w-4 h-4 mr-2" />
+  <Button
+    type="submit"
+    disabled={loading}
+    className="w-full"
+  >
+    <Send className="w-4 h-4 mr-2" />
+    {loading ? "Sending..." : "Send Message"}
+  </Button>
+</form>
 
-                  {loading ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
             </div>
 
             {/* Contact Info */}
