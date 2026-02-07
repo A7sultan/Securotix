@@ -73,6 +73,11 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="cyber-border rounded-lg p-8 glass">
   <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
+{success && (
+  <div className="mb-6 rounded-lg border border-primary/30 bg-primary/10 p-4 text-primary">
+    ✅ Message sent successfully. We’ll get back to you shortly.
+  </div>
+)}
 
   <form className="space-y-6" onSubmit={handleSubmit}>
     <Input
