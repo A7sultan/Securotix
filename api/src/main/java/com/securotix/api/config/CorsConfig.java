@@ -17,7 +17,7 @@ public class CorsConfig implements WebMvcConfigurer {
                         "https://securotix.com",
                         "https://www.securotix.com",
                         "https://securotix-76ip.vercel.app",
-                        "https://securotix.vercel.app/"
+                        "https://securotix.vercel.app"
                 )
                 .allowedMethods("GET", "POST", "OPTIONS")
                 .allowedHeaders("*");
