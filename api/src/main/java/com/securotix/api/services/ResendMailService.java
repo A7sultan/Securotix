@@ -22,6 +22,8 @@ public class ResendMailService implements MailService {
 
     @Value("${app.mail.internal:aminah.sultan735@gmail.com}")
     private String internal;
+    @Value("${app.mail.dev-mode:true}")
+    private boolean devMode;
 
     private final OkHttpClient client = new OkHttpClient();
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -30,60 +32,53 @@ public class ResendMailService implements MailService {
     public void sendContactMail(ContactRequest request) {
         String body = String.format(
                 """
-                New Contact Form Submission
+                        New Contact Form Submission
 
-                Name: %s
-                Email: %s
-                Company: %s
+                        Name: %s
+                        Email: %s
+                        Company: %s
 
-                Message:
-                %s
-                """,
+                        Message:
+                        %s
+                        """,
                 request.getName(),
                 request.getEmail(),
                 request.getCompany(),
-                request.getMessage()
-        );
+                request.getMessage());
 
         send(internal, "New Contact Form Submission", body);
     }
 
-    @Value("${app.mail.dev-mode:true}")
-private boolean devMode;
+    @Override
+    public void sendCareerApplication(CareerRequest request) {
 
-@Override
-public void sendCareerApplication(CareerRequest request) {
+        String body = """
+                New Career Application
 
-    String body = """
-            New Career Application
+                Name: %s %s
+                Email: %s
+                Phone: %s
 
-            Name: %s %s
-            Email: %s
-            Phone: %s
+                Message:
+                %s
+                """.formatted(
+                request.getFirstName(),
+                request.getLastName(),
+                request.getEmail(),
+                request.getPhone(),
+                request.getMessage());
 
-            Message:
-            %s
-            """.formatted(
-            request.getFirstName(),
-            request.getLastName(),
-            request.getEmail(),
-            request.getPhone(),
-            request.getMessage()
-    );
-
-    send(internal, "New Career Application", body);
-}
-
-@Override
-public void sendAutoReply(String to, String subject, String body) {
-    if (devMode) {
-        send(internal, "[DEV MODE] " + subject, body);
-        return;
+        send(internal, "New Career Application", body);
     }
-    send(to, subject, body);
-}
 
-
+    @Override
+    public void sendAutoReply(String to, String subject, String body) {
+        if (devMode) {
+            send(internal, "[DEV MODE] " + subject, body);
+            return;
+        }
+        send(to, subject, body);
+    }
 
     private void send(String to, String subject, String text) {
         try {
@@ -91,31 +86,25 @@ public void sendAutoReply(String to, String subject, String body) {
                     "from", from,
                     "to", List.of(to),
                     "subject", subject,
-                    "text", text
-            );
+                    "text", text);
 
             String json = objectMapper.writeValueAsString(payload);
 
             Request request = new Request.Builder()
                     .url("https://api.resend.com/emails")
-                    .post(RequestBody.create(
-                            json,
-                            MediaType.parse("application/json")
-                    ))
+                    .post(RequestBody.create(json, MediaType.parse("application/json")))
                     .addHeader("Authorization", "Bearer " + apiKey)
-                    .addHeader("Content-Type", "application/json")
                     .build();
 
             try (Response response = client.newCall(request).execute()) {
                 if (!response.isSuccessful()) {
-                    throw new RuntimeException(
-                            "Failed to send email: " + response.body().string()
-                    );
+                    System.err.println("RESEND ERROR: " + response.body().string());
                 }
             }
 
-        } catch (IOException e) {
-            throw new RuntimeException("Email send failed", e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
 }
