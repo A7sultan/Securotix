@@ -7,7 +7,6 @@ import okhttp3.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -17,12 +16,12 @@ public class ResendMailService implements MailService {
     @Value("${resend.api.key}")
     private String apiKey;
 
-    @Value("${app.mail.from:onboarding@resend.dev}")
+    @Value("${app.mail.from}")
     private String from;
 
-    @Value("${app.mail.internal:aminah.sultan735@gmail.com}")
+    @Value("${app.mail.internal}")
     private String internal;
-    @Value("${app.mail.dev-mode:true}")
+    @Value("${app.mail.dev-mode}")
     private boolean devMode;
 
     private final OkHttpClient client = new OkHttpClient();
@@ -81,30 +80,46 @@ public class ResendMailService implements MailService {
     }
 
     private void send(String to, String subject, String text) {
-        try {
-            Map<String, Object> payload = Map.of(
-                    "from", from,
-                    "to", List.of(to),
-                    "subject", subject,
-                    "text", text);
+    try {
+        Map<String, Object> payload = Map.of(
+                "from", from,
+                "to", List.of(to),
+                "subject", subject,
+                "text", text
+        );
 
-            String json = objectMapper.writeValueAsString(payload);
+        String json = objectMapper.writeValueAsString(payload);
 
-            Request request = new Request.Builder()
-                    .url("https://api.resend.com/emails")
-                    .post(RequestBody.create(json, MediaType.parse("application/json")))
-                    .addHeader("Authorization", "Bearer " + apiKey)
-                    .build();
+        Request request = new Request.Builder()
+                .url("https://api.resend.com/emails")
+                .post(RequestBody.create(
+                        json,
+                        MediaType.parse("application/json")
+                ))
+                .addHeader("Authorization", "Bearer " + apiKey)
+                .addHeader("Content-Type", "application/json")
+                .build();
 
-            try (Response response = client.newCall(request).execute()) {
-                if (!response.isSuccessful()) {
-                    System.err.println("RESEND ERROR: " + response.body().string());
-                }
+        try (Response response = client.newCall(request).execute()) {
+
+            String responseBody =
+                    response.body() != null ? response.body().string() : "";
+
+            if (!response.isSuccessful()) {
+                throw new RuntimeException(
+                        "RESEND FAILED (" + response.code() + "): " + responseBody
+                );
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            // TEMP success log
+            System.out.println("RESEND OK → to=" + to + ", subject=" + subject);
         }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        throw new RuntimeException("Email sending failed", e);
     }
+}
+
 
 }
