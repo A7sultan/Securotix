@@ -39,6 +39,7 @@ import ProtectedRoute from "./pages/admin/components/ProtectedRoute";
 import AdminDashboardLayout from "./pages/admin/AdminDashboardLayout";
 import AdminCreateBlogPage from "./pages/admin/blogs/AdminCreateBlogPage";
 import AdminEditBlogPage from "./pages/admin/blogs/AdminEditBlogPage";
+import AdminViewBlogPage from "./pages/admin/blogs/AdminViewBlogPage";
 
 const queryClient = new QueryClient();
 
@@ -111,6 +112,8 @@ const App = () => (
             }
           >
             <Route path="blogs" element={<AdminBlogsPage />} />
+            
+            <Route path="blogs/view/:id" element={<AdminViewBlogPage />} />
             <Route path="blogs/create" element={<AdminCreateBlogPage />} />
             <Route path="blogs/edit/:id" element={<AdminEditBlogPage />} />
             <Route path="comments" element={<AdminCommentsPage />} />

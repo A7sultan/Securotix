@@ -29,6 +29,7 @@ export default function BlogDetailPage() {
             <main className="container mx-auto pt-36 pb-20 max-w-4xl">
 
                 <h1 className="text-5xl font-bold mb-6">{blog.title}</h1>
+                <div className="fancy-line w-[180px] mb-10" />
 
                 <div className="mb-12">
                     <p className="text-lg leading-8 text-muted-foreground whitespace-pre-line">

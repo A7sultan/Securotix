@@ -39,11 +39,18 @@ export const updateBlog = async (id: number, payload: any) => {
 };
 
 export const deleteBlog = async (id: number) => {
-  await fetch(`${API_BASE_URL}/api/admin/blogs/${id}`, {
+  const res = await fetch(`${API_BASE_URL}/api/admin/blogs/${id}`, {
     method: "DELETE",
     headers: headers(),
   });
+
+  if (res.status === 409) {
+    throw new Error("Delete comments first before deleting the blog.");
+  }
+
+  if (!res.ok) throw new Error("Failed to delete blog");
 };
+
 
 export const publishBlog = async (id: number, value: boolean) => {
   const res = await fetch(
