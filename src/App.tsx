@@ -8,7 +8,6 @@ import About from "./pages/About";
 import Careers from "./pages/Careers";
 import EnterpriseSecurity from "./pages/EnterpriseSecurity";
 import NetworkInfrastructure from "./pages/NetworkInfrastructure";
-import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import OneKosmos from "./pages/Vendors/1kosmos";
@@ -31,6 +30,15 @@ import CloudPenetrationTesting from "./pages/services/Cybersecurity Advisory and
 import IoTSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/IoTSecurityTesting";
 import SecureCodeReview from "./pages/services/Cybersecurity Advisory and Training/SecureCodeReview";
 import MedicalDeviceSecurityTesting from "./pages/services/Cybersecurity Advisory and Training/MedicalDeviceSecurityTesting";
+import BlogListPage from "./pages/blog/BlogListPage";
+import BlogDetailPage from "./pages/blog/BlogDetailPage";
+import AdminLoginPage from "./pages/admin/AdminLoginPage";
+import AdminBlogsPage from "./pages/admin/blogs/AdminBlogsPage";
+import AdminCommentsPage from "./pages/admin/comments/AdminCommentsPage";
+import ProtectedRoute from "./pages/admin/components/ProtectedRoute";
+import AdminDashboardLayout from "./pages/admin/AdminDashboardLayout";
+import AdminCreateBlogPage from "./pages/admin/blogs/AdminCreateBlogPage";
+import AdminEditBlogPage from "./pages/admin/blogs/AdminEditBlogPage";
 
 const queryClient = new QueryClient();
 
@@ -40,7 +48,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-      <ScrollToTop />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -50,7 +58,6 @@ const App = () => (
             path="/network-infrastructure"
             element={<NetworkInfrastructure />}
           />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/vendors" element={<Vendors />} />
           <Route path="/1Kosmos" element={<OneKosmos />} />
           <Route path="/MiniOrange" element={<MiniOrange />} />
@@ -81,15 +88,35 @@ const App = () => (
           <Route
             path="/services/iot-security-testing"
             element={<IoTSecurityTesting />} />
-            <Route
+          <Route
             path="/services/secure-code-review"
             element={<SecureCodeReview />} />
-            <Route path="/services/medical-device-security-testing" element={<MedicalDeviceSecurityTesting />} />
+          <Route path="/services/medical-device-security-testing" element={<MedicalDeviceSecurityTesting />} />
           <Route
             path="/services/support-services"
             element={<SupportServices />}
           />
+          <Route path="/blog" element={<BlogListPage />} />
+          <Route path="/blog/:slug" element={<BlogDetailPage />} />
+
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminDashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="blogs" element={<AdminBlogsPage />} />
+            <Route path="blogs/create" element={<AdminCreateBlogPage />} />
+            <Route path="blogs/edit/:id" element={<AdminEditBlogPage />} />
+            <Route path="comments" element={<AdminCommentsPage />} />
+          </Route>
+
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
