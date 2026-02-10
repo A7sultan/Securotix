@@ -3,8 +3,10 @@ import { logout } from "@/pages/admin/services/authService";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo_transparent.png";
+import useAutoLogout from "./blogs/useAutoLogout";
 
 export default function AdminDashboardLayout() {
+  useAutoLogout();
   const nav = useNavigate();
   const [open, setOpen] = useState(false);
 
