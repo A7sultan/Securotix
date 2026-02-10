@@ -47,4 +47,13 @@ public class CommentService {
         c.setApproved(approve);
         commentRepo.save(c);
     }
+
+    public void delete(Long id) {
+        commentRepo.deleteById(id);
+    }
+    public List<Comment> approvedComments() {
+    return commentRepo.findByApprovedTrueOrderByCreatedAtDesc();
+}
+
+
 }

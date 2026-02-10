@@ -4,6 +4,9 @@ import com.securotix.api.dto.CreateBlogRequest;
 import com.securotix.api.services.BlogService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,16 +17,48 @@ public class AdminBlogController {
 
     private final BlogService service;
 
+    /* CREATE */
     @PostMapping
     public ResponseEntity<?> create(@Valid @RequestBody CreateBlogRequest req) {
         return ResponseEntity.ok(service.create(req));
     }
 
+    /* ADMIN LIST (all blogs including unpublished) */
+    @GetMapping
+    public ResponseEntity<?> all() {
+        return ResponseEntity.ok(service.adminList());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> get(@PathVariable Long id) {
+        return ResponseEntity.ok(service.get(id));
+    }
+
+    /* UPDATE */
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(
+            @PathVariable Long id,
+            @Valid @RequestBody CreateBlogRequest req) {
+        return ResponseEntity.ok(service.update(id, req));
+    }
+
+    /* DELETE */
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        try {
+            service.delete(id);
+            return ResponseEntity.ok().build();
+        } catch (DataIntegrityViolationException ex) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("Cannot delete blog. Delete comments first.");
+        }
+    }
+
+    /* PUBLISH / UNPUBLISH */
     @PatchMapping("/{id}/publish")
     public ResponseEntity<?> publish(
             @PathVariable Long id,
-            @RequestParam boolean value
-    ) {
+            @RequestParam boolean value) {
         service.publish(id, value);
         return ResponseEntity.ok().build();
     }

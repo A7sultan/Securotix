@@ -10,4 +10,6 @@ import com.securotix.api.entities.Blog;
 public interface BlogRepository extends JpaRepository<Blog, Long> {
     Optional<Blog> findBySlugAndPublishedTrue(String slug);
     List<Blog> findAllByPublishedTrueOrderByCreatedAtDesc();
+    List<Blog> findAllByOrderByCreatedAtDesc();
+
 }

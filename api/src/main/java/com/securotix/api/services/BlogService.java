@@ -14,6 +14,7 @@ public class BlogService {
 
     private final BlogRepository repo;
 
+    /* CREATE */
     public Blog create(CreateBlogRequest req) {
         Blog blog = Blog.builder()
                 .title(req.getTitle())
@@ -23,6 +24,28 @@ public class BlogService {
                 .build();
 
         return repo.save(blog);
+    }
+
+    public List<Blog> adminList() {
+        return repo.findAllByOrderByCreatedAtDesc();
+    }
+
+    public Blog update(Long id, CreateBlogRequest req) {
+        Blog blog = repo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Blog not found"));
+
+        blog.setTitle(req.getTitle());
+        blog.setSlug(req.getSlug());
+        blog.setContent(req.getContent());
+
+        return repo.save(blog);
+    }
+
+    public void delete(Long id) {
+        Blog blog = repo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Blog not found"));
+
+        repo.delete(blog);
     }
 
     public void publish(Long id, boolean publish) {
@@ -39,6 +62,10 @@ public class BlogService {
 
     public Blog publicBySlug(String slug) {
         return repo.findBySlugAndPublishedTrue(slug)
+                .orElseThrow(() -> new RuntimeException("Blog not found"));
+    }
+    public Blog get(Long id) {
+        return repo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Blog not found"));
     }
 }
