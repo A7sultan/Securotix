@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
@@ -111,13 +111,14 @@ const App = () => (
               </ProtectedRoute>
             }
           >
+            <Route index element={<Navigate to="blogs" replace />} />
             <Route path="blogs" element={<AdminBlogsPage />} />
-            
             <Route path="blogs/view/:id" element={<AdminViewBlogPage />} />
             <Route path="blogs/create" element={<AdminCreateBlogPage />} />
             <Route path="blogs/edit/:id" element={<AdminEditBlogPage />} />
             <Route path="comments" element={<AdminCommentsPage />} />
           </Route>
+
 
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

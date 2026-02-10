@@ -2,6 +2,8 @@ import { useState } from "react";
 import { adminLogin } from "@/pages/admin/services/authService";
 import { useNavigate } from "react-router-dom";
 import logo from "@/assets/logo_transparent.png";
+import { Eye, EyeOff } from "lucide-react";
+
 
 export default function AdminLoginPage() {
   const nav = useNavigate();
@@ -9,23 +11,32 @@ export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
-  async function submit(e:any) {
+
+  async function submit(e: any) {
     e.preventDefault();
     setError("");
 
-    if(!email || !password){
+    if (!email || !password) {
       setError("Please enter email and password");
       return;
     }
 
-    try{
-      await adminLogin(email,password);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    try {
+      await adminLogin(email, password);
       nav("/admin/blogs");
-    }catch{
+    } catch {
       setError("Invalid email or password");
     }
   }
+
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-6 py-10">
@@ -85,21 +96,36 @@ export default function AdminLoginPage() {
           <input
             placeholder="Email"
             value={email}
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full bg-black border border-red-900/40 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-cyber-red"
           />
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e)=>setPassword(e.target.value)}
-            className="w-full bg-black border border-red-900/40 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-cyber-red"
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full bg-black border border-red-900/40 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-cyber-red pr-12"
+            />
 
-          <button className="w-full bg-cyber-red hover:bg-red-600 transition py-3 rounded-lg text-white font-semibold">
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-cyber-red hover:bg-red-600 transition py-3 rounded-lg text-white font-semibold"
+          >
             Login
           </button>
+
+
         </form>
 
       </div>

@@ -4,7 +4,9 @@ import { getToken } from "@/pages/admin/services/authService";
 export default function ProtectedRoute({ children }: any) {
   const token = getToken();
 
-  if (!token) return <Navigate to="/admin/login" />;
+  if (!token) {
+    return <Navigate to="/admin/login" replace />;
+  }
 
   return children;
 }
