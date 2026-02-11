@@ -40,6 +40,10 @@ import AdminDashboardLayout from "./pages/admin/AdminDashboardLayout";
 import AdminCreateBlogPage from "./pages/admin/blogs/AdminCreateBlogPage";
 import AdminEditBlogPage from "./pages/admin/blogs/AdminEditBlogPage";
 import AdminViewBlogPage from "./pages/admin/blogs/AdminViewBlogPage";
+import AdminSetupPage from "./pages/admin/AdminSetupPage";
+import AdminForgotPasswordPage from "./pages/admin/AdminForgotPasswordPage";
+import AdminResetPasswordPage from "./pages/admin/AdminResetPasswordPage";
+
 
 const queryClient = new QueryClient();
 
@@ -102,6 +106,9 @@ const App = () => (
 
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin/login" element={<AdminLoginPage />} />
+          <Route path="/admin/forgot-password" element={<AdminForgotPasswordPage />} />
+          <Route path="/admin/reset-password" element={<AdminResetPasswordPage />} />
+
 
           <Route
             path="/admin"
@@ -111,6 +118,7 @@ const App = () => (
               </ProtectedRoute>
             }
           >
+            <Route path="/admin/setup" element={<AdminSetupPage />} />
             <Route index element={<Navigate to="blogs" replace />} />
             <Route path="blogs" element={<AdminBlogsPage />} />
             <Route path="blogs/view/:id" element={<AdminViewBlogPage />} />

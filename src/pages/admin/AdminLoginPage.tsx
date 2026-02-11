@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { adminLogin } from "@/pages/admin/services/authService";
-import { useNavigate } from "react-router-dom";
+import { adminLogin, getToken } from "@/pages/admin/services/authService";
+import { useNavigate, Navigate } from "react-router-dom";
 import logo from "@/assets/logo_transparent.png";
 import { Eye, EyeOff } from "lucide-react";
-
 
 export default function AdminLoginPage() {
   const nav = useNavigate();
@@ -11,8 +10,12 @@ export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  if (getToken()) {
+    return <Navigate to="/admin" replace />;
+  }
 
   async function submit(e: any) {
     e.preventDefault();
@@ -30,57 +33,41 @@ export default function AdminLoginPage() {
     }
 
     try {
-      await adminLogin(email, password);
-      nav("/admin/blogs");
-    } catch {
+      setLoading(true);
+
+      const data = await adminLogin(email, password);
+
+      if (data.requiresSetup) {
+        nav("/admin/setup");
+      } else {
+        nav("/admin/blogs");
+      }
+
+    } catch (err: any) {
       setError("Invalid email or password");
+    } finally {
+      setLoading(false);
     }
   }
 
-
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-6 py-10">
-
-      <div className="
-        w-full
-        max-w-5xl
-        grid
-        lg:grid-cols-2
-        gap-12
-        items-center
-      ">
+      <div className="w-full max-w-5xl grid lg:grid-cols-2 gap-12 items-center">
 
         {/* Logo */}
         <div className="flex justify-center lg:justify-end">
           <img
             src={logo}
             alt="Securotix"
-            className="
-              w-[180px]
-              sm:w-[220px]
-              lg:w-[300px]
-              object-contain
-            "
+            className="w-[180px] sm:w-[220px] lg:w-[300px] object-contain"
           />
         </div>
 
         {/* Login */}
         <form
           onSubmit={submit}
-          className="
-            relative
-            glass
-            p-8 sm:p-10
-            rounded-2xl
-            border border-red-900/40
-            shadow-[0_0_35px_rgba(255,0,0,0.18)]
-            space-y-6
-            w-full
-            max-w-md
-            mx-auto
-          "
+          className="relative glass p-8 sm:p-10 rounded-2xl border border-red-900/40 shadow-[0_0_35px_rgba(255,0,0,0.18)] space-y-6 w-full max-w-md mx-auto"
         >
-          {/* glow line */}
           <div className="absolute -top-[2px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-red-500 to-transparent" />
 
           <h2 className="text-xl sm:text-2xl font-bold text-center">
@@ -120,11 +107,19 @@ export default function AdminLoginPage() {
 
           <button
             type="submit"
-            className="w-full bg-cyber-red hover:bg-red-600 transition py-3 rounded-lg text-white font-semibold"
+            disabled={loading}
+            className="w-full bg-cyber-red hover:bg-red-600 transition py-3 rounded-lg text-white font-semibold disabled:opacity-50"
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
-
+          <div className="text-center text-sm">
+            <a
+              href="/admin/forgot-password"
+              className="text-red-400 hover:text-red-300"
+            >
+              Forgot Password?
+            </a>
+          </div>
 
         </form>
 

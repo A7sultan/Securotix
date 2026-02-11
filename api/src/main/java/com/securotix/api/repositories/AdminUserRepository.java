@@ -8,4 +8,6 @@ import com.securotix.api.entities.AdminUser;
 
 public interface AdminUserRepository extends JpaRepository<AdminUser, Long> {
     Optional<AdminUser> findByEmail(String email);
+    Optional<AdminUser> findByResetToken(String resetToken);
+
 }
