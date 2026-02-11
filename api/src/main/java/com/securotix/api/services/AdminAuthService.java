@@ -76,7 +76,7 @@ public class AdminAuthService {
 
             repo.save(admin);
 
-            String resetLink = "https://yourdomain.com/reset-password?token=" + token;
+            String resetLink = "https://securotix.vercel.app/admin/reset-password?token=" + token;
 
             mailService.sendPasswordResetEmail(admin.getEmail(), resetLink);
         });
