@@ -1,4 +1,5 @@
 package com.securotix.api.entities;
+import java.time.Instant;
 
 import java.time.LocalDateTime;
 
@@ -22,6 +23,47 @@ public class AdminUser {
 
     @Column(nullable = false)
     private String passwordHash;
+    @Column(nullable = false)
+    private boolean enabled = false;
+
+    @Column(nullable = false)
+    private boolean firstLogin = true;
+
+    private String resetToken;
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public boolean isFirstLogin() {
+        return firstLogin;
+    }
+
+    public void setFirstLogin(boolean firstLogin) {
+        this.firstLogin = firstLogin;
+    }
+
+    public String getResetToken() {
+        return resetToken;
+    }
+
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
+    }
+
+    public Instant getResetTokenExpiry() {
+        return resetTokenExpiry;
+    }
+
+    public void setResetTokenExpiry(Instant resetTokenExpiry) {
+        this.resetTokenExpiry = resetTokenExpiry;
+    }
+
+    private Instant resetTokenExpiry;
+
 
     public Long getId() {
         return id;

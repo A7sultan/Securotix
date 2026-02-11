@@ -7,4 +7,5 @@ import lombok.Getter;
 @AllArgsConstructor
 public class AdminLoginResponse {
     private final String token;
+    private final boolean requiresSetup;
 }

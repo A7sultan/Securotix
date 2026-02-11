@@ -80,46 +80,64 @@ public class ResendMailService implements MailService {
     }
 
     private void send(String to, String subject, String text) {
-    try {
-        Map<String, Object> payload = Map.of(
-                "from", from,
-                "to", List.of(to),
-                "subject", subject,
-                "text", text
-        );
+        try {
+            Map<String, Object> payload = Map.of(
+                    "from", from,
+                    "to", List.of(to),
+                    "subject", subject,
+                    "text", text);
 
-        String json = objectMapper.writeValueAsString(payload);
+            String json = objectMapper.writeValueAsString(payload);
 
-        Request request = new Request.Builder()
-                .url("https://api.resend.com/emails")
-                .post(RequestBody.create(
-                        json,
-                        MediaType.parse("application/json")
-                ))
-                .addHeader("Authorization", "Bearer " + apiKey)
-                .addHeader("Content-Type", "application/json")
-                .build();
+            Request request = new Request.Builder()
+                    .url("https://api.resend.com/emails")
+                    .post(RequestBody.create(
+                            json,
+                            MediaType.parse("application/json")))
+                    .addHeader("Authorization", "Bearer " + apiKey)
+                    .addHeader("Content-Type", "application/json")
+                    .build();
 
-        try (Response response = client.newCall(request).execute()) {
+            try (Response response = client.newCall(request).execute()) {
 
-            String responseBody =
-                    response.body() != null ? response.body().string() : "";
+                String responseBody = response.body() != null ? response.body().string() : "";
 
-            if (!response.isSuccessful()) {
-                throw new RuntimeException(
-                        "RESEND FAILED (" + response.code() + "): " + responseBody
-                );
+                if (!response.isSuccessful()) {
+                    throw new RuntimeException(
+                            "RESEND FAILED (" + response.code() + "): " + responseBody);
+                }
+
+                // TEMP success log
+                System.out.println("RESEND OK → to=" + to + ", subject=" + subject);
             }
 
-            // TEMP success log
-            System.out.println("RESEND OK → to=" + to + ", subject=" + subject);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Email sending failed", e);
+        }
+    }
+
+    @Override
+    public void sendPasswordResetEmail(String to, String resetLink) {
+
+        String body = """
+                You requested a password reset for your Securotix account.
+
+                Click the link below to reset your password:
+
+                %s
+
+                This link expires in 15 minutes.
+
+                If you did not request this, please ignore this email.
+                """.formatted(resetLink);
+
+        if (devMode) {
+            send(internal, "[DEV MODE] Password Reset", body);
+            return;
         }
 
-    } catch (Exception e) {
-        e.printStackTrace();
-        throw new RuntimeException("Email sending failed", e);
+        send(to, "Securotix Password Reset", body);
     }
-}
-
 
 }
